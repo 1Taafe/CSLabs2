@@ -8,7 +8,7 @@
         Title="{DynamicResource MainTitle}" Height="450" MinHeight="410" Width="800" MinWidth="800" Icon="/1.bmp" Cursor="">
     <Window.Resources>
         <Style x:Key="Pink">
-            <Setter Property="Control.Background" Value="Magenta" />
+            <Setter Property="Control.Background" Value="BlueViolet" />
             <Setter Property="Control.Foreground" Value="White" />
         </Style>
     </Window.Resources>
