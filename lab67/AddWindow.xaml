@@ -1,0 +1,54 @@
+﻿<Window Closing="AddWindow_Closing" x:Class="lab67.AddWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:lab67"
+        mc:Ignorable="d"
+        Title="{DynamicResource MainTitle}" Height="740" Width="450" MinWidth="400" Icon="/1.bmp">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <ScrollViewer>
+            <StackPanel MaxWidth="600" Height="696" Grid.Column="0" ScrollViewer.CanContentScroll="True" HorizontalAlignment="Stretch" VerticalAlignment="Top">
+                <Label Margin="16,8,0,0" Content="{DynamicResource AddBook}" FontSize="36" FontWeight="Bold" />
+                <Label Margin="16, 0 , 16, 0" Content="{DynamicResource AddTitle}" />
+                <TextBox x:Name="TitleField" Margin="16, 0 , 16, 4" />
+                <Label Margin="16, 0 , 16, 0" Content="{DynamicResource AddGenre}" />
+                <ComboBox Padding="8,4,0,4" x:Name="GenreField" Margin="16,0,16,0">
+                    <TextBlock Text="{DynamicResource CategoryDetective}"></TextBlock>
+                    <TextBlock Text="{DynamicResource CategoryAdventure}"></TextBlock>
+                    <TextBlock Text="{DynamicResource CategoryTale}"></TextBlock>
+                    <TextBlock Text="{DynamicResource CategoryFantastic}"></TextBlock>
+                    <TextBlock Text="{DynamicResource CategoryScience}"></TextBlock>
+                </ComboBox>
+                <Label Margin="16, 0 , 16, 0" Content="{DynamicResource AddDescription}" />
+                <TextBox x:Name="DiscriptionField" MinHeight="60" Margin="16, 0 , 16, 4" TextWrapping="Wrap" />
+                <Label Margin="16, 0 , 16, 0" Content="{DynamicResource AddAuthor}" />
+                <TextBox x:Name="AuthorField" Margin="16, 0 , 16, 4" />
+                <Label Margin="16, 0 , 16, 0" Content="{DynamicResource AddPublisher}" />
+                <TextBox x:Name="PublisherField" Margin="16, 0 , 16, 4" />
+                <Label Margin="16, 0 , 16, 0" Content="{DynamicResource AddCountry}" />
+                <TextBox x:Name="CountryField" Margin="16, 0 , 16, 4" />
+                <Label Margin="16, 0 , 16, 0" Content="{DynamicResource AddYear}" />
+                <TextBox x:Name="YearField" Margin="16, 0 , 16, 4" />
+                <Label Margin="16, 0 , 16, 0" Content="{DynamicResource AddCost}" />
+                <TextBox x:Name="CostField" Margin="16, 0 , 16, 4" />
+                <Label Margin="16, 0 , 16, 0" Content="{DynamicResource AddAmount}" />
+                <TextBox x:Name="AmountField" Margin="16, 0 , 16, 4" />
+                <Label Margin="16, 0 , 16, 0" Content="{DynamicResource AddImage}" />
+                <Label x:Name="imageLabel" Margin="16, 0 , 16, 0" Content="{DynamicResource AddSelectedImage}" FontStyle="Italic" />
+                <Button x:Name="ImageButton" Click="ImageButton_Click" Height="30" Content="{DynamicResource AddChoose}" Width="120" Margin="16,0,0,0" HorizontalAlignment="Left"/>
+            </StackPanel>
+        </ScrollViewer>
+        <Grid Height="60" VerticalAlignment="Bottom">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="AddingCancelButton" Click="AddingCancelButton_Click" FontSize="20" Content="{DynamicResource AddCancel}" Grid.Column="0" BorderThickness="0,0,0,0" Background="#FF3474FF" Foreground="White"/>
+            <Button x:Name="AddingButton" Click="AddingButton_Click" FontSize="20" Content="{DynamicResource AddOk}" Grid.Column="1" BorderThickness="0,0,0,0" Background="#FF3474FF" Foreground="White"/>
+        </Grid>
+    </Grid>
+</Window>
