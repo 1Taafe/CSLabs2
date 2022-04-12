@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CourseWorkAttempt.Auth;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,11 @@ namespace CourseWorkAttempt.Pages
         public MainPage()
         {
             InitializeComponent();
+        }
+
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+            Login.Try(UsernameBox.Text, PasswordBox.Password.ToString());
         }
     }
 }
