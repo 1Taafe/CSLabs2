@@ -13,7 +13,7 @@ namespace CourseWorkAttempt.Auth
     {
         static string connectionString = "Server=.;Database=Agregato;Encrypt=False;Trusted_Connection=True;";
         public static User? CurrentUser;
-        public static void Try(string nickname, string password)
+        public static bool TryToConnect(string nickname, string password)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -34,7 +34,16 @@ namespace CourseWorkAttempt.Auth
                             object PhoneNumber = reader["PhoneNumber"];
                             object Email = reader["Email"];
                             object isAdmin = reader["isAdmin"];
-                            MessageBox.Show($"{ID} {Nickname} {Name} {Surname} {Password} \n{PhoneNumber} {Email} {isAdmin}");
+                            CurrentUser = new User();
+                            CurrentUser.ID = (int)ID;
+                            CurrentUser.Nickname = Nickname as string;
+                            CurrentUser.Name = Name as string;
+                            CurrentUser.Surname = Surname as string;
+                            CurrentUser.Password = Password as string;
+                            CurrentUser.PhoneNumber = PhoneNumber as string;
+                            CurrentUser.Email = Email as string;
+                            CurrentUser.IsAdmin = (bool)isAdmin;
+                            MessageBox.Show(CurrentUser.ToString());
                         }
                     }
                     else
@@ -42,6 +51,27 @@ namespace CourseWorkAttempt.Auth
                         MessageBox.Show("Ты хто такой?");
                     }
                 }
+                if(CurrentUser != null)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
+        public static bool Disconnect()
+        {
+            if (CurrentUser != null)
+            {
+                CurrentUser = null;
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
     }

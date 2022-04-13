@@ -18,5 +18,9 @@ namespace CourseWorkAttempt.Classes
         public string? Email { get; set; }
         public bool IsAdmin { get; set; }
 
+        public override string ToString()
+        {
+            return $"{ID} {Nickname} {Name} {Surname} {Password} {PhoneNumber} {Email} {IsAdmin}";
+        }
     }
 }
