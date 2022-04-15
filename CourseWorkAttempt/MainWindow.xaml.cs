@@ -31,6 +31,7 @@ namespace CourseWorkAttempt
         {
             InitializeComponent();
             navigationService = MainFrame.NavigationService;
+            navigationService.Navigate(MainPage);
         }
 
         private void MainPageButton_Click(object sender, RoutedEventArgs e)

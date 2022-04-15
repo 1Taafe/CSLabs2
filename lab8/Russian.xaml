@@ -1,0 +1,48 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:v="clr-namespace:System;assembly=mscorlib">
+    <v:String x:Key="MainTitle">Книжный магазин</v:String>
+    <v:String x:Key="AddButton">Добавить</v:String>
+    <v:String x:Key="CategoryAll">Все</v:String>
+    <v:String x:Key="CategoryDetective">Детектив</v:String>
+    <v:String x:Key="CategoryAdventure">Приключения</v:String>
+    <v:String x:Key="CategoryTale">Сказки</v:String>
+    <v:String x:Key="CategoryFantastic">Фантастика</v:String>
+    <v:String x:Key="CategoryScience">Наука</v:String>
+    <v:String x:Key="SortNot">Не сортировать</v:String>
+    <v:String x:Key="SortTitleAsc">По названию ▲</v:String>
+    <v:String x:Key="SortTitleDesc">По названию ▼</v:String>
+    <v:String x:Key="SortPriceAsc">По цене ▲</v:String>
+    <v:String x:Key="SortPriceDesc">По цене ▼</v:String>
+    <v:String x:Key="Search">Поиск</v:String>
+    <v:String x:Key="BookTitle">книга</v:String>
+    <v:String x:Key="BookAuthor">Автор:</v:String>
+    <v:String x:Key="BookCountry">Страна:</v:String>
+    <v:String x:Key="BookPublisher">Издательство:</v:String>
+    <v:String x:Key="BookCost">Цена:</v:String>
+    <v:String x:Key="BookAmount">Количество:</v:String>
+
+    <v:String x:Key="AddBook">Новая книга</v:String>
+    <v:String x:Key="AddTitle">Название</v:String>
+    <v:String x:Key="AddGenre">Жанр</v:String>
+    <v:String x:Key="AddDescription">Описание</v:String>
+    <v:String x:Key="AddAuthor">Автор</v:String>
+    <v:String x:Key="AddPublisher">Издатель</v:String>
+    <v:String x:Key="AddCountry">Страна</v:String>
+    <v:String x:Key="AddYear">Год издания</v:String>
+    <v:String x:Key="AddCost">Цена</v:String>
+    <v:String x:Key="AddAmount">Количество</v:String>
+    <v:String x:Key="AddImage">Изображение</v:String>
+    <v:String x:Key="AddSelectedImage">Не выбрано</v:String>
+    <v:String x:Key="AddChoose">Выбрать</v:String>
+    <v:String x:Key="AddCancel">Отмена</v:String>
+    <v:String x:Key="AddOk">Добавить</v:String>
+    <v:String x:Key="EditOk">Изменить</v:String>
+    <v:String x:Key="Editing">Редактирование</v:String>
+
+    <v:String x:Key="AboutEdit">Редактировать</v:String>
+    <v:String x:Key="AboutAdd">Добавить</v:String>
+    <v:String x:Key="AboutRemove">Удалить</v:String>
+
+    <v:String x:Key="ChangeLang">РУС</v:String>
+</ResourceDictionary>

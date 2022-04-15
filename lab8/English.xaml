@@ -1,0 +1,48 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:v="clr-namespace:System;assembly=mscorlib">
+    <v:String x:Key="MainTitle">Book shop</v:String>
+    <v:String x:Key="AddButton">Add</v:String>
+    <v:String x:Key="CategoryAll">All</v:String>
+    <v:String x:Key="CategoryDetective">Детектив</v:String>
+    <v:String x:Key="CategoryAdventure">Приключения</v:String>
+    <v:String x:Key="CategoryTale">Сказки</v:String>
+    <v:String x:Key="CategoryFantastic">Фантастика</v:String>
+    <v:String x:Key="CategoryScience">Наука</v:String>
+    <v:String x:Key="SortNot">Without sort</v:String>
+    <v:String x:Key="SortTitleAsc">By Title ▲</v:String>
+    <v:String x:Key="SortTitleDesc">By Title ▼</v:String>
+    <v:String x:Key="SortPriceAsc">By Cost ▲</v:String>
+    <v:String x:Key="SortPriceDesc">By Cost ▼</v:String>
+    <v:String x:Key="Search">Search</v:String>
+    <v:String x:Key="BookTitle">book</v:String>
+    <v:String x:Key="BookAuthor">Author:</v:String>
+    <v:String x:Key="BookCountry">Country:</v:String>
+    <v:String x:Key="BookPublisher">Publisher:</v:String>
+    <v:String x:Key="BookCost">Cost:</v:String>
+    <v:String x:Key="BookAmount">Amount:</v:String>
+
+    <v:String x:Key="AddBook">New book</v:String>
+    <v:String x:Key="AddTitle">Title</v:String>
+    <v:String x:Key="AddGenre">Genre</v:String>
+    <v:String x:Key="AddDescription">Description</v:String>
+    <v:String x:Key="AddAuthor">Author</v:String>
+    <v:String x:Key="AddPublisher">Publisher</v:String>
+    <v:String x:Key="AddCountry">Country</v:String>
+    <v:String x:Key="AddYear">Year</v:String>
+    <v:String x:Key="AddCost">Cost</v:String>
+    <v:String x:Key="AddAmount">Amount</v:String>
+    <v:String x:Key="AddImage">Image</v:String>
+    <v:String x:Key="AddSelectedImage">Not selected</v:String>
+    <v:String x:Key="AddChoose">Select</v:String>
+    <v:String x:Key="AddCancel">Cancel</v:String>
+    <v:String x:Key="AddOk">Add</v:String>
+    <v:String x:Key="EditOk">Edit</v:String>
+    <v:String x:Key="Editing">Editing</v:String>
+
+    <v:String x:Key="AboutEdit">Edit</v:String>
+    <v:String x:Key="AboutAdd">Add</v:String>
+    <v:String x:Key="AboutRemove">Delete</v:String>
+
+    <v:String x:Key="ChangeLang">ENG</v:String>
+</ResourceDictionary>

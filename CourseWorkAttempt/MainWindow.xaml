@@ -71,6 +71,6 @@
             <Button Click="GamesPageButton_Click" x:Name="GamesPageButton" Style="{DynamicResource MenuButton}" Padding="16,0,16,0" Margin="8,16,8, 16" Content="Игры"></Button>
             <Button x:Name="RecommendPageButton" Style="{DynamicResource MenuButton}" Padding="16,0,16,0" Margin="8,16,8, 16" Content="Рекоммендации"></Button>
         </StackPanel>
-        <Frame NavigationUIVisibility="Hidden" x:Name="MainFrame" Grid.Row="1" Source="/Pages/MainPage.xaml"></Frame>
+        <Frame NavigationUIVisibility="Hidden" x:Name="MainFrame" Grid.Row="1"></Frame>
     </Grid>
 </Window>

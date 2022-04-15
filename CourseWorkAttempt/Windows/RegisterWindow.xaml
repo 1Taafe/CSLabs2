@@ -5,26 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CourseWorkAttempt.Windows"
         mc:Ignorable="d"
-        Title="Регистрация" Height="740" Width="450" MinWidth="400">
+        Title="Регистрация" Height="700" Width="450" MinWidth="400">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <ScrollViewer>
-            <StackPanel MaxWidth="600" Height="696" Grid.Column="0" ScrollViewer.CanContentScroll="True" HorizontalAlignment="Stretch" VerticalAlignment="Top">
-                <TextBlock Margin="16,8,0,0" Text="Новый пользователь" TextWrapping="Wrap" FontSize="36" FontWeight="Bold" Width="347" HorizontalAlignment="Left"/>
-                <Label Margin="16, 0 , 16, 0" Content="Имя пользователя (Nickname)" />
-                <TextBox Padding="4" x:Name="NicknameBox" Margin="16, 0 , 16, 4" />
-                <Label Margin="16, 0 , 16, 0" Content="Пароль" />
-                <PasswordBox Padding="4" x:Name="PasswordBox" Margin="16, 0 , 16, 4" />
-                <Label Margin="16, 0 , 16, 0" Content="Фамилия" />
-                <TextBox Padding="4" x:Name="SurnameBox" Margin="16, 0 , 16, 4" />
-                <Label Margin="16, 0 , 16, 0" Content="Имя" />
-                <TextBox Padding="4" x:Name="NameBox" Margin="16, 0 , 16, 4" />
-                <Label Margin="16, 0 , 16, 0" Content="Номер телефона" />
-                <TextBox Padding="4" x:Name="PhoneBox" Margin="16, 0 , 16, 4" />
-                <Label Margin="16, 0 , 16, 0" Content="E-mail" />
-                <TextBox Padding="4" x:Name="EmailBox" Margin="16, 0 , 16, 4" />
+            <StackPanel MaxWidth="600" Height="600" Grid.Column="0" ScrollViewer.CanContentScroll="True" HorizontalAlignment="Stretch" VerticalAlignment="Top">
+                <TextBlock Margin="24,16,24,32" Text="Новый пользователь" TextWrapping="Wrap" FontSize="36" FontWeight="Bold" Width="347" HorizontalAlignment="Left"/>
+                <Label Margin="24, 0 , 24, 0" Content="Имя пользователя (Nickname)" />
+                <TextBox Style="{DynamicResource RegisterBox}" Padding="4" x:Name="NicknameBox" Margin="24, 0 , 24, 4" />
+                <Label Margin="24, 0 , 24, 0" Content="Пароль" />
+                <PasswordBox Style="{DynamicResource RegisterPasswordBox}" Padding="4" x:Name="PasswordBox" Margin="24, 0 , 24, 4" />
+                <Label Margin="24, 0 , 24, 0" Content="Фамилия" />
+                <TextBox Style="{DynamicResource RegisterBox}" Padding="4" x:Name="SurnameBox" Margin="24, 0 , 24, 4" />
+                <Label Margin="24, 0 , 24, 0" Content="Имя" />
+                <TextBox Style="{DynamicResource RegisterBox}" Padding="4" x:Name="NameBox" Margin="24, 0 , 24, 4" />
+                <Label Margin="24, 0 , 24, 0" Content="Номер телефона" />
+                <TextBox Style="{DynamicResource RegisterBox}" Padding="4" x:Name="PhoneBox" Margin="24, 0 , 24, 4" />
+                <Label Margin="24, 0 , 24, 0" Content="E-mail" />
+                <TextBox Style="{DynamicResource RegisterBox}" Padding="4" x:Name="EmailBox" Margin="24, 0 , 24, 4" />
             </StackPanel>
         </ScrollViewer>
         <Grid Height="60" VerticalAlignment="Bottom">

@@ -29,7 +29,7 @@ namespace CourseWorkAttempt.Pages
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            bool isConnected = Login.TryToConnect(UsernameBox.Text, PasswordBox.Password.ToString());
+            bool isConnected = Authorization.TryToLogin(UsernameBox.Text, PasswordBox.Password.ToString());
             if(isConnected == true)
             {
                 PasswordLabel.Visibility = Visibility.Hidden;
@@ -46,7 +46,7 @@ namespace CourseWorkAttempt.Pages
 
         private void DisconnectButton_Click(object sender, RoutedEventArgs e)
         {
-            bool isDisconnected = Login.Disconnect();
+            bool isDisconnected = Authorization.Disconnect();
             if(isDisconnected == true)
             {
                 PasswordLabel.Visibility = Visibility.Visible;

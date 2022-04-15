@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CourseWorkAttempt.Auth;
+using CourseWorkAttempt.Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,12 +29,19 @@ namespace CourseWorkAttempt.Windows
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
-
+            Close();
         }
 
         private void RegisterButton_Click(object sender, RoutedEventArgs e)
         {
-
+            User newUser = new User();
+            newUser.Nickname = NicknameBox.Text;
+            newUser.Password = PasswordBox.Password.ToString();
+            newUser.Surname = SurnameBox.Text;
+            newUser.Name = NameBox.Text;
+            newUser.Email = EmailBox.Text;
+            newUser.PhoneNumber = PhoneBox.Text;
+            Authorization.RegisterAccount(newUser);
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
