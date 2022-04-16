@@ -25,6 +25,7 @@
                 <TextBox Style="{DynamicResource RegisterBox}" Padding="4" x:Name="PhoneBox" Margin="24, 0 , 24, 4" />
                 <Label Margin="24, 0 , 24, 0" Content="E-mail" />
                 <TextBox Style="{DynamicResource RegisterBox}" Padding="4" x:Name="EmailBox" Margin="24, 0 , 24, 4" />
+                <TextBlock TextWrapping="Wrap" x:Name="ErrorMessageBlock" Margin="24,6,24,0" Padding="4" Text="" Foreground="Red"></TextBlock>
             </StackPanel>
         </ScrollViewer>
         <Grid Height="60" VerticalAlignment="Bottom">

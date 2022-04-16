@@ -51,6 +51,7 @@ namespace CourseWorkAttempt.Pages
                 profilePage.EmailLabel.Text = Authorization.CurrentUser.Email;
                 profilePage.PhoneLabel.Text = Authorization.CurrentUser.PhoneNumber;
                 MainWindow.link.ProfilePageButton.IsEnabled = true;
+                ErrorBlock.Text = null;
             }
         }
 
@@ -77,10 +78,12 @@ namespace CourseWorkAttempt.Pages
                 profilePage.PhoneLabel.Text = null;
                 MainWindow.link.ProfilePageButton.IsEnabled = false;
 
-                while (MainWindow.link.navigationService.CanGoBack)
+                while (MainWindow.link.navigationService.RemoveBackEntry() != null)
                 {
                     MainWindow.link.navigationService.RemoveBackEntry();
                 }
+
+
             }
         }
 

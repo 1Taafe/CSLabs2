@@ -23,9 +23,11 @@ namespace CourseWorkAttempt.Windows
     public partial class RegisterWindow : Window
     {
         public static bool isOpened = false;
+        public static RegisterWindow link;
         public RegisterWindow()
         {
             InitializeComponent();
+            link = this;
         }
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
@@ -100,7 +102,8 @@ namespace CourseWorkAttempt.Windows
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message, "Ошибка заполнения формы", MessageBoxButton.OK, MessageBoxImage.Warning);
+                //MessageBox.Show(ex.Message, "Ошибка заполнения формы", MessageBoxButton.OK, MessageBoxImage.Warning);
+                ErrorMessageBlock.Text = "* " + ex.Message;
             }
             
         }

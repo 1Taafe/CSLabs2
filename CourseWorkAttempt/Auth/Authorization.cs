@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using CourseWorkAttempt.Classes;
+using CourseWorkAttempt.Pages;
+using CourseWorkAttempt.Windows;
 using Microsoft.Data.SqlClient;
 
 namespace CourseWorkAttempt.Auth
@@ -43,12 +45,13 @@ namespace CourseWorkAttempt.Auth
                             CurrentUser.PhoneNumber = PhoneNumber as string;
                             CurrentUser.Email = Email as string;
                             CurrentUser.IsAdmin = (bool)isAdmin;
-                            MessageBox.Show(CurrentUser.ToString());
+                            //MessageBox.Show(CurrentUser.ToString());
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Ты хто такой?");
+                        //MessageBox.Show("Ты хто такой?");
+                        MainPage.link.ErrorBlock.Text = "* Неверный логин или пароль";
                     }
                 }
                 if(CurrentUser != null)
@@ -66,6 +69,7 @@ namespace CourseWorkAttempt.Auth
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
+                bool isSuccessful = false;
                 connection.Open();
                 string sqlExpression = $"Insert into Users values ('{newUser.Nickname}', " +
                     $"{newUser.Password}, '{newUser.Surname}', '{newUser.Name}', " +
@@ -75,13 +79,14 @@ namespace CourseWorkAttempt.Auth
                 {
                     var state = command.ExecuteNonQuery();
                     MessageBox.Show("Новый пользователь добавлен!", "Регистрация", MessageBoxButton.OK, MessageBoxImage.Information);
+                    isSuccessful = true;
                 }
                 catch(Exception ex)
                 {
-                    MessageBox.Show(ex.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    //MessageBox.Show(ex.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    RegisterWindow.link.ErrorMessageBlock.Text = "* " + ex.Message;
                 }
-                
-                return true;
+                return isSuccessful;
             }
         }
 
