@@ -1,5 +1,6 @@
 ﻿using CourseWorkAttempt.Auth;
 using CourseWorkAttempt.Classes;
+using CourseWorkAttempt.Pages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,14 +35,74 @@ namespace CourseWorkAttempt.Windows
 
         private void RegisterButton_Click(object sender, RoutedEventArgs e)
         {
-            User newUser = new User();
-            newUser.Nickname = NicknameBox.Text;
-            newUser.Password = PasswordBox.Password.ToString();
-            newUser.Surname = SurnameBox.Text;
-            newUser.Name = NameBox.Text;
-            newUser.Email = EmailBox.Text;
-            newUser.PhoneNumber = PhoneBox.Text;
-            Authorization.RegisterAccount(newUser);
+            try
+            {
+                User newUser = new User();
+                if(NicknameBox.Text.Count() > 0)
+                {
+                    newUser.Nickname = NicknameBox.Text;
+                }
+                else
+                {
+                    throw new Exception("Имя пользователя не введено! Введите имя пользователя и повторите попытку.");
+                }
+
+                if(PasswordBox.Password.ToString().Count() > 0)
+                {
+                    newUser.Password = PasswordBox.Password.ToString();
+                }
+                else
+                {
+                    throw new Exception("Пароль не введен. Введите пароль и повторите попытку.");
+                }
+
+                if(SurnameBox.Text.Count() > 0)
+                {
+                    newUser.Surname = SurnameBox.Text;
+                }
+                else
+                {
+                    throw new Exception("Введите фамилию и повторите попытку.");
+                }
+
+                if (NameBox.Text.Count() > 0)
+                {
+                    newUser.Name = NameBox.Text;
+                }
+                else
+                {
+                    throw new Exception("Введите имя и повторите попытку.");
+                }
+
+                if (PhoneBox.Text.Count() > 0)
+                {
+                    newUser.PhoneNumber = PhoneBox.Text;
+                }
+                else
+                {
+                    throw new Exception("Введите номер телефона и повторите попытку.");
+                }
+
+                if (EmailBox.Text.Count() > 0)
+                {
+                    newUser.Email = EmailBox.Text;
+                }
+                else
+                {
+                    throw new Exception("Введите адрес электронной почты и повторите попытку.");
+                }
+
+                if (Authorization.RegisterAccount(newUser))
+                {
+                    MainPage.link.UsernameBox.Text = newUser.Nickname;
+                    Close();
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка заполнения формы", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)

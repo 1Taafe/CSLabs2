@@ -27,11 +27,13 @@ namespace CourseWorkAttempt
         public Profile ProfilePage = new Profile();
         public Games GamesPage = new Games();
         public MainPage MainPage = new MainPage();
+        public static MainWindow link;
         public MainWindow()
         {
             InitializeComponent();
             navigationService = MainFrame.NavigationService;
             navigationService.Navigate(MainPage);
+            link = this;
         }
 
         private void MainPageButton_Click(object sender, RoutedEventArgs e)

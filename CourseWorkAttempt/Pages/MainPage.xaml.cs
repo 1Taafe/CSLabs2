@@ -22,9 +22,11 @@ namespace CourseWorkAttempt.Pages
     /// </summary>
     public partial class MainPage : Page
     {
+        public static MainPage link;
         public MainPage()
         {
             InitializeComponent();
+            link = this;
         }
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
@@ -41,6 +43,14 @@ namespace CourseWorkAttempt.Pages
                 RegisterButton.Visibility = Visibility.Hidden;
                 AuthTextBlock.Text = "Вы уже авторизованы! Мы очень рады, что у вас есть учётная запись. Оставляйте свои " +
                     "отзывы и читайте отзывы других людей";
+
+                Profile profilePage = MainWindow.link.ProfilePage;
+                profilePage.ProfileUsername.Text = Authorization.CurrentUser.Nickname;
+                profilePage.SurnameLabel.Text = Authorization.CurrentUser.Surname;
+                profilePage.NameLabel.Text = Authorization.CurrentUser.Name;
+                profilePage.EmailLabel.Text = Authorization.CurrentUser.Email;
+                profilePage.PhoneLabel.Text = Authorization.CurrentUser.PhoneNumber;
+                MainWindow.link.ProfilePageButton.IsEnabled = true;
             }
         }
 
@@ -58,6 +68,19 @@ namespace CourseWorkAttempt.Pages
                 RegisterButton.Visibility = Visibility.Visible;
                 AuthTextBlock.Text = "Вы можете искать нужные игры и отзывы без регистрации, " +
                     "но если вы хотите написать свой отзыв, мы этому только рады, предложив зарегистрироваться";
+
+                Profile profilePage = MainWindow.link.ProfilePage;
+                profilePage.ProfileUsername.Text = null;
+                profilePage.SurnameLabel.Text = null;
+                profilePage.NameLabel.Text = null;
+                profilePage.EmailLabel.Text = null;
+                profilePage.PhoneLabel.Text = null;
+                MainWindow.link.ProfilePageButton.IsEnabled = false;
+
+                while (MainWindow.link.navigationService.CanGoBack)
+                {
+                    MainWindow.link.navigationService.RemoveBackEntry();
+                }
             }
         }
 
