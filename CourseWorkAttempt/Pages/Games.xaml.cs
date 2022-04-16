@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CourseWorkAttempt.Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,19 @@ namespace CourseWorkAttempt.Pages
         public Games()
         {
             InitializeComponent();
+            Game game = new Game();
+            game.Name = "jekrgeigkei";
+            game.ImageURL = "https://www.global-esports.news/wp-content/uploads/2022/01/League-of-Legends-2022.jpg";
+            Game.Collection.Add(game);
+            Game.Collection.Add(game);
+            Game.Collection.Add(game);
+            Game.Collection.Add(game);
+
+            Game.Collection.Add(game);
+            Game.Collection.Add(game);
+            Game.Collection.Add(game);
+            Game.Collection.Add(game);
+            GameList.ItemsSource = Game.Collection;
         }
     }
 }

@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:CourseWorkAttempt.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="540" d:DesignWidth="1024"
       Title="Profile">
 
     <Grid Background="White">
@@ -34,9 +34,9 @@
         <TextBlock TextAlignment="Center" FontSize="48" x:Name="ProfileUsername" Grid.Column="1" HorizontalAlignment="Left" Margin="10,151,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Username" VerticalAlignment="Top" Width="326">
 
         </TextBlock>
-        <TextBlock x:Name="SurnameLabel" FontSize="28" HorizontalAlignment="Left" Margin="63,10,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Surname" VerticalAlignment="Top"/>
-        <TextBlock x:Name="NameLabel" FontSize="28" HorizontalAlignment="Left" Margin="63,47,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top"/>
-        <TextBlock x:Name="EmailLabel" FontSize="28" HorizontalAlignment="Left" Margin="63,82,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top"/>
-        <TextBlock x:Name="PhoneLabel" FontSize="28" HorizontalAlignment="Left" Margin="63,116,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Phone" VerticalAlignment="Top"/>
+        <TextBlock x:Name="SurnameLabel" FontSize="28" HorizontalAlignment="Left" Margin="115,10,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Surname" VerticalAlignment="Top"/>
+        <TextBlock x:Name="NameLabel" FontSize="28" HorizontalAlignment="Left" Margin="115,47,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top"/>
+        <TextBlock x:Name="EmailLabel" FontSize="28" HorizontalAlignment="Left" Margin="115,82,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top"/>
+        <TextBlock x:Name="PhoneLabel" FontSize="28" HorizontalAlignment="Left" Margin="115,116,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Phone" VerticalAlignment="Top"/>
     </Grid>
 </Page>

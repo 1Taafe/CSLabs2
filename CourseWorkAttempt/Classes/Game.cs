@@ -17,5 +17,9 @@ namespace CourseWorkAttempt.Classes
         public Developer? Developer { get; set; }
         public string? Genre { get; set; }
         public string? Platform { get; set; }
+
+        public string? ImageURL { get; set; }
+
+        public static List<Game> Collection = new List<Game>();
     }
 }
