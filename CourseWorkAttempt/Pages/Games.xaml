@@ -13,6 +13,25 @@
             <RowDefinition Height="60"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
+        <StackPanel Margin="32,4,32,0" Grid.Row="0" Orientation="Horizontal">
+
+            <ComboBox SelectedIndex="0" Background="#FF1467FF" Foreground="White" Width="140" Padding="8,5,8,5" VerticalAlignment="Top" Style="{StaticResource {x:Static ToolBar.ComboBoxStyleKey}}">
+                <ComboBox.ItemContainerStyle>
+                    <Style TargetType="ComboBoxItem">
+                        <Setter Property="Background" Value="#FF1467FF"/>
+                        <Setter Property="BorderBrush" Value="#FF1467FF"/>
+                    </Style>
+                </ComboBox.ItemContainerStyle>
+                <ComboBoxItem Padding="8,5,8,5" Content="Все"></ComboBoxItem>
+                <ComboBoxItem Padding="8,5,8,5" Content="Аркады"></ComboBoxItem>
+                <ComboBoxItem Padding="8,5,8,5" Content="Шутеры"></ComboBoxItem>
+                <ComboBoxItem Padding="8,5,8,5" Content="Симуляторы"></ComboBoxItem>
+                <ComboBoxItem Padding="8,5,8,5" Content="RPG"></ComboBoxItem>
+                <ComboBoxItem Padding="8,5,8,5" Content="MOBA"></ComboBoxItem>
+                <ComboBoxItem Padding="8,5,8,5" Content="Другое"></ComboBoxItem>
+            </ComboBox>
+
+        </StackPanel>
         <ListBox BorderBrush="White" x:Name="GameList" RenderTransformOrigin="0.499,0.496" Margin="0,0,-0.4,0.4" Grid.Row="1"
                  ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Hidden" HorizontalAlignment="Center"
                  ItemContainerStyle="{DynamicResource ItemStyle}">
