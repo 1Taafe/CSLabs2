@@ -40,7 +40,7 @@ namespace CourseWorkAttempt.Classes
                     
                     if (reader.HasRows) // если есть данные
                     {
-                        if (reader.Read()) // построчно считываем данные
+                        while (reader.Read()) // построчно считываем данные
                         {
                             var game = new Game();
                             var publisher = new Publisher();
@@ -66,30 +66,7 @@ namespace CourseWorkAttempt.Classes
                             DateTime releaseDate = Convert.ToDateTime(reader["ReleaseDate"].ToString());
                             game.ReleaseDate = releaseDate;
                             GamesCollection.Add(game);
-                            /*object ID = reader["UserID"];
-                            object Nickname = reader["Nickname"];
-                            object Name = reader["Name"];
-                            object Surname = reader["Surname"];
-                            object Password = reader["Password"];
-                            object PhoneNumber = reader["PhoneNumber"];
-                            object Email = reader["Email"];
-                            object isAdmin = reader["isAdmin"];
-                            CurrentUser = new User();
-                            CurrentUser.ID = (int)ID;
-                            CurrentUser.Nickname = Nickname as string;
-                            CurrentUser.Name = Name as string;
-                            CurrentUser.Surname = Surname as string;
-                            CurrentUser.Password = Password as string;
-                            CurrentUser.PhoneNumber = PhoneNumber as string;
-                            CurrentUser.Email = Email as string;
-                            CurrentUser.IsAdmin = (bool)isAdmin;*/
-                            //MessageBox.Show(CurrentUser.ToString());
                         }
-                    }
-                    else
-                    {
-                        //MessageBox.Show("Ты хто такой?");
-                        
                     }
                 }
                 return GamesCollection;

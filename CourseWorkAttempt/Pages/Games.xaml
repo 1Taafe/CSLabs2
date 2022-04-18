@@ -10,7 +10,7 @@
 
     <Grid Background="White">
         <Grid.RowDefinitions>
-            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <StackPanel Margin="32,4,32,0" Grid.Row="0" Orientation="Horizontal">
@@ -38,8 +38,12 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <Image x:Name="ImageObject" Margin="10,10,0,0" HorizontalAlignment="Left" 
-                           Height="175" VerticalAlignment="Center" Width="175" Source="{Binding Path=ImageURL}"/>
+                        <Image x:Name="ImageObject" Margin="8" HorizontalAlignment="Left" 
+                           Height="170" VerticalAlignment="Center" Width="170" Source="{Binding Path=ImageURL}">
+                            <Image.Clip>
+                                <EllipseGeometry Center="85,85" RadiusX="85" RadiusY="85" />
+                            </Image.Clip>
+                        </Image>
                         <StackPanel Width="180" Height="100">
                             <TextBlock x:Name="NameLabel" Margin="10,10,0,0" HorizontalAlignment="Center" TextWrapping="Wrap" 
                                    Text="Название" FontSize="18" VerticalAlignment="Center"/>
