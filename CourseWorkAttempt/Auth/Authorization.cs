@@ -13,7 +13,7 @@ namespace CourseWorkAttempt.Auth
 {
     public static class Authorization
     {
-        static string connectionString = "Server=.;Database=Agregato;Encrypt=False;Trusted_Connection=True;";
+        public static string connectionString = "Server=.;Database=Agregato;Encrypt=False;Trusted_Connection=True;";
         public static User? CurrentUser;
         public static bool TryToLogin(string nickname, string password)
         {
