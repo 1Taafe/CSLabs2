@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CourseWorkAttempt.Windows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,16 @@ namespace CourseWorkAttempt.Pages
         public Profile()
         {
             InitializeComponent();
+        }
+
+        private void EditWindowButton_Click(object sender, RoutedEventArgs e)
+        {
+            if(EditProfileWindow.isOpened == false)
+            {
+                EditProfileWindow editProfileWindow = new();
+                EditProfileWindow.isOpened = true;
+                editProfileWindow.Show();
+            }
         }
     }
 }

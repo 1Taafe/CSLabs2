@@ -1,4 +1,4 @@
-﻿<Window x:Class="CourseWorkAttempt.MainWindow"
+﻿<Window FontFamily="Verdana" x:Class="CourseWorkAttempt.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -69,7 +69,6 @@
             <Button Click="MainPageButton_Click" x:Name="MainPageButton" Style="{DynamicResource MenuButton}" Padding="16,0,16,0" Margin="8,16,8, 16" Content="Главная"></Button>
             <Button IsEnabled="false" Click="ProfilePageButton_Click" x:Name="ProfilePageButton" Style="{DynamicResource MenuButton}" Padding="16,0,16,0" Margin="8,16,8, 16" Content="Профиль"></Button>
             <Button Click="GamesPageButton_Click" x:Name="GamesPageButton" Style="{DynamicResource MenuButton}" Padding="16,0,16,0" Margin="8,16,8, 16" Content="Игры"></Button>
-            <Button x:Name="RecommendPageButton" Style="{DynamicResource MenuButton}" Padding="16,0,16,0" Margin="8,16,8, 16" Content="Рекоммендации"></Button>
         </StackPanel>
         <Frame NavigationUIVisibility="Hidden" x:Name="MainFrame" Grid.Row="1"></Frame>
     </Grid>
