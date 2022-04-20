@@ -55,7 +55,7 @@ namespace CourseWorkAttempt.Pages
             }
         }
 
-        private void DisconnectButton_Click(object sender, RoutedEventArgs e)
+        public void DisconnectButton_Click(object sender, RoutedEventArgs e)
         {
             bool isDisconnected = Authorization.Disconnect();
             if(isDisconnected == true)

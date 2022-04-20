@@ -90,6 +90,29 @@ namespace CourseWorkAttempt.Auth
             }
         }
 
+        public static bool DeleteAccount()
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                bool isSuccessful = false;
+                connection.Open();
+                string sqlExpression = $"delete from users where Nickname = '{CurrentUser.Nickname}'";
+                SqlCommand command = new SqlCommand(sqlExpression, connection);
+                try
+                {
+                    var state = command.ExecuteNonQuery();
+                    MessageBox.Show("Учетная запись удалена", "Удаления профиля", MessageBoxButton.OK, MessageBoxImage.Information);
+                    isSuccessful = true;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    //RegisterWindow.link.ErrorMessageBlock.Text = "* " + ex.Message;
+                }
+                return isSuccessful;
+            }
+        }
+
         public static bool Disconnect()
         {
             if (CurrentUser != null)

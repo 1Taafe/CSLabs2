@@ -48,11 +48,24 @@
                 <DropShadowEffect Color="#FFD700FF" Direction="0" BlurRadius="60" Opacity="0.7"/>
             </Rectangle.Effect>
         </Rectangle>
-        <TextBlock TextAlignment="Center" FontSize="48" x:Name="ProfileUsername" Grid.Column="1" HorizontalAlignment="Center" Margin="0,143,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Username" VerticalAlignment="Top" Width="450" Height="64"/>
-        <TextBlock x:Name="SurnameLabel" FontSize="22" HorizontalAlignment="Center" Margin="0,47,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Surname" VerticalAlignment="Top" Height="37" Width="309"/>
+        <TextBlock FontWeight="SemiBold" TextAlignment="Center" FontSize="44" x:Name="ProfileUsername" Grid.Column="1" HorizontalAlignment="Center" Margin="0,143,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Username" VerticalAlignment="Top" Width="450" Height="64"/>
+        <TextBlock x:Name="SurnameLabel" FontSize="22" HorizontalAlignment="Center" Margin="0,47,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Surname" VerticalAlignment="Top" Height="37" Width="309">
+            <TextBlock.Effect>
+                <DropShadowEffect BlurRadius="60" Opacity="0.5" Direction="0"/>
+            </TextBlock.Effect>
+        </TextBlock>
         <TextBlock x:Name="NameLabel" FontSize="22" HorizontalAlignment="Center" Margin="0,74,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Height="37" Width="309"/>
-        <TextBlock x:Name="EmailLabel" FontSize="20" HorizontalAlignment="Center" Margin="0,119,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top" Height="37" Width="309"/>
-        <TextBlock x:Name="PhoneLabel" FontSize="20" HorizontalAlignment="Center" Margin="0,145,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Phone" VerticalAlignment="Top" Height="37" Width="308"/>
-        <Button Click="EditWindowButton_Click" Style="{DynamicResource MainRegister}" Foreground="White" Padding="16,8,16,8" x:Name="EditWindowButton" Content="Редактирование" HorizontalAlignment="Center" Margin="0,0,0,0" Grid.Row="1" VerticalAlignment="Center" Background="#FF1D81FF"/>
+        <TextBlock x:Name="EmailLabel" FontStyle="Italic" FontSize="20" HorizontalAlignment="Center" Margin="0,119,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top" Height="37" Width="309"/>
+        <TextBlock x:Name="PhoneLabel" FontStyle="Italic" FontSize="20" HorizontalAlignment="Center" Margin="0,145,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Phone" VerticalAlignment="Top" Height="37" Width="308"/>
+        <Button Click="EditWindowButton_Click" Style="{DynamicResource MainRegister}" Foreground="Black" Padding="36,14,36,14" x:Name="EditWindowButton" Content="Редактирование" HorizontalAlignment="Center" Margin="0,274,0,0" Grid.Row="1" VerticalAlignment="Top" Background="White" BorderBrush="#00707070">
+            <Button.Effect>
+                <DropShadowEffect Color="#FF1488FF" Direction="0" Opacity="0.6" BlurRadius="60"/>
+            </Button.Effect>
+        </Button>
+        <Button Click="DeleteProfileButton_Click" Style="{DynamicResource MainRegister}" Foreground="Black" Padding="16,8,16,8" x:Name="DeleteProfileButton" Content="Удалить аккаунт" HorizontalAlignment="Center" Margin="0,334,0,0" Grid.Row="1" VerticalAlignment="Top" Background="White" BorderBrush="#00707070">
+            <Button.Effect>
+                <DropShadowEffect Color="Red" Direction="0" Opacity="0.6" BlurRadius="60"/>
+            </Button.Effect>
+        </Button>
     </Grid>
 </Page>

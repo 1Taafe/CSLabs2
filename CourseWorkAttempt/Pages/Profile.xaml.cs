@@ -1,4 +1,5 @@
-﻿using CourseWorkAttempt.Windows;
+﻿using CourseWorkAttempt.Auth;
+using CourseWorkAttempt.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,6 +35,17 @@ namespace CourseWorkAttempt.Pages
                 EditProfileWindow.isOpened = true;
                 editProfileWindow.Show();
             }
+        }
+
+        private void DeleteProfileButton_Click(object sender, RoutedEventArgs e)
+        {
+            if(MessageBox.Show("Вы действительно хотите удалить аккаунт?", "Удаление профиля", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+            {
+                MainWindow.link.navigationService.Navigate(MainWindow.link.MainPage);
+                Authorization.DeleteAccount();
+                MainPage.link.DisconnectButton_Click(sender, e);
+            }
+            
         }
     }
 }
