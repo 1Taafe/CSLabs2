@@ -27,5 +27,15 @@ namespace CourseWorkAttempt.Pages
             
             GameList.ItemsSource = Game.GetList();
         }
+
+        private void GameList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if(GameList.SelectedIndex != -1)
+            {
+                CurrentGame currentGamePage = new(GameList.SelectedItem);
+                MainWindow.link.navigationService.Navigate(currentGamePage);
+                GameList.SelectedIndex = -1;
+            }
+        }
     }
 }

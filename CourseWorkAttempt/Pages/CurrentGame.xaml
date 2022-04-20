@@ -1,0 +1,45 @@
+﻿<Page FontFamily="Verdana" x:Class="CourseWorkAttempt.Pages.CurrentGame"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CourseWorkAttempt.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="540" d:DesignWidth="1024"
+      Title="Games">
+
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="25*"></ColumnDefinition>
+            <ColumnDefinition Width="206*"></ColumnDefinition>
+            <ColumnDefinition Width="25*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="1" Orientation="Vertical" HorizontalAlignment="Center" Width="804">
+            <StackPanel Margin="16,36,16,16" Orientation="Horizontal">
+                <Image x:Name="GameImage" HorizontalAlignment="Left" 
+                           Height="180" Width="180">
+                    <Image.Clip>
+                        <EllipseGeometry Center="90,90" RadiusX="90" RadiusY="90" />
+                    </Image.Clip>
+                </Image>
+                <StackPanel Width="557" VerticalAlignment="Center" Margin="6,0,0,0">
+                    <TextBlock Foreground="White" FontWeight="DemiBold" x:Name="NameBlock" Margin="10,0,0,64" HorizontalAlignment="Center" TextWrapping="Wrap" 
+                                   Text="GameName" FontSize="46" VerticalAlignment="Top">
+                        <TextBlock.Effect>
+                            <DropShadowEffect Color="#FF1467FF" BlurRadius="16"/>
+                        </TextBlock.Effect>
+                    </TextBlock>
+                    <TextBlock Foreground="Gray" x:Name="GenreBlock" Margin="10,0,0,0" HorizontalAlignment="Right" TextWrapping="Wrap" 
+                                   Text="GameGenre" FontStyle="Italic" FontSize="14" VerticalAlignment="Top"/>
+                    <TextBlock Foreground="Gray" x:Name="PlatformBlock" Margin="10,0,0,0" HorizontalAlignment="Right" TextWrapping="Wrap" 
+                                   Text="GamePlatform" FontStyle="Italic" FontSize="14" VerticalAlignment="Top"/>
+                    <TextBlock Foreground="Gray" x:Name="ReleaseDateBlock" Margin="10,0,0,0" HorizontalAlignment="Right" TextWrapping="Wrap" 
+                                   Text="Release Date" FontStyle="Italic" FontSize="14" VerticalAlignment="Top"/>
+                </StackPanel>
+            </StackPanel>
+            <TextBlock TextWrapping="Wrap" x:Name="DescriptionBlock" Margin="96,16,96,0" Text="Game description" FontSize="16" FontStyle="Italic"></TextBlock>
+            <TextBlock TextWrapping="Wrap" x:Name="DeveloperBlock" Margin="96,16,96,0" Text="Developer:" FontSize="16"></TextBlock>
+            <TextBlock TextWrapping="Wrap" x:Name="PublisherBlock" Margin="96,0,96,0" Text="Publisher:" FontSize="16"></TextBlock>
+        </StackPanel>
+    </Grid>
+</Page>

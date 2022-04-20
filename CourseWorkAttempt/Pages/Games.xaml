@@ -10,7 +10,7 @@
 
     <Grid Background="White">
         <Grid.RowDefinitions>
-            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <StackPanel Margin="32,4,32,0" Grid.Row="0" Orientation="Horizontal">
@@ -32,7 +32,7 @@
             </ComboBox>
 
         </StackPanel>
-        <ListBox BorderBrush="White" x:Name="GameList" RenderTransformOrigin="0.499,0.496" Margin="0,0,-0.4,0.4" Grid.Row="1"
+        <ListBox SelectionChanged="GameList_SelectionChanged" BorderBrush="White" x:Name="GameList" RenderTransformOrigin="0.499,0.496" Margin="0,0,-0.4,0.4" Grid.Row="1"
                  ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Hidden" HorizontalAlignment="Center"
                  ItemContainerStyle="{DynamicResource ItemStyle}">
             <ListBox.ItemTemplate>
@@ -44,11 +44,13 @@
                                 <EllipseGeometry Center="90,90" RadiusX="90" RadiusY="90" />
                             </Image.Clip>
                         </Image>
-                        <StackPanel Width="180" Height="100">
-                            <TextBlock x:Name="NameLabel" Margin="10,10,0,0" HorizontalAlignment="Center" TextWrapping="Wrap" 
-                                   Text="Название" FontSize="18" VerticalAlignment="Center"/>
-                            <TextBlock x:Name="NameObject" Margin="10,0,0,0" HorizontalAlignment="Center" TextWrapping="Wrap" 
-                                   Text="{Binding Path=Name}" FontSize="25" VerticalAlignment="Top"/>
+                        <StackPanel Width="180" VerticalAlignment="Center" Margin="6,0,0,0">
+                            <TextBlock FontWeight="DemiBold" x:Name="NameBlock" Margin="10,0,0,0" HorizontalAlignment="Left" TextWrapping="Wrap" 
+                                   Text="{Binding Path=Name}" FontSize="26" VerticalAlignment="Top"/>
+                            <TextBlock x:Name="GenreBlock" Margin="10,0,0,0" HorizontalAlignment="left" TextWrapping="Wrap" 
+                                   Text="{Binding Path=Genre}" FontStyle="Italic" FontSize="14" VerticalAlignment="Top"/>
+                            <TextBlock x:Name="PlatformBlock" Margin="10,0,0,0" HorizontalAlignment="left" TextWrapping="Wrap" 
+                                   Text="{Binding Path=Platform}" FontStyle="Italic" FontSize="14" VerticalAlignment="Top"/>
                         </StackPanel>
                     </StackPanel>
                 </DataTemplate>

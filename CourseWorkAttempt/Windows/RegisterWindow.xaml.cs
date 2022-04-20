@@ -49,7 +49,16 @@ namespace CourseWorkAttempt.Windows
                     throw new Exception("Имя пользователя не введено! Введите имя пользователя и повторите попытку.");
                 }
 
-                if(PasswordBox.Password.ToString().Count() > 0)
+                if (NicknameBox.Text.Count() <= 15)
+                {
+                    newUser.Nickname = NicknameBox.Text;
+                }
+                else
+                {
+                    throw new Exception("Имя пользователя должно содержать не более 15 символов.");
+                }
+
+                if (PasswordBox.Password.ToString().Count() > 0)
                 {
                     newUser.Password = PasswordBox.Password.ToString();
                 }
