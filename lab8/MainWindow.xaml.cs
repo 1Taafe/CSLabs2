@@ -222,7 +222,7 @@ namespace lab67
                 State.redoStack.Push(State.undoStack.Peek());
                 State.undoStack.Pop();
                 Book.Collection = State.undoStack.Peek();
-                MessageBox.Show($"{State.undoStack.Peek().First().Title}");
+                //MessageBox.Show($"{State.undoStack.Peek().First().Title}");
                 Book.Export();
                 MainWindow.BooksList.ItemsSource = null;
                 MainWindow.BooksList.ItemsSource = Book.Collection;
@@ -236,7 +236,7 @@ namespace lab67
                 var tempState = State.redoStack.Pop();
                 State.undoStack.Push(tempState);
                 Book.Collection = tempState;
-                MessageBox.Show($"{State.undoStack.Peek().First().Title}");
+                //MessageBox.Show($"{State.undoStack.Peek().First().Title}");
                 Book.Export();
                 MainWindow.BooksList.ItemsSource = null;
                 MainWindow.BooksList.ItemsSource = Book.Collection;

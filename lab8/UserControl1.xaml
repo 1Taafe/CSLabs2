@@ -7,13 +7,13 @@
              mc:Ignorable="d" 
              d:DesignHeight="360" d:DesignWidth="600">
     <Grid Background="White">
-        <TextBox FontSize="18" x:Name="generatedNumber" HorizontalAlignment="Center" Margin="0,154,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="258"/>
+        <TextBox FontSize="18" x:Name="generatedNumber" HorizontalAlignment="Center" Margin="0,159,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="258"/>
         <Button Padding="32,4,32,4" x:Name="GenerateButton" Content="Генерировать" HorizontalAlignment="Center" Margin="0,198,0,0" VerticalAlignment="Top" Click="GenerateButton_Click"/>
-        <TextBox FontSize="16" x:Name="fromBox" HorizontalAlignment="Left" Margin="171,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox FontSize="16" x:Name="toBox" HorizontalAlignment="Left" Margin="309,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="171,94,0,0" TextWrapping="Wrap" Text="От" VerticalAlignment="Top"/>
-        <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" Margin="309,94,0,0" TextWrapping="Wrap" Text="До" VerticalAlignment="Top"/>
-        <TextBlock x:Name="textBlock_Copy1" HorizontalAlignment="Left" Margin="171,138,0,0" TextWrapping="Wrap" Text="Результат" VerticalAlignment="Top"/>
+        <TextBox FontSize="16" x:Name="fromBox" HorizontalAlignment="Center" Margin="0,79,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox FontSize="16" x:Name="toBox" HorizontalAlignment="Center" Margin="0,119,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Center" Margin="0,63,0,0" TextWrapping="Wrap" Text="От" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Center" Margin="0,103,0,0" TextWrapping="Wrap" Text="До" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock_Copy1" HorizontalAlignment="Center" Margin="0,142,0,0" TextWrapping="Wrap" Text="Результат" VerticalAlignment="Top"/>
 
     </Grid>
 </UserControl>
