@@ -34,6 +34,24 @@ namespace CourseWorkAttempt.Pages
         public CurrentGame(object game)
         {
             InitializeComponent();
+
+            List<Review> rlist = new();
+            Review review = new Review();
+            review.User = new User();
+            review.User.Nickname = "Test";
+            review.Rate = 5;
+            review.Text = "DCgiejgoiwlgohiwhgohorugorbgrbughwoughwoehgwoehwouthoweth";
+            review.UploadDate = DateTime.Now;
+            rlist.Add(review);
+            rlist.Add(review);
+            rlist.Add(review);
+            rlist.Add(review);
+            rlist.Add(review);
+            rlist.Add(review);
+            rlist.Add(review);
+
+            ReviewList.ItemsSource = rlist;
+
             Game currentGame = game as Game;
             link = this;
             ShopURL = currentGame.BuyURL;
