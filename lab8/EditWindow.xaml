@@ -14,7 +14,7 @@
             <StackPanel MaxWidth="600" Height="696" Grid.Column="0" ScrollViewer.CanContentScroll="True" HorizontalAlignment="Stretch" VerticalAlignment="Top">
                 <Label Margin="16,8,0,0" Content="{DynamicResource Editing}" FontSize="36" FontWeight="Bold" />
                 <Label Margin="16, 0 , 16, 0" Content="{DynamicResource AddTitle}" />
-                <TextBox x:Name="TitleField" Margin="16, 0 , 16, 4" />
+                <TextBox Style="{DynamicResource EditBoxStyle}" x:Name="TitleField" Margin="16, 0 , 16, 4" />
                 <Label Margin="16, 0 , 16, 0" Content="{DynamicResource AddGenre}" />
                 <ComboBox Padding="8,4,0,4" x:Name="GenreField" Margin="16,0,16,0">
                     <TextBlock Text="{DynamicResource CategoryDetective}"></TextBlock>
@@ -24,19 +24,19 @@
                     <TextBlock Text="{DynamicResource CategoryScience}"></TextBlock>
                 </ComboBox>
                 <Label Margin="16, 0 , 16, 0" Content="{DynamicResource AddDescription}" />
-                <TextBox x:Name="DiscriptionField" MinHeight="60" Margin="16, 0 , 16, 4" TextWrapping="Wrap" />
+                <TextBox Style="{DynamicResource EditBoxStyle}" x:Name="DiscriptionField" MinHeight="60" Margin="16, 0 , 16, 4" TextWrapping="Wrap" />
                 <Label Margin="16, 0 , 16, 0" Content="{DynamicResource AddAuthor}" />
-                <TextBox x:Name="AuthorField" Margin="16, 0 , 16, 4" />
+                <TextBox Style="{DynamicResource EditBoxStyle}" x:Name="AuthorField" Margin="16, 0 , 16, 4" />
                 <Label Margin="16, 0 , 16, 0" Content="{DynamicResource AddPublisher}" />
-                <TextBox x:Name="PublisherField" Margin="16, 0 , 16, 4" />
+                <TextBox Style="{DynamicResource EditBoxStyle}" x:Name="PublisherField" Margin="16, 0 , 16, 4" />
                 <Label Margin="16, 0 , 16, 0" Content="{DynamicResource AddCountry}" />
-                <TextBox x:Name="CountryField" Margin="16, 0 , 16, 4" />
+                <TextBox Style="{DynamicResource EditBoxStyle}" x:Name="CountryField" Margin="16, 0 , 16, 4" />
                 <Label Margin="16, 0 , 16, 0" Content="{DynamicResource AddYear}" />
-                <TextBox x:Name="YearField" Margin="16, 0 , 16, 4" />
+                <TextBox Style="{DynamicResource EditBoxStyle}" x:Name="YearField" Margin="16, 0 , 16, 4" />
                 <Label Margin="16, 0 , 16, 0" Content="{DynamicResource AddCost}" />
-                <TextBox x:Name="CostField" Margin="16, 0 , 16, 4" />
+                <TextBox Style="{DynamicResource EditBoxStyle}" x:Name="CostField" Margin="16, 0 , 16, 4" />
                 <Label Margin="16, 0 , 16, 0" Content="{DynamicResource AddAmount}" />
-                <TextBox x:Name="AmountField" Margin="16, 0 , 16, 4" />
+                <TextBox Style="{DynamicResource EditBoxStyle}" x:Name="AmountField" Margin="16, 0 , 16, 4" />
                 <Label Margin="16, 0 , 16, 0" Content="{DynamicResource AddImage}" />
                 <Label x:Name="imageLabel" Margin="16, 0 , 16, 0" Content="{DynamicResource AddSelectedImage}" FontStyle="Italic" />
                 <Button x:Name="ImageButton" Click="ImageButton_Click" Height="30" Content="{DynamicResource AddChoose}" Width="120" Margin="16,0,0,0" HorizontalAlignment="Left"/>

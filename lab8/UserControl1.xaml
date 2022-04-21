@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="lab67.UserControl1"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:lab67"
+             mc:Ignorable="d" 
+             d:DesignHeight="360" d:DesignWidth="600">
+    <Grid Background="White">
+        <TextBox FontSize="18" x:Name="generatedNumber" HorizontalAlignment="Center" Margin="0,154,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="258"/>
+        <Button Padding="32,4,32,4" x:Name="GenerateButton" Content="Генерировать" HorizontalAlignment="Center" Margin="0,198,0,0" VerticalAlignment="Top" Click="GenerateButton_Click"/>
+        <TextBox FontSize="16" x:Name="fromBox" HorizontalAlignment="Left" Margin="171,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox FontSize="16" x:Name="toBox" HorizontalAlignment="Left" Margin="309,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="171,94,0,0" TextWrapping="Wrap" Text="От" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" Margin="309,94,0,0" TextWrapping="Wrap" Text="До" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock_Copy1" HorizontalAlignment="Left" Margin="171,138,0,0" TextWrapping="Wrap" Text="Результат" VerticalAlignment="Top"/>
+
+    </Grid>
+</UserControl>

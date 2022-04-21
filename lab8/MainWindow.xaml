@@ -41,6 +41,7 @@
             <TextBox Style="{DynamicResource TextBoxStyle}" TextChanged="SearchBox_TextChanged" x:Name="SearchBox" Height="28" Width="200" Margin="8,0,0,0" Text=""></TextBox>
             <Label Padding="6,6,8,6" VerticalAlignment="Center" Style="{DynamicResource LabelStyle}" Foreground="White" Content="{DynamicResource Search}"></Label>
             <Button x:Name="ThemeButton" Click="ThemeButton_Click" Padding="6,4,6,4" Margin="12,0,0,0" Style="{DynamicResource ButtonStyle}">Тема</Button>
+            <Button Click="Button_Click"  Margin="8,0,0,0" Content="UserControl"></Button>
         </ToolBar>
         <ListBox SelectionChanged="booksList_SelectionChanged" ScrollViewer.CanContentScroll="False" x:Name="booksList" Grid.Row="1" MaxWidth="1000" BorderBrush="White">
             <ListBox.ItemTemplate>
@@ -87,9 +88,9 @@
                             </StackPanel>
                             <StackPanel Grid.Row="8" Orientation="Horizontal">
                                 <TextBlock Grid.Row="7" Margin="30,0,0,0" FontSize="16" Text="{DynamicResource BookAmount}" TextWrapping="Wrap"/>
-                                <TextBlock Grid.Row="7" Margin="8,0,0,0" FontSize="16" Text="{Binding Path=Amount}" TextWrapping="Wrap"/>
+                                <TextBlock x:Name="AmountBlock" Grid.Row="7" Margin="8,0,0,0" FontSize="16" Text="{Binding Path=Amount}" TextWrapping="Wrap"/>
                             </StackPanel>
-                            <TextBlock Margin="30,0,0,0" Grid.Row="9" FontSize="16" Text="{Binding Path=Availability}" TextWrapping="Wrap"/>
+                            <TextBlock Style="{DynamicResource datatrig}" x:Name="AvailabilityBlock" Margin="30,0,0,0" Grid.Row="9" FontSize="16" Text="{Binding Path=Availability}" TextWrapping="Wrap"/>
                             
                         </Grid>
                         <Image Grid.Column="0" Width="200" Height="200" Source="{Binding Path=ImagePath}" />

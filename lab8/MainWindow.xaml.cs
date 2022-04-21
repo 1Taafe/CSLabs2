@@ -267,5 +267,11 @@ namespace lab67
             }
             
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            UserControlWindow ucw = new();
+            ucw.Show();
+        }
     }
 }
