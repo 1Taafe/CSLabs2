@@ -16,6 +16,7 @@
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="1" Orientation="Vertical" HorizontalAlignment="Center" Width="804">
             <StackPanel Margin="16,36,16,16" Orientation="Horizontal">
+                
                 <Image x:Name="GameImage" HorizontalAlignment="Left" 
                            Height="180" Width="180">
                     <Image.Clip>
@@ -36,6 +37,10 @@
                     <TextBlock Foreground="Gray" x:Name="ReleaseDateBlock" Margin="10,0,0,0" HorizontalAlignment="Right" TextWrapping="Wrap" 
                                    Text="Release Date" FontStyle="Italic" FontSize="14" VerticalAlignment="Top"/>
                 </StackPanel>
+            </StackPanel>
+            <StackPanel Margin="16" Orientation="Horizontal" Width="700" HorizontalAlignment="Center">
+                <Button x:Name="ShopButton" Content="Перейти в магазин" Padding="16,8,16,8" Style="{DynamicResource MainRegister}" Background="#FF1467FF" Foreground="white" Click="ShopButton_Click"></Button>
+                <Button x:Name="CommentButton" Margin="24,0,0,0" IsEnabled="False" Content="Оставить отзыв" Padding="16,8,16,8" Style="{DynamicResource MainRegister}" Background="#FF1467FF" Foreground="white"></Button>
             </StackPanel>
             <TextBlock TextWrapping="Wrap" x:Name="DescriptionBlock" Margin="96,16,96,0" Text="Game description" FontSize="16" FontStyle="Italic"></TextBlock>
             <TextBlock TextWrapping="Wrap" x:Name="DeveloperBlock" Margin="96,16,96,0" Text="Developer:" FontSize="16"></TextBlock>

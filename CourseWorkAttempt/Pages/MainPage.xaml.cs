@@ -52,6 +52,11 @@ namespace CourseWorkAttempt.Pages
                 profilePage.PhoneLabel.Text = Authorization.CurrentUser.PhoneNumber;
                 MainWindow.link.ProfilePageButton.IsEnabled = true;
                 ErrorBlock.Text = null;
+
+                if (CurrentGame.link != null)
+                {
+                    CurrentGame.link.CommentButton.IsEnabled = true;
+                }
             }
         }
 
@@ -77,6 +82,12 @@ namespace CourseWorkAttempt.Pages
                 profilePage.EmailLabel.Text = null;
                 profilePage.PhoneLabel.Text = null;
                 MainWindow.link.ProfilePageButton.IsEnabled = false;
+
+                if (CurrentGame.link != null)
+                {
+                    CurrentGame.link.CommentButton.IsEnabled = false;
+                }
+
 
                 while (MainWindow.link.navigationService.RemoveBackEntry() != null)
                 {

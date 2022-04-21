@@ -1,6 +1,8 @@
-﻿using CourseWorkAttempt.Classes;
+﻿using CourseWorkAttempt.Auth;
+using CourseWorkAttempt.Classes;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,17 +23,26 @@ namespace CourseWorkAttempt.Pages
     /// </summary>
     public partial class CurrentGame : Page
     {
+        public static CurrentGame link;
+        string ShopURL;
         public CurrentGame()
         {
             InitializeComponent();
+            link = this;
         }
 
         public CurrentGame(object game)
         {
             InitializeComponent();
             Game currentGame = game as Game;
+            link = this;
+            ShopURL = currentGame.BuyURL;
             if (currentGame != null)
             {
+                if(Authorization.CurrentUser != null)
+                {
+                    CommentButton.IsEnabled = true;
+                }
                 GameImage.Source = BitmapFrame.Create(new Uri(currentGame.ImageURL));
                 NameBlock.Text = currentGame.Name;
                 GenreBlock.Text = currentGame.Genre;
@@ -41,6 +52,11 @@ namespace CourseWorkAttempt.Pages
                 DeveloperBlock.Text = "Разработчик: " + currentGame.Developer.Name + $" ({currentGame.Developer.Country})";
                 PublisherBlock.Text = "Издатель: " + currentGame.Publisher.Name + $" ({currentGame.Publisher.Country})";
             }
+        }
+
+        private void ShopButton_Click(object sender, RoutedEventArgs e)
+        {
+            Process.Start(new ProcessStartInfo(ShopURL) { UseShellExecute = true});
         }
     }
 }
