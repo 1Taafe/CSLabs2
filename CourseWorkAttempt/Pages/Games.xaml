@@ -15,7 +15,7 @@
         </Grid.RowDefinitions>
         <StackPanel Margin="32,4,32,0" Grid.Row="0" Orientation="Horizontal">
 
-            <ComboBox SelectedIndex="0" Background="#FF1467FF" Foreground="White" Width="140" Padding="8,5,8,5" VerticalAlignment="Top" Style="{StaticResource {x:Static ToolBar.ComboBoxStyleKey}}">
+            <ComboBox Height="30" SelectedIndex="0" Background="#FF1467FF" Foreground="White" Width="140" Padding="8,5,8,5" VerticalAlignment="Top" Style="{StaticResource {x:Static ToolBar.ComboBoxStyleKey}}">
                 <ComboBox.ItemContainerStyle>
                     <Style TargetType="ComboBoxItem">
                         <Setter Property="Background" Value="#FF1467FF"/>
@@ -30,6 +30,8 @@
                 <ComboBoxItem Padding="8,5,8,5" Content="MOBA"></ComboBoxItem>
                 <ComboBoxItem Padding="8,5,8,5" Content="Другое"></ComboBoxItem>
             </ComboBox>
+            <TextBox BorderThickness="0.8" Padding="8,7,8,8" BorderBrush="#FF1467FF" Height="30" Width="280" Margin="16,0,0,0" VerticalAlignment="Top"/>
+            <Label Foreground="White" Padding="8,7,8,8" Background="#FF1467FF" Height="30" Content="Поиск" VerticalAlignment="top" ></Label>
 
         </StackPanel>
         <ListBox SelectionChanged="GameList_SelectionChanged" BorderBrush="White" x:Name="GameList" RenderTransformOrigin="0.499,0.496" Margin="0,0,-0.4,0.4" Grid.Row="1"

@@ -1,5 +1,6 @@
 ﻿using CourseWorkAttempt.Auth;
 using CourseWorkAttempt.Classes;
+using CourseWorkAttempt.Windows;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -25,6 +26,7 @@ namespace CourseWorkAttempt.Pages
     {
         public static CurrentGame link;
         string ShopURL;
+        Game CurrentGameObject;
         public CurrentGame()
         {
             InitializeComponent();
@@ -34,25 +36,9 @@ namespace CourseWorkAttempt.Pages
         public CurrentGame(object game)
         {
             InitializeComponent();
-
-            List<Review> rlist = new();
-            Review review = new Review();
-            review.User = new User();
-            review.User.Nickname = "Test";
-            review.Rate = 5;
-            review.Text = "DCgiejgoiwlgohiwhgohorugorbgrbughwoughwoehgwoehwouthoweth";
-            review.UploadDate = DateTime.Now;
-            rlist.Add(review);
-            rlist.Add(review);
-            rlist.Add(review);
-            rlist.Add(review);
-            rlist.Add(review);
-            rlist.Add(review);
-            rlist.Add(review);
-
-            ReviewList.ItemsSource = rlist;
-
             Game currentGame = game as Game;
+            CurrentGameObject = currentGame;
+            ReviewList.ItemsSource = Review.GetCurrentGameReviews(currentGame.ID);
             link = this;
             ShopURL = currentGame.BuyURL;
             if (currentGame != null)
@@ -75,6 +61,16 @@ namespace CourseWorkAttempt.Pages
         private void ShopButton_Click(object sender, RoutedEventArgs e)
         {
             Process.Start(new ProcessStartInfo(ShopURL) { UseShellExecute = true});
+        }
+
+        private void CommentButton_Click(object sender, RoutedEventArgs e)
+        {
+            if(AddReviewWindow.isOpened == false)
+            {
+                AddReviewWindow.isOpened = true;
+                AddReviewWindow arw = new(CurrentGameObject);
+                arw.Show();
+            }
         }
     }
 }
