@@ -21,6 +21,10 @@ namespace CourseWorkAttempt.Classes
         public string? Platform { get; set; }
 
         public string? ImageURL { get; set; }
+        public override string ToString()
+        {
+            return Name;
+        }
 
         //public static List<Game> Collection = new List<Game>();
         static Game()
