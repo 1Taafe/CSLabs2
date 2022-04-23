@@ -58,7 +58,7 @@
                                    Text="{Binding Path=Rate}" FontStyle="Italic" FontSize="48" Foreground="DeepSkyBlue" FontWeight="SemiBold" VerticalAlignment="Top"/>
                                     <TextBlock x:Name="UserBlock" Margin="16,-44,16,0" HorizontalAlignment="Left" TextWrapping="Wrap" 
                                    Text="{Binding Path=User.Nickname}" FontSize="26" VerticalAlignment="Top"/>
-                                    <TextBlock x:Name="DateBlock" Margin="16,-16,16,16" HorizontalAlignment="left" TextWrapping="Wrap" 
+                                    <TextBlock x:Name="DateBlock" Margin="16,-12,16,16" HorizontalAlignment="left" TextWrapping="Wrap" 
                                    Text="{Binding Path=ShortUploadDate}" FontStyle="Italic" FontSize="14" VerticalAlignment="Top"/>
                                     <TextBlock x:Name="TextBlock" Margin="16,0,16,16" HorizontalAlignment="left" TextWrapping="Wrap" 
                                    Text="{Binding Path=Text}" FontStyle="Italic" FontSize="14" VerticalAlignment="Top"/>
