@@ -23,7 +23,7 @@
             <Button Width="100" Content="Выход" Command="local:WindowCommands.Exit"></Button>
         </StackPanel>
    
-        <local:RandomUserControl Grid.Row="1" From="0" To="1000"></local:RandomUserControl>
+        <local:RandomUserControl Grid.Row="1" From="0" To="12000"></local:RandomUserControl>
         <local:LimitedInputUserControl Grid.Row="1" Margin="64,0,64,0" Grid.Column="1" Title="Enter title:" MaxLength="30" Height="50" />
     </Grid>
 </Window>

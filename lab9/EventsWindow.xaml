@@ -30,7 +30,7 @@
         <ListBox PreviewMouseDown="SecondRoutedBtn_MouseDown" Grid.Row="0" Grid.Column="1" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Hidden">
             <StackPanel Width="381" PreviewMouseDown="SecondRoutedBtn_MouseDown">
                 <Button x:Name="SecondRoutedBtn" PreviewMouseDown="SecondRoutedBtn_MouseDown" Height="97">
-                    <Ellipse Height="159" Width="160" Fill="BlueViolet" MouseUp="FirstRoutedBtn_MouseDown"/>
+                    <Ellipse Height="159" Width="160" Fill="BlueViolet" PreviewMouseDown="SecondRoutedBtn_MouseDown"/>
                 </Button>
             </StackPanel>
         </ListBox>

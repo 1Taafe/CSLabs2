@@ -31,12 +31,17 @@ namespace lab9
         static RandomUserControl()
         {
             //FromProperty = DependencyProperty.Register("From", typeof(int), typeof(RandomUserControl));
-            ToProperty = DependencyProperty.Register("To", typeof(int), typeof(RandomUserControl));
+            //ToProperty = DependencyProperty.Register("To", typeof(int), typeof(RandomUserControl));
 
             FrameworkPropertyMetadata metadata = new FrameworkPropertyMetadata();
             metadata.CoerceValueCallback = new CoerceValueCallback(CorrectValue);
 
+            FrameworkPropertyMetadata metadata2 = new FrameworkPropertyMetadata();
+            metadata2.CoerceValueCallback = new CoerceValueCallback(CorrectValue);
+
             FromProperty = DependencyProperty.Register("From", typeof(int), typeof(RandomUserControl), metadata,
+                new ValidateValueCallback(ValidateValue));
+            ToProperty = DependencyProperty.Register("To", typeof(int), typeof(RandomUserControl), metadata2,
                 new ValidateValueCallback(ValidateValue));
         }
 
