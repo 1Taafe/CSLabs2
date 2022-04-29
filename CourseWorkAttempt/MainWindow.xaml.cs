@@ -27,6 +27,7 @@ namespace CourseWorkAttempt
         public Profile ProfilePage = new Profile();
         public Games GamesPage = new Games();
         public MainPage MainPage = new MainPage();
+        public Users UsersPage = new Users();
         public static MainWindow link;
         public MainWindow()
         {
@@ -73,6 +74,11 @@ namespace CourseWorkAttempt
             {
                 //MessageBox.Show(ex.Message);
             }
+        }
+
+        private void UsersPageButton_Click(object sender, RoutedEventArgs e)
+        {
+            navigationService.Navigate(UsersPage);
         }
     }
 }

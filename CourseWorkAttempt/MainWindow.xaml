@@ -69,6 +69,7 @@
             <Button Click="MainPageButton_Click" x:Name="MainPageButton" Style="{DynamicResource MenuButton}" Padding="16,0,16,0" Margin="8,16,8, 16" Content="Главная"></Button>
             <Button IsEnabled="false" Click="ProfilePageButton_Click" x:Name="ProfilePageButton" Style="{DynamicResource MenuButton}" Padding="16,0,16,0" Margin="8,16,8, 16" Content="Профиль"></Button>
             <Button Click="GamesPageButton_Click" x:Name="GamesPageButton" Style="{DynamicResource MenuButton}" Padding="16,0,16,0" Margin="8,16,8, 16" Content="Игры"></Button>
+            <Button Click="UsersPageButton_Click" x:Name="UsersPageButton" Style="{DynamicResource MenuButton}" Padding="16,0,16,0" Margin="8,16,8, 16" Content="Пользователи"></Button>
         </StackPanel>
         <Frame NavigationUIVisibility="Hidden" x:Name="MainFrame" Grid.Row="1"></Frame>
     </Grid>

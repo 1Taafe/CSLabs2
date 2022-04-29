@@ -72,7 +72,7 @@ namespace CourseWorkAttempt.Auth
                 bool isSuccessful = false;
                 connection.Open();
                 string sqlExpression = $"Insert into Users values ('{newUser.Nickname}', " +
-                    $"{newUser.Password}, '{newUser.Surname}', '{newUser.Name}', " +
+                    $"'{newUser.Password}', '{newUser.Surname}', '{newUser.Name}', " +
                     $"'{newUser.Email}', '{newUser.PhoneNumber}', 0)";
                 SqlCommand command = new SqlCommand(sqlExpression, connection);
                 try

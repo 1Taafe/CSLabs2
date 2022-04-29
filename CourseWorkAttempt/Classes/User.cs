@@ -27,6 +27,11 @@ namespace CourseWorkAttempt.Classes
             return $"{ID} {Nickname} {Name} {Surname} {Password} {PhoneNumber} {Email} {IsAdmin}";
         }
 
+        public string ToNickname()
+        {
+            return Nickname;
+        }
+
         public static bool UpdateUser()
         {
             using (SqlConnection connection = new SqlConnection(Authorization.connectionString))
@@ -54,6 +59,61 @@ where UserID = {updatedUser.ID}";
                     EditProfileWindow.link.ErrorMessageBlock.Text = "* " + ex.Message;
                 }
                 return isSuccessful;
+            }
+        }
+
+        public static List<User> GetList()
+        {
+            using (SqlConnection connection = new SqlConnection(Authorization.connectionString))
+            {
+                connection.Open();
+                string sqlExpression = $"select * from Users";
+                SqlCommand command = new SqlCommand(sqlExpression, connection);
+                List<User> usersCollection = new();
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+
+                    if (reader.HasRows) // если есть данные
+                    {
+                        while (reader.Read()) // построчно считываем данные
+                        {
+                            var user = new User();
+                            user.ID = (int)reader["UserID"];
+                            user.Nickname = reader["Nickname"] as string;
+                            user.Name = reader["Name"] as string;
+                            user.Surname = reader["Surname"] as string;
+                            user.PhoneNumber = reader["PhoneNumber"] as string;
+                            user.Email = reader["Email"] as string;
+                            user.IsAdmin = (bool)reader["IsAdmin"];
+                            usersCollection.Add(user);
+                            //var game = new Game();
+                            //var publisher = new Publisher();
+                            //var developer = new Developer();
+                            //publisher.ID = (int)reader["PublisherID"];
+                            //publisher.Name = reader["PublisherName"] as string;
+                            //publisher.Country = reader["PublisherCountry"] as string;
+
+                            //developer.ID = (int)reader["DeveloperID"];
+                            //developer.Name = reader["DeveloperName"] as string;
+                            //developer.Country = reader["DeveloperCountry"] as string;
+
+                            //game.ID = (int)reader["GameID"];
+                            //game.Developer = developer;
+                            //game.Publisher = publisher;
+                            //game.Name = reader["GameName"] as string;
+                            //game.Description = reader["Description"] as string;
+                            //game.Genre = reader["Genre"] as string;
+                            //game.ImageURL = reader["GameImage"] as string;
+                            //game.Platform = reader["Platform"] as string;
+                            //game.BuyURL = reader["BuyURL"] as string;
+
+                            //DateTime releaseDate = Convert.ToDateTime(reader["ReleaseDate"].ToString());
+                            //game.ReleaseDate = releaseDate;
+                            //GamesCollection.Add(game);
+                        }
+                    }
+                }
+                return usersCollection;
             }
         }
     }
