@@ -35,8 +35,34 @@
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Button x:Name="CancelButton" Click="CancelButton_Click" FontSize="20" Content="Отмена" Grid.Column="0" BorderThickness="0,0,0,0" Background="#FF3474FF" Foreground="White"/>
-            <Button x:Name="EditButton" Click="EditButton_Click" FontSize="20" Content="Изменить" Grid.Column="1" BorderThickness="0,0,0,0" Background="#FF3474FF" Foreground="White"/>
+            <Button x:Name="CancelButton" Click="CancelButton_Click" FontSize="20" Content="Отмена" Grid.Column="0" BorderThickness="0,0,0,0" Foreground="White">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="1,0" StartPoint="0,0">
+                        <GradientStop Color="#FF1467FF" Offset="0.7"/>
+                        <GradientStop Color="Red" Offset="0"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="1,0" StartPoint="0,0">
+                        <GradientStop Color="#FF1467FF" Offset="0.7"/>
+                        <GradientStop Color="Red" Offset="0"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button x:Name="EditButton" Click="EditButton_Click" FontSize="20" Content="Изменить" Grid.Column="1" BorderThickness="0,0,0,0" Foreground="White">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0,0" StartPoint="1,0">
+                        <GradientStop Color="#FF1467FF" Offset="0.7"/>
+                        <GradientStop Color="#FF03FF00" Offset="0"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0,0" StartPoint="1,0">
+                        <GradientStop Color="#FF1467FF" Offset="0.7"/>
+                        <GradientStop Color="#FF03FF00" Offset="0"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
         </Grid>
     </Grid>
 </Window>

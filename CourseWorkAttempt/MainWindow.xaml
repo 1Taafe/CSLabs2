@@ -64,12 +64,38 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Horizontal">
-            <Button FontSize="18" Click="BackButton_Click" x:Name="BackButton" Style="{DynamicResource MenuButton}" Padding="16, -4,16,0" Margin="32,16,4, 16" Content="←"></Button>
+            <Button FontSize="18" Click="BackButton_Click" x:Name="BackButton" Style="{DynamicResource MenuButton}" Padding="16, -4,16,0" Margin="32,16,4, 16" Content="←">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="1,0" StartPoint="0,0">
+                        <GradientStop Color="#FF1467FF" Offset="1"/>
+                        <GradientStop Color="#FFFC00FF" Offset="0.208"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="1,0" StartPoint="0,0">
+                        <GradientStop Color="#FF1467FF" Offset="1"/>
+                        <GradientStop Color="#FFFC00FF" Offset="0.208"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
             <Button FontSize="18" Click="ForeButton_Click" x:Name="ForeButton" Style="{DynamicResource MenuButton}" Padding="16,-4,16,0" Margin="4,16,8, 16" Content="→"></Button>
             <Button Click="MainPageButton_Click" x:Name="MainPageButton" Style="{DynamicResource MenuButton}" Padding="16,0,16,0" Margin="8,16,8, 16" Content="Главная"></Button>
             <Button IsEnabled="false" Click="ProfilePageButton_Click" x:Name="ProfilePageButton" Style="{DynamicResource MenuButton}" Padding="16,0,16,0" Margin="8,16,8, 16" Content="Профиль"></Button>
             <Button Click="GamesPageButton_Click" x:Name="GamesPageButton" Style="{DynamicResource MenuButton}" Padding="16,0,16,0" Margin="8,16,8, 16" Content="Игры"></Button>
-            <Button Click="UsersPageButton_Click" x:Name="UsersPageButton" Style="{DynamicResource MenuButton}" Padding="16,0,16,0" Margin="8,16,8, 16" Content="Пользователи"></Button>
+            <Button Click="UsersPageButton_Click" x:Name="UsersPageButton" Style="{DynamicResource MenuButton}" Padding="16,0,16,0" Margin="8,16,8, 16" Content="Пользователи">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0,0" StartPoint="1,0">
+                        <GradientStop Color="#FF1467FF" Offset="1"/>
+                        <GradientStop Color="#FFFC00FF" Offset="0.208"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0,0" StartPoint="1,0">
+                        <GradientStop Color="#FF1467FF" Offset="1"/>
+                        <GradientStop Color="#FFFC00FF" Offset="0.208"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
         </StackPanel>
         <Frame NavigationUIVisibility="Hidden" x:Name="MainFrame" Grid.Row="1"></Frame>
     </Grid>
