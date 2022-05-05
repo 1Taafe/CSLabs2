@@ -96,6 +96,7 @@ namespace lab10
                 {
                     MessageBox.Show($"{ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                     transaction.Rollback();
+                    MessageBox.Show($"Произошел откат транзакции!", "База данных", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                 }
             }
         }
