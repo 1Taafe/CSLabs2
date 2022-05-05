@@ -44,6 +44,24 @@
             </StackPanel>
         </Grid>
 
-        <DataGrid MinRowHeight="36" MaxColumnWidth="260" Grid.Row="1" x:Name="dataGrid"/>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="100"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <DataGrid Grid.Column="0" MinRowHeight="80" MaxColumnWidth="260" Grid.Row="1" x:Name="dataGrid">
+            </DataGrid>
+            <DataGrid Grid.Column="1" MinRowHeight="80" MaxColumnWidth="80" Width="100" Grid.Row="1" x:Name="dataGrid2" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Header="Img" Width="SizeToCells" IsReadOnly="True">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding Image}" Width="75" Height="75"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
     </Grid>
 </Window>

@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Data.SqlClient;
 using System.Data;
+using System.Collections.ObjectModel;
 
 namespace lab10
 {
@@ -39,26 +40,43 @@ namespace lab10
                 case 0:
                     sql = "select * from Games";
                     dt = Database.Get(sql);
+
+                    ObservableCollection<MyImage> items = new ObservableCollection<MyImage>();
+
+                    foreach (DataRow r in dt.Rows)
+                    {
+                        items.Add(new MyImage()
+                        {
+                            Image = new BitmapImage(new Uri(r[9] as string, UriKind.Absolute))
+                        }) ;
+                    }
+                    //dataGrid2.ItemsSource = null;
+                    
+                    dataGrid2.ItemsSource = items;
                     dataGrid.ItemsSource = dt.DefaultView;
                     break;
                 case 1:
                     sql = "select * from Developers";
                     dt = Database.Get(sql);
+                    dataGrid2.ItemsSource = null;
                     dataGrid.ItemsSource = dt.DefaultView;
                     break;
                 case 2:
                     sql = "select * from Publishers";
                     dt = Database.Get(sql);
+                    dataGrid2.ItemsSource = null;
                     dataGrid.ItemsSource = dt.DefaultView;
                     break;
                 case 3:
                     sql = "select * from Reviews";
                     dt = Database.Get(sql);
+                    dataGrid2.ItemsSource = null;
                     dataGrid.ItemsSource = dt.DefaultView;
                     break;
                 case 4:
                     sql = "select * from Users";
                     dt = Database.Get(sql);
+                    dataGrid2.ItemsSource = null;
                     dataGrid.ItemsSource = dt.DefaultView;
                     break;
             }
@@ -116,7 +134,8 @@ namespace lab10
 
         private void SqlButton_Click(object sender, RoutedEventArgs e)
         {
-            if(SqlCheck.IsChecked == false)
+            dataGrid2.ItemsSource = null;
+            if (SqlCheck.IsChecked == false)
             {
                 string sql = SqlBox.Text;
                 if (string.IsNullOrEmpty(sql))
@@ -160,26 +179,43 @@ namespace lab10
                 case 0:
                     sql = "select * from Games";
                     dt = Database.Get(sql);
+
+                    ObservableCollection<MyImage> items = new ObservableCollection<MyImage>();
+
+                    foreach (DataRow r in dt.Rows)
+                    {
+                        items.Add(new MyImage()
+                        {
+                            Image = new BitmapImage(new Uri(r[9] as string, UriKind.Absolute))
+                        });
+                    }
+                    //dataGrid2.ItemsSource = null;
+
+                    dataGrid2.ItemsSource = items;
                     dataGrid.ItemsSource = dt.DefaultView;
                     break;
                 case 1:
                     sql = "select * from Developers";
                     dt = Database.Get(sql);
+                    dataGrid2.ItemsSource = null;
                     dataGrid.ItemsSource = dt.DefaultView;
                     break;
                 case 2:
                     sql = "select * from Publishers";
                     dt = Database.Get(sql);
+                    dataGrid2.ItemsSource = null;
                     dataGrid.ItemsSource = dt.DefaultView;
                     break;
                 case 3:
                     sql = "select * from Reviews";
                     dt = Database.Get(sql);
+                    dataGrid2.ItemsSource = null;
                     dataGrid.ItemsSource = dt.DefaultView;
                     break;
                 case 4:
                     sql = "select * from Users";
                     dt = Database.Get(sql);
+                    dataGrid2.ItemsSource = null;
                     dataGrid.ItemsSource = dt.DefaultView;
                     break;
             }
