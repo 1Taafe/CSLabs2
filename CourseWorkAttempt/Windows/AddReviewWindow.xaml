@@ -38,13 +38,13 @@
             <Button x:Name="CancelButton" FontSize="20" Content="Отмена" Grid.Column="0" BorderThickness="0,0,0,0" Foreground="White" Click="CancelButton_Click">
                 <Button.BorderBrush>
                     <LinearGradientBrush EndPoint="1,0" StartPoint="0,0">
-                        <GradientStop Color="#FF1467FF" Offset="0.7"/>
+                        <GradientStop Color="#FFE58545" Offset="1"/>
                         <GradientStop Color="Red" Offset="0"/>
                     </LinearGradientBrush>
                 </Button.BorderBrush>
                 <Button.Background>
                     <LinearGradientBrush EndPoint="1,0" StartPoint="0,0">
-                        <GradientStop Color="#FF1467FF" Offset="0.7"/>
+                        <GradientStop Color="#FFE58545" Offset="1"/>
                         <GradientStop Color="Red" Offset="0"/>
                     </LinearGradientBrush>
                 </Button.Background>
@@ -52,14 +52,14 @@
             <Button x:Name="AddReviewButton" FontSize="20" Content="Добавить" Grid.Column="1" BorderThickness="0,0,0,0" Foreground="White" Click="AddReviewButton_Click">
                 <Button.BorderBrush>
                     <LinearGradientBrush EndPoint="0,0" StartPoint="1,0">
-                        <GradientStop Color="#FF1467FF" Offset="0.7"/>
-                        <GradientStop Color="#FF03FF00" Offset="0"/>
+                        <GradientStop Color="#FF9DDF03" Offset="1"/>
+                        <GradientStop Color="#FF0EAE0C" Offset="0"/>
                     </LinearGradientBrush>
                 </Button.BorderBrush>
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0,0" StartPoint="1,0">
-                        <GradientStop Color="#FF1467FF" Offset="0.7"/>
-                        <GradientStop Color="#FF03FF00" Offset="0"/>
+                        <GradientStop Color="#FF9DDF03" Offset="1"/>
+                        <GradientStop Color="#FF0EAE0C" Offset="0"/>
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
