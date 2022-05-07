@@ -44,5 +44,15 @@ namespace CourseWorkAttempt.Pages
             UsersList.ItemsSource = null;
             UsersList.ItemsSource = tempList;
         }
+
+        private void UsersList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (UsersList.SelectedIndex != -1)
+            {
+                CurrentUser currentUserPage = new(UsersList.SelectedItem);
+                MainWindow.link.navigationService.Navigate(currentUserPage);
+                UsersList.SelectedIndex = -1;
+            }
+        }
     }
 }

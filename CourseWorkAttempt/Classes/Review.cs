@@ -22,6 +22,48 @@ namespace CourseWorkAttempt.Classes
 
         public int Rate { get; set; }
 
+        public static List<Review> GetTopGames(int userID)
+        {
+            using (SqlConnection connection = new SqlConnection(Authorization.connectionString))
+            {
+                connection.Open();
+                string sqlExpression = @$"select top(5) Reviews.GameID, Users.Nickname, Users.UserID, Reviews.UploadDate, Reviews.Rating, Reviews.Text,
+Games.GameName, Games.GameImage
+from reviews inner join Games on Reviews.GameID = Games.GameID inner join
+users on Users.UserID = Reviews.UserID
+where Users.UserID = {userID}
+order by Rating desc";
+                SqlCommand command = new SqlCommand(sqlExpression, connection);
+                List<Review> ReviewsCollection = new();
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+
+                    if (reader.HasRows) // если есть данные
+                    {
+                        while (reader.Read()) // построчно считываем данные
+                        {
+                            var review = new Review();
+                            var user = new User();
+                            var game = new Game();
+                            game.Name = reader["GameName"] as string;
+                            game.ImageURL = reader["GameImage"] as string;
+                            user.Nickname = reader["Nickname"] as string;
+                            review.Game = game;
+                            review.User = user;
+                            review.Rate = Convert.ToInt32(reader["Rating"]);
+                            review.Text = reader["Text"] as string;
+                            DateTime uploadTime = Convert.ToDateTime(reader["UploadDate"].ToString());
+                            review.UploadDate = uploadTime;
+                            review.ShortUploadDate = uploadTime.ToShortDateString();
+                            ReviewsCollection.Add(review);
+
+                        }
+                    }
+                }
+                return ReviewsCollection;
+            }
+        }
+
         public static List<Review> GetCurrentGameReviews(int gameID)
         {
             using (SqlConnection connection = new SqlConnection(Authorization.connectionString))

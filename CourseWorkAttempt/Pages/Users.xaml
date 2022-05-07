@@ -17,7 +17,7 @@
             <TextBox TextChanged="SearchBox_TextChanged" x:Name="SearchBox" BorderThickness="0.8" Padding="8,7,8,8" BorderBrush="#FF1467FF" Height="30" Width="280" Margin="0,0,0,0" VerticalAlignment="Top"/>
             <Label Foreground="White" Padding="8,7,8,8" Background="#FF1467FF" Height="30" Content="Поиск" VerticalAlignment="top" Margin="0,0,28,0"></Label>
         </StackPanel>
-        <ListBox BorderBrush="White" x:Name="UsersList" RenderTransformOrigin="0.499,0.496" Margin="0,0,-0.4,0.4" Grid.Row="1"
+        <ListBox SelectionChanged="UsersList_SelectionChanged" BorderBrush="White" x:Name="UsersList" RenderTransformOrigin="0.499,0.496" Margin="0,0,-0.4,0.4" Grid.Row="1"
                  ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Hidden" HorizontalAlignment="Center"
                  ItemContainerStyle="{DynamicResource ItemStyle}">
             <ListBox.ItemTemplate>
