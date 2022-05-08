@@ -38,5 +38,25 @@ namespace CourseWorkAttempt.Pages
             PhoneLabel.Text = "";
             UserGamesList.ItemsSource = Review.GetTopGames(openedUser.ID);
         }
+
+        private void UserGamesList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (UserGamesList.SelectedIndex != -1)
+            {
+                var review = UserGamesList.SelectedItem as Review;
+                Game game = new();
+                foreach(var g in Game.GetList())
+                {
+                    if(g.ID == review.Game.ID)
+                    {
+                        game = g;
+                        break;
+                    }
+                }
+                CurrentGame currentGamePage = new(game);
+                MainWindow.link.navigationService.Navigate(currentGamePage);
+                UserGamesList.SelectedIndex = -1;
+            }
+        }
     }
 }

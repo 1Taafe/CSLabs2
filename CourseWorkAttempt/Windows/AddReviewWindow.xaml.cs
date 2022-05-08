@@ -57,10 +57,20 @@ namespace CourseWorkAttempt.Windows
                 {
                     int rating = 5;
                     rating = Convert.ToInt32((RateBox.SelectedItem as ComboBoxItem).Content);
-                    Review.AddReview(CurrentGameObject.ID, TextBox.Text, rating);
-
-                    CurrentGame.link.ReviewList.ItemsSource = null;
-                    CurrentGame.link.ReviewList.ItemsSource = Review.GetCurrentGameReviews(CurrentGameObject.ID);
+                    if(Review.IsExists(CurrentGameObject.ID) == false)
+                    {
+                        Review.AddReview(CurrentGameObject.ID, TextBox.Text, rating);
+                        CurrentGame.link.ReviewList.ItemsSource = null;
+                        CurrentGame.link.ReviewList.ItemsSource = Review.GetCurrentGameReviews(CurrentGameObject.ID);
+                    }
+                    else
+                    {
+                        Review.Update(CurrentGameObject.ID, TextBox.Text, rating);
+                        CurrentGame.link.ReviewList.ItemsSource = null;
+                        CurrentGame.link.ReviewList.ItemsSource = Review.GetCurrentGameReviews(CurrentGameObject.ID);
+                    }
+                    
+                    
 
                     Close();
                 }

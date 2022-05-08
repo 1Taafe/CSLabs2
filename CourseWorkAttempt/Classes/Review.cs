@@ -28,7 +28,7 @@ namespace CourseWorkAttempt.Classes
             {
                 connection.Open();
                 string sqlExpression = @$"select top(5) Reviews.GameID, Users.Nickname, Users.UserID, Reviews.UploadDate, Reviews.Rating, Reviews.Text,
-Games.GameName, Games.GameImage
+Games.GameName, Games.GameImage, Games.GameID
 from reviews inner join Games on Reviews.GameID = Games.GameID inner join
 users on Users.UserID = Reviews.UserID
 where Users.UserID = {userID}
@@ -47,6 +47,7 @@ order by Rating desc";
                             var game = new Game();
                             game.Name = reader["GameName"] as string;
                             game.ImageURL = reader["GameImage"] as string;
+                            game.ID = Convert.ToInt32(reader["GameID"]);
                             user.Nickname = reader["Nickname"] as string;
                             review.Game = game;
                             review.User = user;
@@ -111,6 +112,62 @@ order by Rating desc";
                     var state = command.ExecuteNonQuery();
                     MessageBox.Show("Отзыв добавлен!", "Новый отзыв", MessageBoxButton.OK, MessageBoxImage.Information);
                     isSuccessful = true;
+                }
+                catch (Exception ex)
+                {
+                    //MessageBox.Show(ex.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    AddReviewWindow.link.ErrorMessageBlock.Text = "* " + ex.Message;
+                }
+                return isSuccessful;
+            }
+        }
+
+        public static bool Update(int gameID, string text, int rating)
+        {
+            using (SqlConnection connection = new SqlConnection(Authorization.connectionString))
+            {
+                User updatedUser = Authorization.CurrentUser;
+                bool isSuccessful = false;
+                connection.Open();
+                string sqlExpression = @$"update Reviews set UploadDate = '{DateTime.Now.ToShortDateString()}',
+Text = '{text}',
+Rating = {rating}
+where GameID = {gameID} and UserID = {updatedUser.ID}";
+                SqlCommand command = new SqlCommand(sqlExpression, connection);
+                try
+                {
+                    var state = command.ExecuteNonQuery();
+                    isSuccessful = true;
+                    MessageBox.Show("Последний оставленный отзыв на игру был обновлен", "Обновление отзыва", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                catch (Exception ex)
+                {
+                    //MessageBox.Show(ex.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    AddReviewWindow.link.ErrorMessageBlock.Text = "* " + ex.Message;
+                }
+                return isSuccessful;
+            }
+        }
+
+        public static bool IsExists(int gameID)
+        {
+            using (SqlConnection connection = new SqlConnection(Authorization.connectionString))
+            {
+                bool isSuccessful = false;
+                connection.Open();
+                //MessageBox.Show(DateTime.Now.ToShortDateString());
+                string sqlExpression = $"select COUNT(ReviewID) from reviews where UserID = {Authorization.CurrentUser.ID} and GameID = {gameID}";
+                SqlCommand command = new SqlCommand(sqlExpression, connection);
+                try
+                {
+                    var state = Convert.ToInt32(command.ExecuteScalar());
+                    
+                    //MessageBox.Show("Отзыв добавлен!", "Новый отзыв", MessageBoxButton.OK, MessageBoxImage.Information);
+                    //MessageBox.Show(Convert.ToString(state));
+                    if(state > 0)
+                    {
+                        isSuccessful = true;
+                    }
                 }
                 catch (Exception ex)
                 {
