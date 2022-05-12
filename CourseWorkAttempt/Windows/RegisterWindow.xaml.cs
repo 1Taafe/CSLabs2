@@ -60,7 +60,7 @@ namespace CourseWorkAttempt.Windows
 
                 if (PasswordBox.Password.ToString().Count() > 0)
                 {
-                    newUser.Password = PasswordBox.Password.ToString();
+                    newUser.Password = Crypto.GetHash(PasswordBox.Password.ToString());
                 }
                 else
                 {
@@ -106,6 +106,7 @@ namespace CourseWorkAttempt.Windows
                 
                 if (ImageBox.Text.Count() > 0)
                 {
+                    var uriSource = new Uri(ImageBox.Text, UriKind.Absolute);
                     newUser.ImageURL = ImageBox.Text;
                 }
                 else
@@ -126,7 +127,15 @@ namespace CourseWorkAttempt.Windows
             catch(Exception ex)
             {
                 //MessageBox.Show(ex.Message, "Ошибка заполнения формы", MessageBoxButton.OK, MessageBoxImage.Warning);
-                ErrorMessageBlock.Text = "* " + ex.Message;
+                if (ex.Message.Contains("URI"))
+                {
+                    ErrorMessageBlock.Text = "* " + "Ссылка на изображение в неверном формате";
+                }
+                else
+                {
+                    ErrorMessageBlock.Text = "* " + ex.Message;
+                }
+                
             }
             
         }

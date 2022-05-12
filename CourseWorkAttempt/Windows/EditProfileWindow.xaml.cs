@@ -69,9 +69,16 @@ namespace CourseWorkAttempt.Windows
                     throw new Exception("Имя пользователя должно содержать не более 15 символов.");
                 }
 
-                if (PasswordBox.Password.ToString() == Authorization.CurrentUser.Password.ToString())
+                if (Crypto.GetHash(PasswordBox.Password.ToString()) == Authorization.CurrentUser.Password.ToString())
                 {
-                    Authorization.CurrentUser.Password = NewPasswordBox.Password.ToString();
+                    if(NewPasswordBox.Password.ToString().Length > 0)
+                    {
+                        Authorization.CurrentUser.Password = Crypto.GetHash(NewPasswordBox.Password.ToString());
+                    }
+                    else
+                    {
+                        Authorization.CurrentUser.Password = Crypto.GetHash(PasswordBox.Password.ToString());
+                    }
                 }
                 else
                 {
@@ -116,6 +123,7 @@ namespace CourseWorkAttempt.Windows
 
                 if (ImageBox.Text.Count() > 0)
                 {
+                    var uriSource = new Uri(ImageBox.Text, UriKind.Absolute);
                     Authorization.CurrentUser.ImageURL = ImageBox.Text;
                 }
                 else
@@ -147,7 +155,15 @@ namespace CourseWorkAttempt.Windows
             catch (Exception ex)
             {
                 //MessageBox.Show(ex.Message, "Ошибка заполнения формы", MessageBoxButton.OK, MessageBoxImage.Warning);
-                ErrorMessageBlock.Text = "* " + ex.Message;
+                if(ex.Message.Contains("Invalid URI"))
+                {
+                    ErrorMessageBlock.Text = "* " + "Ссылка на изображение в неверном формате";
+                }
+                else
+                {
+                    ErrorMessageBlock.Text = "* " + ex.Message;
+                }
+                
             }
         }
 

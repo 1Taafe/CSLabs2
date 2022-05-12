@@ -1,4 +1,5 @@
 ﻿using CourseWorkAttempt.Auth;
+using CourseWorkAttempt.Classes;
 using CourseWorkAttempt.Windows;
 using System;
 using System.Collections.Generic;
@@ -45,6 +46,12 @@ namespace CourseWorkAttempt.Pages
                 MainWindow.link.navigationService.Navigate(MainWindow.link.MainPage);
                 Authorization.DeleteAccount();
                 MainPage.link.DisconnectButton_Click(sender, e);
+                if(Users.link != null)
+                {
+                    Users.link.UsersList.ItemsSource = null;
+                    Users.link.UsersList.ItemsSource = User.GetList();
+                }
+                
             }
             
         }

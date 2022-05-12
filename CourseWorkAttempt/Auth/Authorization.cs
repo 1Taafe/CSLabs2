@@ -19,8 +19,9 @@ namespace CourseWorkAttempt.Auth
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
+                string passwordHash = Crypto.GetHash(password);
                 connection.Open();
-                string sqlExpression = $"SELECT * FROM Users WHERE Password = '{password}' and Nickname = '{nickname}'";
+                string sqlExpression = $"SELECT * FROM Users WHERE Password = '{passwordHash}' and Nickname = '{nickname}'";
                 SqlCommand command = new SqlCommand(sqlExpression, connection);
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
