@@ -8,6 +8,7 @@ using System.Windows;
 
 namespace lab11
 {
+    /*	Scaffold-DbContext "строка подключения" провайдер_бд*/
     public static class Agregato
     {
         public static AgregatoContext db;
