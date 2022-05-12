@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CourseWorkAttempt"
         mc:Ignorable="d"
-        Title="Agregato" Height="600" Width="1024" MinHeight="600" MinWidth="1024">
+        Title="Agregato" Height="600" Width="1024" MinHeight="600" MinWidth="1024" Icon="/AgregatoIcon.png">
     <Window.Resources>
         <Style x:Key="FocusVisual">
             <Setter Property="Control.Template">
