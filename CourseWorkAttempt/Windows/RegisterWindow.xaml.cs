@@ -103,8 +103,22 @@ namespace CourseWorkAttempt.Windows
                     throw new Exception("Введите адрес электронной почты и повторите попытку.");
                 }
 
+                
+                if (ImageBox.Text.Count() > 0)
+                {
+                    newUser.ImageURL = ImageBox.Text;
+                }
+                else
+                {
+                    newUser.ImageURL = @"https://tattoo-stickers.ru/42743-large_default/pokemon-charmander.jpg"; //default
+                }
                 if (Authorization.RegisterAccount(newUser))
                 {
+                    if (Users.link != null)
+                    {
+                        Users.link.UsersList.ItemsSource = null;
+                        Users.link.UsersList.ItemsSource = User.GetList();
+                    }
                     MainPage.link.UsernameBox.Text = newUser.Nickname;
                     Close();
                 }
@@ -120,6 +134,22 @@ namespace CourseWorkAttempt.Windows
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             isOpened = false;
+        }
+
+        private void ImageBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            try
+            {
+                if (ImageBox.Text.Length > 8)
+                {
+                    var uriSource = new Uri(ImageBox.Text, UriKind.Absolute);
+                    ImageObject.Source = new BitmapImage(uriSource);
+                }
+            }
+            catch
+            {
+
+            }
         }
     }
 }

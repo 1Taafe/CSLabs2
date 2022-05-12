@@ -1,4 +1,5 @@
-﻿using CourseWorkAttempt.Classes;
+﻿using CourseWorkAttempt.Auth;
+using CourseWorkAttempt.Classes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,6 +37,11 @@ namespace CourseWorkAttempt.Pages
             SurnameLabel.Text = openedUser.Surname;
             EmailLabel.Text = openedUser.Email;
             PhoneLabel.Text = "";
+            if (openedUser.ImageURL.Length > 8)
+            {
+                var uriSource = new Uri(openedUser.ImageURL, UriKind.Absolute);
+                ImageObject.Source = new BitmapImage(uriSource);
+            }
             UserGamesList.ItemsSource = Review.GetTopGames(openedUser.ID);
         }
 

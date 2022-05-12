@@ -21,6 +21,8 @@ namespace CourseWorkAttempt.Classes
         public string? PhoneNumber { get; set; }
         public string? Email { get; set; }
         public bool IsAdmin { get; set; }
+        
+        public string? ImageURL { get; set; }
 
         public override string ToString()
         {
@@ -45,7 +47,8 @@ Password = '{updatedUser.Password}',
 Surname = '{updatedUser.Surname}',
 Name = '{updatedUser.Name}',
 Email = '{updatedUser.Email}',
-PhoneNumber = '{updatedUser.PhoneNumber}'
+PhoneNumber = '{updatedUser.PhoneNumber}',
+UserImage = '{updatedUser.ImageURL}'
 where UserID = {updatedUser.ID}";
                 SqlCommand command = new SqlCommand(sqlExpression, connection);
                 try
@@ -85,6 +88,7 @@ where UserID = {updatedUser.ID}";
                             user.PhoneNumber = reader["PhoneNumber"] as string;
                             user.Email = reader["Email"] as string;
                             user.IsAdmin = (bool)reader["IsAdmin"];
+                            user.ImageURL = reader["UserImage"] as string;
                             usersCollection.Add(user);
                             //var game = new Game();
                             //var publisher = new Publisher();

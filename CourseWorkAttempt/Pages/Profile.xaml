@@ -23,32 +23,32 @@
                 <DropShadowEffect Opacity="0.16" BlurRadius="16"/>
             </Rectangle.Effect>
         </Rectangle>
-        <Rectangle RadiusX="24" RadiusY="24" HorizontalAlignment="Center" Height="64" Grid.Row="1" VerticalAlignment="Top" Width="60" Fill="#FFFF0505" Grid.Column="1" Margin="0,31,0,0">
+        <Rectangle RadiusX="24" RadiusY="24" HorizontalAlignment="Center" Height="64" Grid.Row="1" VerticalAlignment="Top" Width="60" Fill="#FFFF0505" Grid.Column="1" Margin="0,15,0,0">
             <Rectangle.Effect>
                 <DropShadowEffect Color="#FFFF0505" Direction="0" BlurRadius="60" Opacity="0.7"/>
             </Rectangle.Effect>
         </Rectangle>
-        <Rectangle RadiusX="24" RadiusY="24" HorizontalAlignment="Center" Height="64" Grid.Row="1" VerticalAlignment="Top" Width="134" Fill="#FFFF8100" Grid.Column="1" Margin="0,59,0,0">
+        <Rectangle RadiusX="24" RadiusY="24" HorizontalAlignment="Center" Height="64" Grid.Row="1" VerticalAlignment="Top" Width="134" Fill="#FFFF8100" Grid.Column="1" Margin="0,43,0,0">
             <Rectangle.Effect>
                 <DropShadowEffect Color="#FFFF8100" Direction="0" BlurRadius="60" Opacity="0.7"/>
             </Rectangle.Effect>
         </Rectangle>
-        <Rectangle RadiusX="24" RadiusY="24" HorizontalAlignment="Center" Height="64" Grid.Row="1" VerticalAlignment="Top" Width="60" Fill="#FFEBD82B" Grid.Column="1" Margin="0,283,0,0">
+        <Rectangle RadiusX="24" RadiusY="24" HorizontalAlignment="Center" Height="64" Grid.Row="1" VerticalAlignment="Top" Width="60" Fill="#FFEBD82B" Grid.Column="1" Margin="0,357,0,0">
             <Rectangle.Effect>
                 <DropShadowEffect Color="#FFEBD82B" Direction="0" BlurRadius="60" Opacity="0.7"/>
             </Rectangle.Effect>
         </Rectangle>
-        <Rectangle RadiusX="24" RadiusY="24" HorizontalAlignment="Center" Height="64" Grid.Row="1" VerticalAlignment="Top" Width="107" Fill="#FF009AFF" Grid.Column="1" Margin="0,257,0,0">
+        <Rectangle RadiusX="24" RadiusY="24" HorizontalAlignment="Center" Height="64" Grid.Row="1" VerticalAlignment="Top" Width="108" Fill="#FF009AFF" Grid.Column="1" Margin="0,331,0,0">
             <Rectangle.Effect>
                 <DropShadowEffect Color="#FF009AFF" Direction="0" BlurRadius="60" Opacity="0.7"/>
             </Rectangle.Effect>
         </Rectangle>
-        <Rectangle RadiusX="24" RadiusY="24" HorizontalAlignment="Center" Height="64" Grid.Row="1" VerticalAlignment="Top" Width="172" Fill="#FFD700FF" Grid.Column="1" Margin="0,225,0,0">
+        <Rectangle RadiusX="24" RadiusY="24" HorizontalAlignment="Center" Height="64" Grid.Row="1" VerticalAlignment="Top" Width="172" Fill="#FFD700FF" Grid.Column="1" Margin="0,300,0,0">
             <Rectangle.Effect>
                 <DropShadowEffect Color="#FFD700FF" Direction="0" BlurRadius="60" Opacity="0.7"/>
             </Rectangle.Effect>
         </Rectangle>
-        <TextBlock FontWeight="SemiBold" TextAlignment="Center" FontSize="44" x:Name="ProfileUsername" Grid.Column="1" HorizontalAlignment="Center" Margin="0,143,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Username" VerticalAlignment="Top" Width="450" Height="64"/>
+        <TextBlock FontWeight="SemiBold" TextAlignment="Center" FontSize="44" x:Name="ProfileUsername" Grid.Column="1" HorizontalAlignment="Center" Margin="0,217,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Username" VerticalAlignment="Top" Width="450" Height="64"/>
         <TextBlock x:Name="SurnameLabel" FontSize="22" HorizontalAlignment="Center" Margin="0,47,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Surname" VerticalAlignment="Top" Height="37" Width="309">
             <TextBlock.Effect>
                 <DropShadowEffect BlurRadius="60" Opacity="0.5" Direction="0"/>
@@ -57,6 +57,13 @@
         <TextBlock x:Name="NameLabel" FontSize="22" HorizontalAlignment="Center" Margin="0,74,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Height="37" Width="309"/>
         <TextBlock x:Name="EmailLabel" FontStyle="Italic" FontSize="20" HorizontalAlignment="Center" Margin="0,119,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top" Height="37" Width="309"/>
         <TextBlock x:Name="PhoneLabel" FontStyle="Italic" FontSize="20" HorizontalAlignment="Center" Margin="0,145,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Phone" VerticalAlignment="Top" Height="37" Width="308"/>
+
+        <Image x:Name="ImageObject" Margin="0,136,0,0" HorizontalAlignment="Center" 
+                           Height="80" VerticalAlignment="Top" Width="80" Grid.Row="1" Grid.Column="1">
+            <Image.Clip>
+                <EllipseGeometry Center="40,40" RadiusX="40" RadiusY="40" />
+            </Image.Clip>
+        </Image>
         <Button Click="EditWindowButton_Click" Style="{DynamicResource MainRegister}" Foreground="White" Padding="36,14,36,14" x:Name="EditWindowButton" Content="Редактирование" HorizontalAlignment="Center" Margin="0,274,0,0" Grid.Row="1" VerticalAlignment="Top">
             <Button.BorderBrush>
                 <LinearGradientBrush EndPoint="0,0" StartPoint="1,0">

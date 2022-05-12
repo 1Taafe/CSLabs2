@@ -23,9 +23,11 @@ namespace CourseWorkAttempt.Pages
     /// </summary>
     public partial class Users : Page
     {
+        public static Users link;
         public Users()
         {
             InitializeComponent();
+            link = this;
             UsersList.ItemsSource = User.GetList();
         }
 

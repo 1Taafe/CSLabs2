@@ -5,17 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CourseWorkAttempt.Windows"
         mc:Ignorable="d"
-        Title="Редактирование" Height="720" Width="450" MinWidth="400">
+        Title="Редактирование" Height="780" Width="450" MinWidth="450">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <ScrollViewer>
-            <StackPanel MaxWidth="600" Height="680" Grid.Column="0" ScrollViewer.CanContentScroll="True" HorizontalAlignment="Stretch" VerticalAlignment="Top">
-                <TextBlock Margin="24,16,24,32" Text="Изменение профиля" TextWrapping="Wrap" FontSize="36" FontWeight="Bold" Width="347" HorizontalAlignment="Left"/>
+            <StackPanel MaxWidth="600" Height="700" Grid.Column="0" ScrollViewer.CanContentScroll="True" HorizontalAlignment="Stretch" VerticalAlignment="Top">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Margin="24,16,24,32" Text="Изменение профиля" TextWrapping="Wrap" FontSize="36" FontWeight="Bold" Width="246"/>
+                    <Image x:Name="ImageObject" Margin="-10,-10,0,0" HorizontalAlignment="Center"
+                           Height="80" VerticalAlignment="Center" Width="80" Grid.Row="1" Grid.Column="1">
+                        <Image.Clip>
+                            <EllipseGeometry Center="40,40" RadiusX="40" RadiusY="40" />
+                        </Image.Clip>
+                    </Image>
+                </StackPanel>
                 <Label Margin="24, 0 , 24, 0" Content="Имя пользователя (Nickname)" />
                 <TextBox Style="{DynamicResource RegisterBox}" Padding="4" x:Name="NicknameBox" Margin="24, 0 , 24, 4" />
-                <Label Margin="24, 0 , 24, 0" Content="Текущий пароль" />
+                <Label Margin="24, 0 , 24, 0" Content="Пароль" />
                 <PasswordBox Style="{DynamicResource RegisterPasswordBox}" Padding="4" x:Name="PasswordBox" Margin="24, 0 , 24, 4" />
                 <Label Margin="24, 0 , 24, 0" Content="Новый пароль" />
                 <PasswordBox Style="{DynamicResource RegisterPasswordBox}" Padding="4" x:Name="NewPasswordBox" Margin="24, 0 , 24, 4" />
@@ -27,10 +35,14 @@
                 <TextBox Style="{DynamicResource RegisterBox}" Padding="4" x:Name="PhoneBox" Margin="24, 0 , 24, 4" />
                 <Label Margin="24, 0 , 24, 0" Content="E-mail" />
                 <TextBox Style="{DynamicResource RegisterBox}" Padding="4" x:Name="EmailBox" Margin="24, 0 , 24, 4" />
-                <TextBlock TextWrapping="Wrap" x:Name="ErrorMessageBlock" Margin="24,6,24,0" Padding="4" Text="" Foreground="Red"></TextBlock>
+                <Label Margin="24, 0 , 24, 0" Content="Ссылка на иконку профиля" />
+                <TextBox TextChanged="ImageBox_TextChanged" Style="{DynamicResource RegisterBox}" Padding="4" x:Name="ImageBox" Margin="24, 0 , 24, 4" />
+                <TextBlock Foreground="Gray" Margin="32, 0, 32, 0" TextWrapping="Wrap" Text="Если поле не заполнено, будет использована иконка по умолчанию. Рекомендуются изображения 1:1. Предпросмотр доступен после вставки ссылки" />
+                <TextBlock TextWrapping="Wrap" x:Name="ErrorMessageBlock" Margin="24,8,24,0" Padding="4" Text="" Foreground="Red" Height="78"></TextBlock>
             </StackPanel>
         </ScrollViewer>
         <Grid Height="60" VerticalAlignment="Bottom">
+            
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>

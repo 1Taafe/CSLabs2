@@ -57,6 +57,14 @@ namespace CourseWorkAttempt.Pages
                 {
                     CurrentGame.link.CommentButton.IsEnabled = true;
                 }
+
+
+                if (Authorization.CurrentUser.ImageURL.Length > 8)
+                {
+                    var uriSource = new Uri(Authorization.CurrentUser.ImageURL, UriKind.Absolute);
+                    profilePage.ImageObject.Source = new BitmapImage(uriSource);
+                }
+                
             }
         }
 

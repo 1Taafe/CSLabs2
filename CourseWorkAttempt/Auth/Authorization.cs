@@ -36,6 +36,7 @@ namespace CourseWorkAttempt.Auth
                             object PhoneNumber = reader["PhoneNumber"];
                             object Email = reader["Email"];
                             object isAdmin = reader["isAdmin"];
+                            object ImageURL = reader["UserImage"];
                             CurrentUser = new User();
                             CurrentUser.ID = (int)ID;
                             CurrentUser.Nickname = Nickname as string;
@@ -45,6 +46,7 @@ namespace CourseWorkAttempt.Auth
                             CurrentUser.PhoneNumber = PhoneNumber as string;
                             CurrentUser.Email = Email as string;
                             CurrentUser.IsAdmin = (bool)isAdmin;
+                            CurrentUser.ImageURL = ImageURL as string;
                             //MessageBox.Show(CurrentUser.ToString());
                         }
                     }
@@ -73,7 +75,7 @@ namespace CourseWorkAttempt.Auth
                 connection.Open();
                 string sqlExpression = $"Insert into Users values ('{newUser.Nickname}', " +
                     $"'{newUser.Password}', '{newUser.Surname}', '{newUser.Name}', " +
-                    $"'{newUser.Email}', '{newUser.PhoneNumber}', 0)";
+                    $"'{newUser.Email}', '{newUser.PhoneNumber}', 0, '{newUser.ImageURL}')";
                 SqlCommand command = new SqlCommand(sqlExpression, connection);
                 try
                 {

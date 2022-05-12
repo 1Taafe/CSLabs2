@@ -25,6 +25,7 @@ namespace CourseWorkAttempt.Pages
         public Profile()
         {
             InitializeComponent();
+            
         }
 
         private void EditWindowButton_Click(object sender, RoutedEventArgs e)

@@ -34,6 +34,7 @@ namespace CourseWorkAttempt.Windows
             NicknameBox.Text = Authorization.CurrentUser.Nickname;
             EmailBox.Text = Authorization.CurrentUser.Email;
             PhoneBox.Text = Authorization.CurrentUser.PhoneNumber;
+            ImageBox.Text = Authorization.CurrentUser.ImageURL;
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -113,6 +114,15 @@ namespace CourseWorkAttempt.Windows
                     throw new Exception("Введите адрес электронной почты и повторите попытку.");
                 }
 
+                if (ImageBox.Text.Count() > 0)
+                {
+                    Authorization.CurrentUser.ImageURL = ImageBox.Text;
+                }
+                else
+                {
+                    Authorization.CurrentUser.ImageURL = @"https://tattoo-stickers.ru/42743-large_default/pokemon-charmander.jpg"; //default
+                }
+
                 MainPage.link.UsernameBox.Text = Authorization.CurrentUser.Nickname;
                 if(User.UpdateUser())
                 {
@@ -122,6 +132,14 @@ namespace CourseWorkAttempt.Windows
                     MainWindow.link.ProfilePage.NameLabel.Text = Authorization.CurrentUser.Name;
                     MainWindow.link.ProfilePage.PhoneLabel.Text = Authorization.CurrentUser.PhoneNumber;
                     MainWindow.link.ProfilePage.EmailLabel.Text = Authorization.CurrentUser.Email;
+                    var uriSource = new Uri(Authorization.CurrentUser.ImageURL, UriKind.Absolute);
+                    MainWindow.link.ProfilePage.ImageObject.Source = new BitmapImage(uriSource);
+
+                    if (Users.link != null)
+                    {
+                        Users.link.UsersList.ItemsSource = null;
+                        Users.link.UsersList.ItemsSource = User.GetList();
+                    }
                     Close();
                 }
                 
@@ -130,6 +148,22 @@ namespace CourseWorkAttempt.Windows
             {
                 //MessageBox.Show(ex.Message, "Ошибка заполнения формы", MessageBoxButton.OK, MessageBoxImage.Warning);
                 ErrorMessageBlock.Text = "* " + ex.Message;
+            }
+        }
+
+        private void ImageBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            try
+            {
+                if (ImageBox.Text.Length > 8)
+                {
+                    var uriSource = new Uri(ImageBox.Text, UriKind.Absolute);
+                    ImageObject.Source = new BitmapImage(uriSource);
+                }
+            }
+            catch
+            {
+
             }
         }
     }

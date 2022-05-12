@@ -22,13 +22,17 @@
                  ItemContainerStyle="{DynamicResource ItemStyle}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <StackPanel Orientation="Vertical" Width="260" VerticalAlignment="Center" Margin="6,0,0,0">
-                            <TextBlock Padding="24,24,24,0" FontWeight="Normal" x:Name="NicknameBlock" Margin="0,0,0,0" HorizontalAlignment="Center" TextWrapping="Wrap" 
+                    <StackPanel Orientation="Vertical" Width="260" VerticalAlignment="Center" Margin="6,0,0,0">
+                        <Image x:Name="ImageObject" Margin="0,16,0,0" Source="{Binding Path=ImageURL}" HorizontalAlignment="Center" 
+                           Height="80" VerticalAlignment="Top" Width="80">
+                            <Image.Clip>
+                                <EllipseGeometry Center="40,40" RadiusX="40" RadiusY="40" />
+                            </Image.Clip>
+                        </Image>
+                        <TextBlock Padding="24,8,24,0" FontWeight="Normal" x:Name="NicknameBlock" Margin="0,0,0,0" HorizontalAlignment="Center" TextWrapping="Wrap" 
                                    Text="{Binding Path=Nickname}" FontSize="26" VerticalAlignment="Top"/>
-                            <TextBlock x:Name="IDBlock" Padding="24,0,24,24" Margin="0,0,0,0" HorizontalAlignment="Center" TextWrapping="Wrap" 
+                        <TextBlock x:Name="IDBlock" Padding="24,0,24,24" Margin="0,0,0,0" HorizontalAlignment="Center" TextWrapping="Wrap" 
                                    Text="{Binding Path=ID}" FontStyle="Italic" FontSize="11"/>
-                        </StackPanel>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
