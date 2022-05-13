@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="AgregatoIcon.png" />
+    <None Remove="Windows\AgregatoIcon.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="AgregatoIcon.png" />
+    <Resource Include="Windows\AgregatoIcon.png" />
   </ItemGroup>
 
 </Project>

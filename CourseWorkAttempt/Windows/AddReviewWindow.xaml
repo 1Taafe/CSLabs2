@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CourseWorkAttempt.Windows"
         mc:Ignorable="d"
-        Title="Редактирование" Height="730" Width="450" MinWidth="400" Icon="/AgregatoIcon.png">
+        WindowStartupLocation="CenterScreen"
+        Title="Редактирование" Height="730" Width="450" MinWidth="400" Icon="/Windows/AgregatoIcon.png">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
