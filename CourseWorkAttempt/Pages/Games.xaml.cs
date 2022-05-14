@@ -1,4 +1,5 @@
 ﻿using CourseWorkAttempt.Classes;
+using CourseWorkAttempt.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,11 +23,15 @@ namespace CourseWorkAttempt.Pages
     /// </summary>
     public partial class Games : Page
     {
+        public static Games link;
         public Games()
         {
             InitializeComponent();
             GenreBox.SelectedIndex = 0;
             GameList.ItemsSource = Game.GetList();
+            AddGameButton.IsEnabled = false;
+            AddGameButton.Visibility = Visibility.Hidden;
+            link = this;
         }
 
         private void GameList_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -90,6 +95,16 @@ namespace CourseWorkAttempt.Pages
                 }
                 GameList.ItemsSource = null;
                 GameList.ItemsSource = tempList;
+            }
+        }
+
+        private void AddGameButton_Click(object sender, RoutedEventArgs e)
+        {
+            if(AddGameWindow.isOpened == false)
+            {
+                AddGameWindow.isOpened = true;
+                AddGameWindow agw = new();
+                agw.Show();
             }
         }
     }

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:CourseWorkAttempt.Windows"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="Редактирование" Height="730" Width="450" MinWidth="400" Icon="/Windows/AgregatoIcon.png">
+        Title="Добавление" Height="730" Width="450" MinWidth="400" Icon="/Windows/AgregatoIcon.png">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>

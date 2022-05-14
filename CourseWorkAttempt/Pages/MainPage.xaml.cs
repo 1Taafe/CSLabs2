@@ -53,6 +53,12 @@ namespace CourseWorkAttempt.Pages
                 MainWindow.link.ProfilePageButton.IsEnabled = true;
                 ErrorBlock.Text = null;
 
+                if(Authorization.CurrentUser.IsAdmin == true && Games.link != null)
+                {
+                    Games.link.AddGameButton.IsEnabled = true;
+                    Games.link.AddGameButton.Visibility = Visibility.Visible;
+                }
+
                 if (CurrentGame.link != null)
                 {
                     CurrentGame.link.CommentButton.IsEnabled = true;
@@ -90,6 +96,9 @@ namespace CourseWorkAttempt.Pages
                 profilePage.EmailLabel.Text = null;
                 profilePage.PhoneLabel.Text = null;
                 MainWindow.link.ProfilePageButton.IsEnabled = false;
+
+                Games.link.AddGameButton.IsEnabled = false;
+                Games.link.AddGameButton.Visibility = Visibility.Hidden;
 
                 if (CurrentGame.link != null)
                 {

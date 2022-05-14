@@ -1,0 +1,91 @@
+﻿<Window FontFamily="Verdana" Closing="Window_Closing" x:Class="CourseWorkAttempt.Windows.AddGameWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CourseWorkAttempt.Windows"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="Новая игра" Height="600" Width="940" MinWidth="940" Icon="/Windows/AgregatoIcon.png">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <ScrollViewer>
+            <StackPanel Orientation="Horizontal" Width="920" Height="620" Grid.Column="0" ScrollViewer.CanContentScroll="True" HorizontalAlignment="Center" VerticalAlignment="Top">
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock VerticalAlignment="Center" Margin="36,16,24,32" Text="Добавление игры" TextWrapping="Wrap" FontSize="36" FontWeight="Bold" Width="347" HorizontalAlignment="Left"/>
+                        <Image x:Name="ImageObject" Margin="300,16,16,24" HorizontalAlignment="Right" 
+                           Height="140" VerticalAlignment="Center" Width="140" Source="C:\Users\dima7\Downloads\photo_2022-02-27_21-24-32.jpg">
+                            <Image.Clip>
+                                <EllipseGeometry Center="70,70" RadiusX="70" RadiusY="70" />
+                            </Image.Clip>
+                        </Image>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel Margin="16,0,0,0" MinWidth="440" MaxWidth="440" Orientation="Vertical">
+
+                            <Label Margin="24, 0 , 24, 0" Content="Название игры" />
+                            <TextBox Style="{DynamicResource RegisterBox}" Padding="4" x:Name="NameBox" Margin="24, 0 , 24, 4" />
+                            <Label Margin="24, 0 , 24, 0" Content="Дата выхода" />
+                            <DatePicker Padding="4" Margin="24, 0 , 24, 4" x:Name="ReleaseDatePicker" />
+                            <Label Margin="24, 0 , 24, 0" Content="Описание" />
+                            <TextBox Height="200" Style="{DynamicResource RegisterBox}" Padding="4" x:Name="DescriptionBox" TextWrapping="Wrap" Margin="24, 0 , 24, 4" />
+                        </StackPanel>
+                        <StackPanel Margin="16,0,0,0" MinWidth="440" MaxWidth="440" Orientation="Vertical">
+                            <Label Margin="24, 0 , 24, 0" Content="Ссылка на изображение" />
+                            <TextBox Style="{DynamicResource RegisterBox}" Padding="4" x:Name="ImageBox" Margin="24, 0 , 24, 4" />
+                            <Label Margin="24, 56 , 24, 0" Content="Разработчик" />
+                            <TextBox Style="{DynamicResource RegisterBox}" Padding="4" x:Name="DevBox" Margin="24, 0 , 24, 4" />
+                            <Label Margin="24, 0 , 24, 0" Content="Страна разработчика" />
+                            <TextBox Style="{DynamicResource RegisterBox}" Padding="4" x:Name="DevCountryBox" Margin="24, 0 , 24, 4" />
+
+                            <Label Margin="24, 15 , 24, 0" Content="Издатель" />
+                            <TextBox Style="{DynamicResource RegisterBox}" Padding="4" x:Name="PubBox" Margin="24, 0 , 24, 4" />
+                            <Label Margin="24, 0 , 24, 0" Content="Страна издателя" />
+                            <TextBox Style="{DynamicResource RegisterBox}" Padding="4" x:Name="PubCountryBox" Margin="24, 0 , 24, 4" />
+
+                        </StackPanel>
+                    </StackPanel>
+                    <TextBlock TextWrapping="Wrap" x:Name="ErrorMessageBlock" Margin="48,8,48,0" Padding="4" Text="" Foreground="Red" Height="78"></TextBlock>
+                </StackPanel>
+               
+            </StackPanel>
+        </ScrollViewer>
+        <Grid Height="60" VerticalAlignment="Bottom">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="CancelButton" FontSize="20" Content="Отмена" Grid.Column="0" BorderThickness="0,0,0,0" Foreground="White" Click="CancelButton_Click">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="1,0" StartPoint="0,0">
+                        <GradientStop Color="#FFE58545" Offset="1"/>
+                        <GradientStop Color="Red" Offset="0"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="1,0" StartPoint="0,0">
+                        <GradientStop Color="#FFE58545" Offset="1"/>
+                        <GradientStop Color="Red" Offset="0"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button x:Name="AddGameButton" FontSize="20" Content="Добавить" Grid.Column="1" BorderThickness="0,0,0,0" Foreground="White" Click="AddGameButton_Click">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0,0" StartPoint="1,0">
+                        <GradientStop Color="#FF9DDF03" Offset="1"/>
+                        <GradientStop Color="#FF0EAE0C" Offset="0"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0,0" StartPoint="1,0">
+                        <GradientStop Color="#FF9DDF03" Offset="1"/>
+                        <GradientStop Color="#FF0EAE0C" Offset="0"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+        </Grid>
+    </Grid>
+</Window>
