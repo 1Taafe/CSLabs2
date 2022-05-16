@@ -1,10 +1,13 @@
 ﻿using CourseWorkAttempt.Auth;
+using CourseWorkAttempt.Pages;
+using CourseWorkAttempt.Windows;
 using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace CourseWorkAttempt.Classes
 {
@@ -23,7 +26,7 @@ namespace CourseWorkAttempt.Classes
         public string? ImageURL { get; set; }
         public override string ToString()
         {
-            return Name;
+            return Name + " " + Genre + " " + Platform;
         }
 
         //public static List<Game> Collection = new List<Game>();
@@ -76,5 +79,40 @@ namespace CourseWorkAttempt.Classes
                 return GamesCollection;
             }
         }
+
+        public static bool AddGame(Game game)
+        {
+            using (SqlConnection connection = new SqlConnection(Authorization.connectionString))
+            {
+                bool isSuccessful = false;
+                connection.Open();
+                string sqlExpression = @$"insert into Games values('{game.Name}', '{game.ReleaseDate}', 
+'{game.Description}', '{game.BuyURL}', {game.Publisher.ID}, {game.Developer.ID}, '{game.Platform}', '{game.Genre}', '{game.ImageURL}')";
+                SqlCommand command = new SqlCommand(sqlExpression, connection);
+                try
+                {
+                    var state = command.ExecuteNonQuery();
+                    MessageBox.Show("Игра добавлена!", "Новая игра", MessageBoxButton.OK, MessageBoxImage.Information);
+                    isSuccessful = true;
+                    Games.link.GameList.ItemsSource = null;
+                    Games.link.GameList.ItemsSource = GetList();
+                }
+                catch (Exception ex)
+                {
+                    //MessageBox.Show(ex.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    if (ex.Message.Contains("UNIQUE"))
+                    {
+                        AddGameWindow.link.ErrorMessageBlock.Text = "* Игра с таким названием уже находится в базе данных";
+                    }
+                    else
+                    {
+                        AddGameWindow.link.ErrorMessageBlock.Text = "* " + ex.Message;
+                    }
+                    
+                }
+                return isSuccessful;
+            }
+        }
+
     }
 }

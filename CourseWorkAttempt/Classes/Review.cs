@@ -22,6 +22,11 @@ namespace CourseWorkAttempt.Classes
 
         public int Rate { get; set; }
 
+        public override string ToString()
+        {
+            return Text;
+        }
+
         public static List<Review> GetTopGames(int userID)
         {
             using (SqlConnection connection = new SqlConnection(Authorization.connectionString))

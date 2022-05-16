@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:CourseWorkAttempt.Windows"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="Новая игра" Height="600" Width="940" MinWidth="940" Icon="/Windows/AgregatoIcon.png">
+        Title="Новая игра" MinHeight="700" Height="700" Width="940" MinWidth="940" Icon="/Windows/AgregatoIcon.png">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -16,10 +16,10 @@
                 <StackPanel Orientation="Vertical">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock VerticalAlignment="Center" Margin="36,16,24,32" Text="Добавление игры" TextWrapping="Wrap" FontSize="36" FontWeight="Bold" Width="347" HorizontalAlignment="Left"/>
-                        <Image x:Name="ImageObject" Margin="300,16,16,24" HorizontalAlignment="Right" 
-                           Height="140" VerticalAlignment="Center" Width="140" Source="C:\Users\dima7\Downloads\photo_2022-02-27_21-24-32.jpg">
+                        <Image x:Name="ImageObject" Margin="360,16,16,24" HorizontalAlignment="Right" 
+                           Height="100" VerticalAlignment="Center" Width="100">
                             <Image.Clip>
-                                <EllipseGeometry Center="70,70" RadiusX="70" RadiusY="70" />
+                                <EllipseGeometry Center="50,50" RadiusX="50" RadiusY="50" />
                             </Image.Clip>
                         </Image>
                     </StackPanel>
@@ -28,14 +28,27 @@
 
                             <Label Margin="24, 0 , 24, 0" Content="Название игры" />
                             <TextBox Style="{DynamicResource RegisterBox}" Padding="4" x:Name="NameBox" Margin="24, 0 , 24, 4" />
+                            <Label Margin="24, 0 , 24, 0" Content="Платформа" />
+                            <TextBox Style="{DynamicResource RegisterBox}" Padding="4" x:Name="PlatformBox" Margin="24, 0 , 24, 4" />
+                            <Label Margin="24, 0 , 24, 0" Content="Жанр" />
+                            <ComboBox x:Name="GenreBox" Padding="8,6,8,6" VerticalAlignment="Top" Margin="24,0,24,4">
+                                <ComboBoxItem Padding="8,6,8,6" Content="Аркады"></ComboBoxItem>
+                                <ComboBoxItem Padding="8,6,8,6" Content="Шутеры"></ComboBoxItem>
+                                <ComboBoxItem Padding="8,6,8,6" Content="Симуляторы"></ComboBoxItem>
+                                <ComboBoxItem Padding="8,6,8,6" Content="RPG"></ComboBoxItem>
+                                <ComboBoxItem Padding="8,6,8,6" Content="MOBA"></ComboBoxItem>
+                                <ComboBoxItem Padding="8,6,8,6" Content="Другое"></ComboBoxItem>
+                            </ComboBox>
                             <Label Margin="24, 0 , 24, 0" Content="Дата выхода" />
-                            <DatePicker Padding="4" Margin="24, 0 , 24, 4" x:Name="ReleaseDatePicker" />
+                            <DatePicker Style="{DynamicResource DatePickerStyle1}" Padding="4" Margin="24, 0 , 24, 4" x:Name="ReleaseDatePicker" FirstDayOfWeek="Monday" BorderBrush="#FFABADB3" />
                             <Label Margin="24, 0 , 24, 0" Content="Описание" />
-                            <TextBox Height="200" Style="{DynamicResource RegisterBox}" Padding="4" x:Name="DescriptionBox" TextWrapping="Wrap" Margin="24, 0 , 24, 4" />
+                            <TextBox Height="142" Style="{DynamicResource RegisterBox}" Padding="4" x:Name="DescriptionBox" TextWrapping="Wrap" Margin="24, 0 , 24, 4" />
                         </StackPanel>
                         <StackPanel Margin="16,0,0,0" MinWidth="440" MaxWidth="440" Orientation="Vertical">
                             <Label Margin="24, 0 , 24, 0" Content="Ссылка на изображение" />
-                            <TextBox Style="{DynamicResource RegisterBox}" Padding="4" x:Name="ImageBox" Margin="24, 0 , 24, 4" />
+                            <TextBox TextChanged="ImageBox_TextChanged" Style="{DynamicResource RegisterBox}" Padding="4" x:Name="ImageBox" Margin="24, 0 , 24, 4" />
+                            <Label Margin="24, 0 , 24, 0" Content="Ссылка на магазин" />
+                            <TextBox TextChanged="ImageBox_TextChanged" Style="{DynamicResource RegisterBox}" Padding="4" x:Name="BuyBox" Margin="24, 0 , 24, 4" />
                             <Label Margin="24, 56 , 24, 0" Content="Разработчик" />
                             <TextBox Style="{DynamicResource RegisterBox}" Padding="4" x:Name="DevBox" Margin="24, 0 , 24, 4" />
                             <Label Margin="24, 0 , 24, 0" Content="Страна разработчика" />
@@ -48,7 +61,7 @@
 
                         </StackPanel>
                     </StackPanel>
-                    <TextBlock TextWrapping="Wrap" x:Name="ErrorMessageBlock" Margin="48,8,48,0" Padding="4" Text="" Foreground="Red" Height="78"></TextBlock>
+                    <TextBlock TextWrapping="Wrap" x:Name="ErrorMessageBlock" Margin="48,8,24,0" Padding="4" Text="" Foreground="Red" Height="78"></TextBlock>
                 </StackPanel>
                
             </StackPanel>
