@@ -114,5 +114,28 @@ namespace CourseWorkAttempt.Classes
             }
         }
 
+        public static bool Delete(int id)
+        {
+            using (SqlConnection connection = new SqlConnection(Authorization.connectionString))
+            {
+                bool isSuccessful = false;
+                connection.Open();
+                string sqlExpression = $"delete Games where GameID = {id}";
+                SqlCommand command = new SqlCommand(sqlExpression, connection);
+                try
+                {
+                    var state = command.ExecuteNonQuery();
+                    MessageBox.Show("Игра удалена!", "Удаление", MessageBoxButton.OK, MessageBoxImage.Information);
+                    isSuccessful = true;
+                    Games.link.GameList.ItemsSource = null;
+                    Games.link.GameList.ItemsSource = GetList();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                return isSuccessful;
+            }
+        }
     }
 }

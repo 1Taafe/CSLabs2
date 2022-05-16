@@ -46,6 +46,11 @@ namespace CourseWorkAttempt.Pages
                 if(Authorization.CurrentUser != null)
                 {
                     CommentButton.IsEnabled = true;
+                    if(Authorization.CurrentUser.IsAdmin == true)
+                    {
+                        RemoveButton.IsEnabled = true;
+                        RemoveButton.Visibility = Visibility.Visible;
+                    }
                 }
                 GameImage.Source = BitmapFrame.Create(new Uri(currentGame.ImageURL));
                 NameBlock.Text = currentGame.Name;
@@ -70,6 +75,16 @@ namespace CourseWorkAttempt.Pages
                 AddReviewWindow.isOpened = true;
                 AddReviewWindow arw = new(CurrentGameObject);
                 arw.Show();
+            }
+        }
+
+        private void RemoveButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (MessageBox.Show("Вы действительно хотите удалить игру?", "Удаление игры", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+            {
+                MainWindow.link.navigationService.Navigate(MainWindow.link.GamesPage);
+                Game.Delete(CurrentGameObject.ID);
+
             }
         }
     }

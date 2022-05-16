@@ -64,6 +64,12 @@ namespace CourseWorkAttempt.Pages
                     CurrentGame.link.CommentButton.IsEnabled = true;
                 }
 
+                if(CurrentGame.link != null && Authorization.CurrentUser.IsAdmin == true)
+                {
+                    CurrentGame.link.RemoveButton.IsEnabled = true;
+                    CurrentGame.link.RemoveButton.Visibility = Visibility.Visible;
+                }
+
 
                 if (Authorization.CurrentUser.ImageURL.Length > 8)
                 {
@@ -103,6 +109,9 @@ namespace CourseWorkAttempt.Pages
                 if (CurrentGame.link != null)
                 {
                     CurrentGame.link.CommentButton.IsEnabled = false;
+
+                    CurrentGame.link.RemoveButton.IsEnabled = false;
+                    CurrentGame.link.RemoveButton.Visibility = Visibility.Hidden;
                 }
 
 
