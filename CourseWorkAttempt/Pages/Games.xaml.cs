@@ -27,6 +27,7 @@ namespace CourseWorkAttempt.Pages
         public Games()
         {
             InitializeComponent();
+            GenreBox.ItemsSource = Game.GetGenresWithAll();
             GenreBox.SelectedIndex = 0;
             GameList.ItemsSource = Game.GetList();
             AddGameButton.IsEnabled = false;
@@ -59,6 +60,7 @@ namespace CourseWorkAttempt.Pages
         {
             if (GenreBox.SelectedIndex != 0)
             {
+                string genre = "void";
                 Regex regex = new Regex(SearchBox.Text);
                 List<Game> tempList = new();
                 foreach (var g in Game.GetList())
@@ -69,7 +71,10 @@ namespace CourseWorkAttempt.Pages
                         tempList.Add(g);
                     }
                 }
-                string genre = (selectedItem as ComboBoxItem).Content.ToString();
+                if(selectedItem != null)
+                {
+                    genre = (selectedItem as ComboBoxItem).Content.ToString();
+                }          
                 List<Game> tempList2 = new();
                 foreach(var g in tempList)
                 {

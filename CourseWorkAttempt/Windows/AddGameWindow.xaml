@@ -32,13 +32,17 @@
                             <TextBox Style="{DynamicResource RegisterBox}" Padding="4" x:Name="PlatformBox" Margin="24, 0 , 24, 4" />
                             <Label Margin="24, 0 , 24, 0" Content="Жанр" />
                             <ComboBox x:Name="GenreBox" Padding="8,6,8,6" VerticalAlignment="Top" Margin="24,0,24,4">
-                                <ComboBoxItem Padding="8,6,8,6" Content="Аркады"></ComboBoxItem>
-                                <ComboBoxItem Padding="8,6,8,6" Content="Шутеры"></ComboBoxItem>
-                                <ComboBoxItem Padding="8,6,8,6" Content="Симуляторы"></ComboBoxItem>
-                                <ComboBoxItem Padding="8,6,8,6" Content="RPG"></ComboBoxItem>
-                                <ComboBoxItem Padding="8,6,8,6" Content="MOBA"></ComboBoxItem>
-                                <ComboBoxItem Padding="8,6,8,6" Content="Другое"></ComboBoxItem>
+                                <ComboBox.ItemContainerStyle>
+                                    <Style TargetType="ComboBoxItem">
+                                        <Setter Property="Padding" Value="8,6,8,6"></Setter>
+                                    </Style>
+                                </ComboBox.ItemContainerStyle>
                             </ComboBox>
+                            <Label Margin="24, 0 , 24, 0" Content="Новый жанр" />
+                            <StackPanel Margin="24,0,24,8" Orientation="Horizontal">
+                                <TextBox Width="240" Style="{DynamicResource RegisterBox}" Padding="4" x:Name="NewGenreBox" />
+                                <Button Click="NewGenreButton_Click" Margin="24,0,0,0" Width="128" Style="{DynamicResource MainRegister}" Grid.Column="1" x:Name="NewGenreButton" Content="Добавить"></Button>
+                            </StackPanel>
                             <Label Margin="24, 0 , 24, 0" Content="Дата выхода" />
                             <DatePicker Style="{DynamicResource DatePickerStyle1}" Padding="4" Margin="24, 0 , 24, 4" x:Name="ReleaseDatePicker" FirstDayOfWeek="Monday" BorderBrush="#FFABADB3" />
                             <Label Margin="24, 0 , 24, 0" Content="Описание" />

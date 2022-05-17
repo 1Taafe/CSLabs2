@@ -26,6 +26,7 @@ namespace CourseWorkAttempt.Windows
         {
             InitializeComponent();
             ReleaseDatePicker.SelectedDate = DateTime.Now;
+            GenreBox.ItemsSource = Game.GetGenres();
             link = this;
         }
 
@@ -227,6 +228,26 @@ namespace CourseWorkAttempt.Windows
             catch
             {
 
+            }
+        }
+
+        private void NewGenreButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (NewGenreBox.Text.Length < 1)
+                {
+                    throw new Exception("Введите жанр");
+                }
+                else
+                {
+                    Game.AddGenre(NewGenreBox.Text);
+                }
+            }
+            
+            catch(Exception ex)
+            {
+                ErrorMessageBlock.Text = "* " + ex.Message;
             }
         }
     }

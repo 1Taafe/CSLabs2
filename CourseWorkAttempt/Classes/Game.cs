@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace CourseWorkAttempt.Classes
 {
@@ -34,6 +35,99 @@ namespace CourseWorkAttempt.Classes
         {
 
         }
+
+        public static List<ComboBoxItem> GetGenres()
+        {
+            using (SqlConnection connection = new SqlConnection(Authorization.connectionString))
+            {
+                connection.Open();
+                string sqlExpression = $"select * from genres";
+                SqlCommand command = new SqlCommand(sqlExpression, connection);
+                List<ComboBoxItem> genreCollection = new();
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+
+                    if (reader.HasRows) // если есть данные
+                    {
+                        while (reader.Read()) // построчно считываем данные
+                        {
+                            string genre = reader["GenreName"] as string;
+                            ComboBoxItem item = new();
+                            item.Content = genre;
+                            genreCollection.Add(item);
+                        }
+                    }
+                }
+                return genreCollection;
+            }
+        }
+
+        public static List<ComboBoxItem> GetGenresWithAll()
+        {
+            using (SqlConnection connection = new SqlConnection(Authorization.connectionString))
+            {
+                connection.Open();
+                string sqlExpression = $"select * from genres";
+                SqlCommand command = new SqlCommand(sqlExpression, connection);
+                List<ComboBoxItem> genreCollection = new();
+                ComboBoxItem fitem = new();
+                fitem.Content = "Все";
+                genreCollection.Add(fitem);
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+
+                    if (reader.HasRows) // если есть данные
+                    {
+                        while (reader.Read()) // построчно считываем данные
+                        {
+                            string genre = reader["GenreName"] as string;
+                            ComboBoxItem item = new();
+                            item.Content = genre;
+                            genreCollection.Add(item);
+                        }
+                    }
+                }
+                return genreCollection;
+            }
+        }
+
+        public static bool AddGenre(string genre)
+        {
+            using (SqlConnection connection = new SqlConnection(Authorization.connectionString))
+            {
+                bool isSuccessful = false;
+                connection.Open();
+                string sqlExpression = @$"insert into Genres values('{genre}')";
+                SqlCommand command = new SqlCommand(sqlExpression, connection);
+                try
+                {
+                    var state = command.ExecuteNonQuery();
+                    MessageBox.Show("Жанр добавлен!", "Новая жанр", MessageBoxButton.OK, MessageBoxImage.Information);
+                    isSuccessful = true;
+                    Games.link.GenreBox.ItemsSource = GetGenresWithAll();
+                    if(AddGameWindow.link != null)
+                    {
+                        AddGameWindow.link.GenreBox.ItemsSource = GetGenres();
+                    }
+                    Games.link.GenreBox.ItemsSource = GetGenresWithAll();
+                }
+                catch (Exception ex)
+                {
+                    //MessageBox.Show(ex.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    if (ex.Message.Contains("UNIQUE"))
+                    {
+                        AddGameWindow.link.ErrorMessageBlock.Text = "* Жанр уже находится в базе данных";
+                    }
+                    else
+                    {
+                        AddGameWindow.link.ErrorMessageBlock.Text = "* " + ex.Message;
+                    }
+
+                }
+                return isSuccessful;
+            }
+        }
+
         public static List<Game> GetList()
         {
             using (SqlConnection connection = new SqlConnection(Authorization.connectionString))

@@ -15,20 +15,14 @@
         </Grid.RowDefinitions>
         <StackPanel Margin="32,4,32,0" Grid.Row="0" Orientation="Horizontal">
 
-            <ComboBox x:Name="GenreBox" SelectionChanged="GenreBox_SelectionChanged" Height="30" Background="#FF1467FF" Foreground="White" Width="140" Padding="8,5,8,5" VerticalAlignment="Top" Style="{StaticResource {x:Static ToolBar.ComboBoxStyleKey}}">
+            <ComboBox x:Name="GenreBox" SelectionChanged="GenreBox_SelectionChanged" Height="30" Background="#FF1467FF" Foreground="White" Width="170" Padding="8,5,8,5" VerticalAlignment="Top" Style="{StaticResource {x:Static ToolBar.ComboBoxStyleKey}}">
                 <ComboBox.ItemContainerStyle>
                     <Style TargetType="ComboBoxItem">
                         <Setter Property="Background" Value="#FF1467FF"/>
                         <Setter Property="BorderBrush" Value="#FF1467FF"/>
+                        <Setter Property="Padding" Value="8,6,8,6"></Setter>
                     </Style>
                 </ComboBox.ItemContainerStyle>
-                <ComboBoxItem Padding="8,6,8,6" Content="Все"></ComboBoxItem>
-                <ComboBoxItem Padding="8,6,8,6" Content="Аркады"></ComboBoxItem>
-                <ComboBoxItem Padding="8,6,8,6" Content="Шутеры"></ComboBoxItem>
-                <ComboBoxItem Padding="8,6,8,6" Content="Симуляторы"></ComboBoxItem>
-                <ComboBoxItem Padding="8,6,8,6" Content="RPG"></ComboBoxItem>
-                <ComboBoxItem Padding="8,6,8,6" Content="MOBA"></ComboBoxItem>
-                <ComboBoxItem Padding="8,6,8,6" Content="Другое"></ComboBoxItem>
             </ComboBox>
             <TextBox TextChanged="SearchBox_TextChanged" x:Name="SearchBox" BorderThickness="0.8" Padding="8,7,8,8" BorderBrush="#FF1467FF" Height="30" Width="280" Margin="16,0,0,0" VerticalAlignment="Top"/>
             <Label Foreground="White" Padding="8,7,8,8" Background="#FF1467FF" Height="30" Content="Поиск" VerticalAlignment="top" ></Label>
