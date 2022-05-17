@@ -47,6 +47,7 @@
             <TextBlock TextWrapping="Wrap" x:Name="DescriptionBlock" Margin="96,16,96,0" Text="Game description" FontSize="16" FontStyle="Italic"></TextBlock>
             <TextBlock TextWrapping="Wrap" x:Name="DeveloperBlock" Margin="96,16,96,0" Text="Developer:" FontSize="16"></TextBlock>
             <TextBlock TextWrapping="Wrap" x:Name="PublisherBlock" Margin="96,0,96,0" Text="Publisher:" FontSize="16"></TextBlock>
+            <TextBlock TextWrapping="Wrap" x:Name="AverageRateBlock" Margin="96,0,96,0" Text="Общий рейтинг: " FontSize="16"></TextBlock>
             <TextBlock TextWrapping="Wrap" x:Name="CommentTitle" Margin="64,32,64,0" Text="Отзывы" FontSize="48"></TextBlock>
                 <ListBox BorderBrush="White" x:Name="ReviewList" RenderTransformOrigin="0.499,0.496" Margin="0,0,-0.4,0.4" Grid.Row="1"
                  ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" HorizontalAlignment="Center"

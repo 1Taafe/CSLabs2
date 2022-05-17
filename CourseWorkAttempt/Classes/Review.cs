@@ -182,5 +182,29 @@ where GameID = {gameID} and UserID = {updatedUser.ID}";
                 return isSuccessful;
             }
         }
+
+
+        public static double GetAverageRate(int gameid)
+        {
+            using (SqlConnection connection = new SqlConnection(Authorization.connectionString))
+            {
+                double rate = 0;
+                connection.Open();
+                string sqlExpression = $"select AVG(Cast(rating as Float)) as rating from Reviews where GameID = {gameid}";
+                SqlCommand command = new SqlCommand(sqlExpression, connection);
+                try
+                {
+                    var state = Convert.ToDouble(command.ExecuteScalar());
+                    rate = state;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    //AddReviewWindow.link.ErrorMessageBlock.Text = "* " + ex.Message;
+                }
+                return Math.Round(rate, 1);
+            }
+        }
+
     }
 }

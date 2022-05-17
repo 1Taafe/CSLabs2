@@ -38,6 +38,7 @@ namespace CourseWorkAttempt.Pages
             InitializeComponent();
             Game currentGame = game as Game;
             CurrentGameObject = currentGame;
+            AverageRateBlock.Text = "Общий рейтинг: " + Convert.ToString(Review.GetAverageRate(CurrentGameObject.ID));
             ReviewList.ItemsSource = Review.GetCurrentGameReviews(currentGame.ID);
             link = this;
             ShopURL = currentGame.BuyURL;
