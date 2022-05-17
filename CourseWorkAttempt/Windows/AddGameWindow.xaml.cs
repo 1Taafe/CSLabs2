@@ -27,6 +27,7 @@ namespace CourseWorkAttempt.Windows
             InitializeComponent();
             ReleaseDatePicker.SelectedDate = DateTime.Now;
             GenreBox.ItemsSource = Game.GetGenres();
+            PlatformBox.ItemsSource = Game.GetPlatforms();
             link = this;
         }
 
@@ -79,11 +80,12 @@ namespace CourseWorkAttempt.Windows
 
                 if (PlatformBox.Text.Length < 1)
                 {
-                    throw new Exception("Укажите платформу");
+                    throw new Exception("Выберите платформу");
                 }
                 else
                 {
-                    game.Platform = PlatformBox.Text;
+                    string platform = (PlatformBox.SelectedItem as ComboBoxItem).Content.ToString();
+                    game.Platform = platform;
                 }
 
                 if(GenreBox.SelectedIndex == -1)
@@ -246,6 +248,68 @@ namespace CourseWorkAttempt.Windows
             }
             
             catch(Exception ex)
+            {
+                ErrorMessageBlock.Text = "* " + ex.Message;
+            }
+        }
+
+        private void NewPlatformButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (NewPlatformBox.Text.Length < 1)
+                {
+                    throw new Exception("Выберите платформу");
+                }
+                else
+                {
+                    Game.AddPlatform(NewPlatformBox.Text);
+                }
+            }
+
+            catch (Exception ex)
+            {
+                ErrorMessageBlock.Text = "* " + ex.Message;
+            }
+        }
+
+        private void DeletePlatform_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (PlatformBox.SelectedIndex == -1)
+                {
+                    throw new Exception("Выберите платформу");
+                }
+                else
+                {
+                    string platform = (PlatformBox.SelectedItem as ComboBoxItem).Content.ToString();
+                    Game.DeletePlatform(platform);
+                }
+            }
+
+            catch (Exception ex)
+            {
+                ErrorMessageBlock.Text = "* " + ex.Message;
+            }
+        }
+
+        private void DeleteGenre_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (GenreBox.SelectedIndex == -1)
+                {
+                    throw new Exception("Выберите жанр");
+                }
+                else
+                {
+                    string genre = (GenreBox.SelectedItem as ComboBoxItem).Content.ToString();
+                    Game.DeleteGenre(genre);
+                }
+            }
+
+            catch (Exception ex)
             {
                 ErrorMessageBlock.Text = "* " + ex.Message;
             }

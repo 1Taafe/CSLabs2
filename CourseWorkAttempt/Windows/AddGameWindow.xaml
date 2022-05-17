@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:CourseWorkAttempt.Windows"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="Новая игра" MinHeight="700" Height="700" Width="940" MinWidth="940" Icon="/Windows/AgregatoIcon.png">
+        Title="Новая игра" MinHeight="740" Height="740" Width="940" MinWidth="940" Icon="/Windows/AgregatoIcon.png">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -29,36 +29,54 @@
                             <Label Margin="24, 0 , 24, 0" Content="Название игры" />
                             <TextBox Style="{DynamicResource RegisterBox}" Padding="4" x:Name="NameBox" Margin="24, 0 , 24, 4" />
                             <Label Margin="24, 0 , 24, 0" Content="Платформа" />
-                            <TextBox Style="{DynamicResource RegisterBox}" Padding="4" x:Name="PlatformBox" Margin="24, 0 , 24, 4" />
+                            <StackPanel Margin="24,0,24,8" Orientation="Horizontal">
+                                <ComboBox Width="240" x:Name="PlatformBox" Padding="8,5,8,5" VerticalAlignment="Top">
+                                    <ComboBox.ItemContainerStyle>
+                                        <Style TargetType="ComboBoxItem">
+                                            <Setter Property="Padding" Value="8,5,8,5"></Setter>
+                                        </Style>
+                                    </ComboBox.ItemContainerStyle>
+                                </ComboBox>
+                                <Button Click="DeletePlatform_Click" Margin="24,0, 0,0" Width="128" Style="{DynamicResource MainRegister}" x:Name="DeletePlatform" Content="Удалить"></Button>
+                            </StackPanel>
+                            <Label Margin="24, 0 , 24, 0" Content="Новая платформа" />
+                            <StackPanel Margin="24,0,24,8" Orientation="Horizontal">
+                                <TextBox Width="240" Style="{DynamicResource RegisterBox}" Padding="4" x:Name="NewPlatformBox" />
+                                <Button Click="NewPlatformButton_Click" Margin="24,0,0,0" Width="128" Style="{DynamicResource MainRegister}" x:Name="NewPlatformButton" Content="Добавить"></Button>
+                            </StackPanel>
                             <Label Margin="24, 0 , 24, 0" Content="Жанр" />
-                            <ComboBox x:Name="GenreBox" Padding="8,6,8,6" VerticalAlignment="Top" Margin="24,0,24,4">
-                                <ComboBox.ItemContainerStyle>
-                                    <Style TargetType="ComboBoxItem">
-                                        <Setter Property="Padding" Value="8,6,8,6"></Setter>
-                                    </Style>
-                                </ComboBox.ItemContainerStyle>
-                            </ComboBox>
+                            <StackPanel Margin="24,0,24,8" Orientation="Horizontal">
+                                <ComboBox Width="240" x:Name="GenreBox" Padding="8,5,8,5" VerticalAlignment="Top" Margin="0">
+                                    <ComboBox.ItemContainerStyle>
+                                        <Style TargetType="ComboBoxItem">
+                                            <Setter Property="Padding" Value="8,5,8,5"></Setter>
+                                        </Style>
+                                    </ComboBox.ItemContainerStyle>
+                                </ComboBox>
+                                <Button Click="DeleteGenre_Click" Margin="24,0, 0,0" Width="128" Style="{DynamicResource MainRegister}" x:Name="DeleteGenre" Content="Удалить"></Button>
+                            </StackPanel>
+                            
                             <Label Margin="24, 0 , 24, 0" Content="Новый жанр" />
                             <StackPanel Margin="24,0,24,8" Orientation="Horizontal">
                                 <TextBox Width="240" Style="{DynamicResource RegisterBox}" Padding="4" x:Name="NewGenreBox" />
-                                <Button Click="NewGenreButton_Click" Margin="24,0,0,0" Width="128" Style="{DynamicResource MainRegister}" Grid.Column="1" x:Name="NewGenreButton" Content="Добавить"></Button>
+                                <Button Click="NewGenreButton_Click" Margin="24,0,0,0" Width="128" Style="{DynamicResource MainRegister}" x:Name="NewGenreButton" Content="Добавить"></Button>
                             </StackPanel>
                             <Label Margin="24, 0 , 24, 0" Content="Дата выхода" />
                             <DatePicker Style="{DynamicResource DatePickerStyle1}" Padding="4" Margin="24, 0 , 24, 4" x:Name="ReleaseDatePicker" FirstDayOfWeek="Monday" BorderBrush="#FFABADB3" />
-                            <Label Margin="24, 0 , 24, 0" Content="Описание" />
-                            <TextBox Height="142" Style="{DynamicResource RegisterBox}" Padding="4" x:Name="DescriptionBox" TextWrapping="Wrap" Margin="24, 0 , 24, 4" />
-                        </StackPanel>
-                        <StackPanel Margin="16,0,0,0" MinWidth="440" MaxWidth="440" Orientation="Vertical">
                             <Label Margin="24, 0 , 24, 0" Content="Ссылка на изображение" />
                             <TextBox TextChanged="ImageBox_TextChanged" Style="{DynamicResource RegisterBox}" Padding="4" x:Name="ImageBox" Margin="24, 0 , 24, 4" />
+                        </StackPanel>
+                        <StackPanel Margin="16,0,0,0" MinWidth="440" MaxWidth="440" Orientation="Vertical">
+                            <Label Margin="24, 0 , 24, 0" Content="Описание" />
+                            <TextBox Height="60" Style="{DynamicResource RegisterBox}" Padding="4" x:Name="DescriptionBox" TextWrapping="Wrap" Margin="24, 0 , 24, 4" />
                             <Label Margin="24, 0 , 24, 0" Content="Ссылка на магазин" />
                             <TextBox TextChanged="ImageBox_TextChanged" Style="{DynamicResource RegisterBox}" Padding="4" x:Name="BuyBox" Margin="24, 0 , 24, 4" />
-                            <Label Margin="24, 56 , 24, 0" Content="Разработчик" />
+                            <Label Margin="24, 36 , 24, 0" Content="Разработчик" />
                             <TextBox Style="{DynamicResource RegisterBox}" Padding="4" x:Name="DevBox" Margin="24, 0 , 24, 4" />
                             <Label Margin="24, 0 , 24, 0" Content="Страна разработчика" />
                             <TextBox Style="{DynamicResource RegisterBox}" Padding="4" x:Name="DevCountryBox" Margin="24, 0 , 24, 4" />
 
-                            <Label Margin="24, 15 , 24, 0" Content="Издатель" />
+                            <Label Margin="24, 0 , 24, 0" Content="Издатель" />
                             <TextBox Style="{DynamicResource RegisterBox}" Padding="4" x:Name="PubBox" Margin="24, 0 , 24, 4" />
                             <Label Margin="24, 0 , 24, 0" Content="Страна издателя" />
                             <TextBox Style="{DynamicResource RegisterBox}" Padding="4" x:Name="PubCountryBox" Margin="24, 0 , 24, 4" />

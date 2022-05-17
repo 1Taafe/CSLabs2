@@ -4,9 +4,6 @@ using CourseWorkAttempt.Windows;
 using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -75,7 +72,6 @@ namespace CourseWorkAttempt.Classes
                 genreCollection.Add(fitem);
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
-
                     if (reader.HasRows) // если есть данные
                     {
                         while (reader.Read()) // построчно считываем данные
@@ -104,8 +100,7 @@ namespace CourseWorkAttempt.Classes
                     var state = command.ExecuteNonQuery();
                     MessageBox.Show("Жанр добавлен!", "Новая жанр", MessageBoxButton.OK, MessageBoxImage.Information);
                     isSuccessful = true;
-                    Games.link.GenreBox.ItemsSource = GetGenresWithAll();
-                    if(AddGameWindow.link != null)
+                    if (AddGameWindow.link != null)
                     {
                         AddGameWindow.link.GenreBox.ItemsSource = GetGenres();
                     }
@@ -128,6 +123,141 @@ namespace CourseWorkAttempt.Classes
             }
         }
 
+        public static bool DeleteGenre(string genre)
+        {
+            using (SqlConnection connection = new SqlConnection(Authorization.connectionString))
+            {
+                bool isSuccessful = false;
+                connection.Open();
+                string sqlExpression = @$"delete from Genres where GenreName = '{genre}'";
+                SqlCommand command = new SqlCommand(sqlExpression, connection);
+                try
+                {
+                    var state = command.ExecuteNonQuery();
+                    MessageBox.Show("Жанр удален!", "Удаление жанра", MessageBoxButton.OK, MessageBoxImage.Information);
+                    isSuccessful = true;
+                    if (AddGameWindow.link != null)
+                    {
+                        AddGameWindow.link.GenreBox.ItemsSource = GetGenres();
+                    }
+                    Games.link.GenreBox.ItemsSource = GetGenresWithAll();
+                }
+                catch (Exception ex)
+                {
+                    //MessageBox.Show(ex.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    if (ex.Message.Contains("UNIQUE"))
+                    {
+                        AddGameWindow.link.ErrorMessageBlock.Text = "* Жанр уже находится в базе данных";
+                    }
+                    else
+                    {
+                        AddGameWindow.link.ErrorMessageBlock.Text = "* " + ex.Message;
+                    }
+
+                }
+                return isSuccessful;
+            }
+        }
+
+
+
+        public static bool AddPlatform(string platform)
+        {
+            using (SqlConnection connection = new SqlConnection(Authorization.connectionString))
+            {
+                bool isSuccessful = false;
+                connection.Open();
+                string sqlExpression = @$"insert into Platforms values('{platform}')";
+                SqlCommand command = new SqlCommand(sqlExpression, connection);
+                try
+                {
+                    var state = command.ExecuteNonQuery();
+                    MessageBox.Show("Платформа добавлена!", "Новая платформа", MessageBoxButton.OK, MessageBoxImage.Information);
+                    isSuccessful = true;
+                    if (AddGameWindow.link != null)
+                    {
+                        AddGameWindow.link.PlatformBox.ItemsSource = GetPlatforms();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    //MessageBox.Show(ex.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    if (ex.Message.Contains("UNIQUE"))
+                    {
+                        AddGameWindow.link.ErrorMessageBlock.Text = "* Жанр уже находится в базе данных";
+                    }
+                    else
+                    {
+                        AddGameWindow.link.ErrorMessageBlock.Text = "* " + ex.Message;
+                    }
+
+                }
+                return isSuccessful;
+            }
+        }
+
+        public static bool DeletePlatform(string platform)
+        {
+            using (SqlConnection connection = new SqlConnection(Authorization.connectionString))
+            {
+                bool isSuccessful = false;
+                connection.Open();
+                string sqlExpression = @$"delete from Platforms where PlatformName = '{platform}'";
+                SqlCommand command = new SqlCommand(sqlExpression, connection);
+                try
+                {
+                    var state = command.ExecuteNonQuery();
+                    MessageBox.Show("Платформа удалена!", "Удаление платформы", MessageBoxButton.OK, MessageBoxImage.Information);
+                    isSuccessful = true;
+                    if (AddGameWindow.link != null)
+                    {
+                        AddGameWindow.link.PlatformBox.ItemsSource = GetPlatforms();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    //MessageBox.Show(ex.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    if (ex.Message.Contains("UNIQUE"))
+                    {
+                        AddGameWindow.link.ErrorMessageBlock.Text = "* Жанр уже находится в базе данных";
+                    }
+                    else
+                    {
+                        AddGameWindow.link.ErrorMessageBlock.Text = "* " + ex.Message;
+                    }
+
+                }
+                return isSuccessful;
+            }
+        }
+
+
+        public static List<ComboBoxItem> GetPlatforms()
+        {
+            using (SqlConnection connection = new SqlConnection(Authorization.connectionString))
+            {
+                connection.Open();
+                string sqlExpression = $"select * from platforms";
+                SqlCommand command = new SqlCommand(sqlExpression, connection);
+                List<ComboBoxItem> platformCollection = new();
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+
+                    if (reader.HasRows) // если есть данные
+                    {
+                        while (reader.Read()) // построчно считываем данные
+                        {
+                            string platform = reader["PlatformName"] as string;
+                            ComboBoxItem item = new();
+                            item.Content = platform;
+                            platformCollection.Add(item);
+                        }
+                    }
+                }
+                return platformCollection;
+            }
+        }
+
         public static List<Game> GetList()
         {
             using (SqlConnection connection = new SqlConnection(Authorization.connectionString))
@@ -138,7 +268,7 @@ namespace CourseWorkAttempt.Classes
                 List<Game> GamesCollection = new();
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
-                    
+
                     if (reader.HasRows) // если есть данные
                     {
                         while (reader.Read()) // построчно считываем данные
@@ -202,7 +332,7 @@ namespace CourseWorkAttempt.Classes
                     {
                         AddGameWindow.link.ErrorMessageBlock.Text = "* " + ex.Message;
                     }
-                    
+
                 }
                 return isSuccessful;
             }
