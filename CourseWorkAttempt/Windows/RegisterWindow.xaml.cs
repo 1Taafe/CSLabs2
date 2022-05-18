@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -87,7 +88,16 @@ namespace CourseWorkAttempt.Windows
 
                 if (PhoneBox.Text.Count() > 0)
                 {
-                    newUser.PhoneNumber = PhoneBox.Text;
+                    Regex regex = new Regex(@"^\+375[0-9]{9}$");
+                    MatchCollection mc = regex.Matches(PhoneBox.Text);
+                    if(mc.Count > 0)
+                    {
+                        newUser.PhoneNumber = PhoneBox.Text;
+                    }
+                    else
+                    {
+                        throw new Exception("Введите номер телефона в указанном формате.");
+                    }
                 }
                 else
                 {

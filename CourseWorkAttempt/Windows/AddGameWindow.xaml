@@ -62,7 +62,7 @@
                                 <Button Click="NewGenreButton_Click" Margin="24,0,0,0" Width="128" Style="{DynamicResource MainRegister}" x:Name="NewGenreButton" Content="Добавить"></Button>
                             </StackPanel>
                             <Label Margin="24, 0 , 24, 0" Content="Дата выхода" />
-                            <DatePicker Style="{DynamicResource DatePickerStyle1}" Padding="4" Margin="24, 0 , 24, 4" x:Name="ReleaseDatePicker" FirstDayOfWeek="Monday" BorderBrush="#FFABADB3" />
+                            <DatePicker Style="{DynamicResource DatePickerStyle1}" Padding="3" Margin="24, 0 , 24, 4" x:Name="ReleaseDatePicker" FirstDayOfWeek="Monday" BorderBrush="#FFABADB3" />
                             <Label Margin="24, 0 , 24, 0" Content="Ссылка на изображение" />
                             <TextBox TextChanged="ImageBox_TextChanged" Style="{DynamicResource RegisterBox}" Padding="4" x:Name="ImageBox" Margin="24, 0 , 24, 4" />
                         </StackPanel>
