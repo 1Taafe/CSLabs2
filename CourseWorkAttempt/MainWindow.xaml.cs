@@ -15,6 +15,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Data.SqlClient;
 using CourseWorkAttempt.Auth;
+using System.Net;
+using System.Net.Http;
 
 namespace CourseWorkAttempt
 {
@@ -31,6 +33,7 @@ namespace CourseWorkAttempt
         public static MainWindow link;
         public MainWindow()
         {
+            Auth.Authorization.CheckConnection();
             InitializeComponent();
             navigationService = MainFrame.NavigationService;
             navigationService.Navigate(MainPage);

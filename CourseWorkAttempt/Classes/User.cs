@@ -59,7 +59,15 @@ where UserID = {updatedUser.ID}";
                 catch (Exception ex)
                 {
                     //MessageBox.Show(ex.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                    EditProfileWindow.link.ErrorMessageBlock.Text = "* " + ex.Message;
+                    if (ex.Message.Contains("\"UQ_Nickname\""))
+                    {
+                        EditProfileWindow.link.ErrorMessageBlock.Text = "* " + "Данное имя пользователя уже используется и не доступно. Введите другое имя (Nickname) и повторите попытку";
+                    }
+                    else
+                    {
+                        EditProfileWindow.link.ErrorMessageBlock.Text = "* " + ex.Message;
+                    }
+                    
                 }
                 return isSuccessful;
             }

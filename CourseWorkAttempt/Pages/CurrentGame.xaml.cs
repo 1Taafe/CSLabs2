@@ -38,7 +38,15 @@ namespace CourseWorkAttempt.Pages
             InitializeComponent();
             Game currentGame = game as Game;
             CurrentGameObject = currentGame;
-            AverageRateBlock.Text = "Общий рейтинг: " + Convert.ToString(Review.GetAverageRate(CurrentGameObject.ID));
+            if(Review.GetAverageRate(CurrentGameObject.ID) != -1.0)
+            {
+                AverageRateBlock.Text = "Общий рейтинг: " + Convert.ToString(Review.GetAverageRate(CurrentGameObject.ID));
+            }
+            else
+            {
+                AverageRateBlock.Text = "Общий рейтинг: не определен (отзывы отсутствуют) ";
+            }
+            
             ReviewList.ItemsSource = Review.GetCurrentGameReviews(currentGame.ID);
             link = this;
             ShopURL = currentGame.BuyURL;

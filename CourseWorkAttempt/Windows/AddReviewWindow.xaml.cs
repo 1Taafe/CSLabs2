@@ -69,8 +69,16 @@ namespace CourseWorkAttempt.Windows
                         CurrentGame.link.ReviewList.ItemsSource = null;
                         CurrentGame.link.ReviewList.ItemsSource = Review.GetCurrentGameReviews(CurrentGameObject.ID);
                     }
-                    
-                    
+
+                    if (Review.GetAverageRate(CurrentGameObject.ID) != -1.0)
+                    {
+                        CurrentGame.link.AverageRateBlock.Text = "Общий рейтинг: " + Convert.ToString(Review.GetAverageRate(CurrentGameObject.ID));
+                    }
+                    else
+                    {
+                        CurrentGame.link.AverageRateBlock.Text = "Общий рейтинг: не определен (отзывы отсутствуют) ";
+                    }
+
 
                     Close();
                 }

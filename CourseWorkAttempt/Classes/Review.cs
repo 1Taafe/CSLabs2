@@ -194,15 +194,31 @@ where GameID = {gameID} and UserID = {updatedUser.ID}";
                 SqlCommand command = new SqlCommand(sqlExpression, connection);
                 try
                 {
-                    var state = Convert.ToDouble(command.ExecuteScalar());
-                    rate = state;
+                    if(command.ExecuteScalar() is DBNull)
+                    {
+                        rate = -1.0;
+                    }
+                    else
+                    {
+                        var state = Convert.ToDouble(command.ExecuteScalar());
+                        rate = state;
+                    }
+                    
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                     //AddReviewWindow.link.ErrorMessageBlock.Text = "* " + ex.Message;
                 }
-                return Math.Round(rate, 1);
+                if(rate > 0)
+                {
+                    return Math.Round(rate, 1);
+                }
+                else
+                {
+                    return -1.0;
+                }
+                
             }
         }
 

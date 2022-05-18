@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -15,6 +16,24 @@ namespace CourseWorkAttempt.Auth
     {
         public static string connectionString = "Server=.;Database=Agregato;Encrypt=False;Trusted_Connection=True;";
         public static User? CurrentUser;
+
+        public static async void CheckConnection()
+        {
+            var client = new HttpClient();
+            try
+            {
+                var result = await client.GetAsync("http://google.com");
+                if (result.StatusCode.ToString() != "OK")
+                {
+                    MessageBox.Show("Соединение с интернетом не обнаружено, возможны проблемы с загрузкой изображений профиля и игр.", "Предупреждение", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Соединение с интернетом не обнаружено, возможны проблемы с загрузкой изображений профиля и игр.", "Предупреждение", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            
+        }
         public static bool TryToLogin(string nickname, string password)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -87,7 +106,15 @@ namespace CourseWorkAttempt.Auth
                 catch(Exception ex)
                 {
                     //MessageBox.Show(ex.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                    RegisterWindow.link.ErrorMessageBlock.Text = "* " + ex.Message;
+                    if (ex.Message.Contains("\"UQ_Nickname\""))
+                    {
+                        RegisterWindow.link.ErrorMessageBlock.Text = "* " + "Данное имя пользователя уже используется и не доступно. Введите другое имя (Nickname) и повторите попытку";
+                    }
+                    else
+                    {
+                        RegisterWindow.link.ErrorMessageBlock.Text = "* " + ex.Message;
+                    }
+                    
                 }
                 return isSuccessful;
             }
