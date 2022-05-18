@@ -26,7 +26,7 @@ namespace CourseWorkAttempt.Classes
 
         public override string ToString()
         {
-            return $"{ID} {Nickname} {Name} {Surname} {Password} {PhoneNumber} {Email} {IsAdmin}";
+            return $"{ID} {Nickname} {Name} {Surname} {Email}";
         }
 
         public string ToNickname()

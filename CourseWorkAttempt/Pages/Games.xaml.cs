@@ -61,7 +61,7 @@ namespace CourseWorkAttempt.Pages
             if (GenreBox.SelectedIndex != 0)
             {
                 string genre = "void";
-                Regex regex = new Regex(SearchBox.Text);
+                Regex regex = new Regex(SearchBox.Text, RegexOptions.IgnoreCase);
                 List<Game> tempList = new();
                 foreach (var g in Game.GetList())
                 {
@@ -88,7 +88,7 @@ namespace CourseWorkAttempt.Pages
             }
             else
             {
-                Regex regex = new Regex(SearchBox.Text);
+                Regex regex = new Regex(SearchBox.Text, RegexOptions.IgnoreCase);
                 List<Game> tempList = new();
                 foreach (var g in Game.GetList())
                 {

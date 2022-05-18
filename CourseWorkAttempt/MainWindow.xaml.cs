@@ -17,6 +17,8 @@ using Microsoft.Data.SqlClient;
 using CourseWorkAttempt.Auth;
 using System.Net;
 using System.Net.Http;
+using System.Threading;
+using System.Windows.Threading;
 
 namespace CourseWorkAttempt
 {
@@ -31,9 +33,18 @@ namespace CourseWorkAttempt
         public MainPage MainPage = new MainPage();
         public Users UsersPage = new Users();
         public static MainWindow link;
+
+        private DispatcherTimer timer = null;
+        private void InitializeTimer()
+        {
+            timer = new DispatcherTimer();
+            timer.Tick += new EventHandler(Auth.Authorization.CheckConnection);
+            timer.Interval = new TimeSpan(0, 0, 0, 0, 7000);
+            timer.Start();
+        }
         public MainWindow()
         {
-            Auth.Authorization.CheckConnection();
+            InitializeTimer();
             InitializeComponent();
             navigationService = MainFrame.NavigationService;
             navigationService.Navigate(MainPage);

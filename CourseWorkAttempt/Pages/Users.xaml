@@ -14,7 +14,7 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <StackPanel Margin="32,4,32,0" Grid.Row="0" Orientation="Horizontal">
-            <TextBox TextChanged="SearchBox_TextChanged" x:Name="SearchBox" BorderThickness="0.8" Padding="8,7,8,8" BorderBrush="#FF1467FF" Height="30" Width="280" Margin="0,0,0,0" VerticalAlignment="Top"/>
+            <TextBox TextChanged="SearchBox_TextChanged" x:Name="SearchBox" BorderThickness="0.8" Padding="8,0,8,0" VerticalContentAlignment="Center" BorderBrush="#FF1467FF" Height="30" Width="280" Margin="0,0,0,0" VerticalAlignment="Top"/>
             <Label Foreground="White" Padding="8,7,8,8" Background="#FF1467FF" Height="30" Content="Поиск" VerticalAlignment="top" Margin="0,0,28,0"></Label>
         </StackPanel>
         <ListBox SelectionChanged="UsersList_SelectionChanged" BorderBrush="White" x:Name="UsersList" RenderTransformOrigin="0.499,0.496" Margin="0,0,-0.4,0.4" Grid.Row="1"

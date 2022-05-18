@@ -17,7 +17,7 @@ namespace CourseWorkAttempt.Auth
         public static string connectionString = "Server=.;Database=Agregato;Encrypt=False;Trusted_Connection=True;";
         public static User? CurrentUser;
 
-        public static async void CheckConnection()
+        public static async void CheckConnection(object sender, EventArgs e)
         {
             var client = new HttpClient();
             try
@@ -25,12 +25,16 @@ namespace CourseWorkAttempt.Auth
                 var result = await client.GetAsync("http://google.com");
                 if (result.StatusCode.ToString() != "OK")
                 {
-                    MessageBox.Show("Соединение с интернетом не обнаружено, возможны проблемы с загрузкой изображений профиля и игр.", "Предупреждение", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    MainWindow.link.StatusBlock.Text = "Оффлайн режим";
+                }
+                else
+                {
+                    MainWindow.link.StatusBlock.Text = "";
                 }
             }
             catch
             {
-                MessageBox.Show("Соединение с интернетом не обнаружено, возможны проблемы с загрузкой изображений профиля и игр.", "Предупреждение", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MainWindow.link.StatusBlock.Text = "Оффлайн режим";
             }
             
         }

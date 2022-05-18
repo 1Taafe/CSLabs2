@@ -33,11 +33,11 @@ namespace CourseWorkAttempt.Pages
 
         private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            Regex regex = new Regex(SearchBox.Text);
+            Regex regex = new Regex(SearchBox.Text, RegexOptions.IgnoreCase);
             List<User> tempList = new();
             foreach (var u in User.GetList())
             {
-                MatchCollection matches = regex.Matches(u.ToNickname());
+                MatchCollection matches = regex.Matches(u.ToString());
                 if (matches.Count > 0)
                 {
                     tempList.Add(u);
