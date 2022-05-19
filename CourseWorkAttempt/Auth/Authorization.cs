@@ -77,7 +77,7 @@ namespace CourseWorkAttempt.Auth
                     else
                     {
                         //MessageBox.Show("Ты хто такой?");
-                        MainPage.link.ErrorBlock.Text = "* Неверный логин или пароль";
+                        MainPage.GetPage().ErrorBlock.Text = "* Неверный логин или пароль";
                     }
                 }
                 if(CurrentUser != null)

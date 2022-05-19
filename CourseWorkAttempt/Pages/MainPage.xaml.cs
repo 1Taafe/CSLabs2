@@ -22,11 +22,16 @@ namespace CourseWorkAttempt.Pages
     /// </summary>
     public partial class MainPage : Page
     {
-        public static MainPage link;
-        public MainPage()
+        private static MainPage mainPage;
+        public static MainPage GetPage()
+        {
+            if (mainPage == null)
+                mainPage = new MainPage();
+            return mainPage;
+        }
+        private MainPage()
         {
             InitializeComponent();
-            link = this;
         }
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
@@ -53,10 +58,10 @@ namespace CourseWorkAttempt.Pages
                 MainWindow.link.ProfilePageButton.IsEnabled = true;
                 ErrorBlock.Text = null;
 
-                if(Authorization.CurrentUser.IsAdmin == true && Games.link != null)
+                if(Authorization.CurrentUser.IsAdmin == true && Games.GetPage() != null)
                 {
-                    Games.link.AddGameButton.IsEnabled = true;
-                    Games.link.AddGameButton.Visibility = Visibility.Visible;
+                    Games.GetPage().AddGameButton.IsEnabled = true;
+                    Games.GetPage().AddGameButton.Visibility = Visibility.Visible;
                 }
 
                 if (CurrentGame.link != null)
@@ -103,8 +108,8 @@ namespace CourseWorkAttempt.Pages
                 profilePage.PhoneLabel.Text = null;
                 MainWindow.link.ProfilePageButton.IsEnabled = false;
 
-                Games.link.AddGameButton.IsEnabled = false;
-                Games.link.AddGameButton.Visibility = Visibility.Hidden;
+                Games.GetPage().AddGameButton.IsEnabled = false;
+                Games.GetPage().AddGameButton.Visibility = Visibility.Hidden;
 
                 if (CurrentGame.link != null)
                 {

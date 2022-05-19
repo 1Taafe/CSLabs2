@@ -28,10 +28,10 @@ namespace CourseWorkAttempt
     public partial class MainWindow : Window
     {
         public NavigationService navigationService;
-        public Profile ProfilePage = new Profile();
-        public Games GamesPage = new Games();
-        public MainPage MainPage = new MainPage();
-        public Users UsersPage = new Users();
+        public Profile ProfilePage = Profile.GetPage();
+        public Games GamesPage = Games.GetPage();
+        public MainPage MainPage = MainPage.GetPage();
+        public Users UsersPage = Users.GetPage();
         public static MainWindow link;
 
         private DispatcherTimer timer = null;

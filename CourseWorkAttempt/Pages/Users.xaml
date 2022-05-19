@@ -29,7 +29,7 @@
                                 <EllipseGeometry Center="40,40" RadiusX="40" RadiusY="40" />
                             </Image.Clip>
                         </Image>
-                        <TextBlock Padding="24,8,24,0" FontWeight="Normal" x:Name="NicknameBlock" Margin="0,0,0,0" HorizontalAlignment="Center" TextWrapping="Wrap" 
+                        <TextBlock Padding="12,8,12,0" FontWeight="Normal" x:Name="NicknameBlock" Margin="0,0,0,0" HorizontalAlignment="Center" TextWrapping="Wrap" 
                                    Text="{Binding Path=Nickname}" FontSize="26" VerticalAlignment="Top"/>
                         <TextBlock x:Name="IDBlock" Padding="24,0,24,24" Margin="0,0,0,0" HorizontalAlignment="Center" TextWrapping="Wrap" 
                                    Text="{Binding Path=ID}" FontStyle="Italic" FontSize="11"/>

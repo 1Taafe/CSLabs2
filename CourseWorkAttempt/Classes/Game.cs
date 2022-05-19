@@ -104,7 +104,7 @@ namespace CourseWorkAttempt.Classes
                     {
                         AddGameWindow.link.GenreBox.ItemsSource = GetGenres();
                     }
-                    Games.link.GenreBox.ItemsSource = GetGenresWithAll();
+                    Games.GetPage().GenreBox.ItemsSource = GetGenresWithAll();
                 }
                 catch (Exception ex)
                 {
@@ -140,7 +140,7 @@ namespace CourseWorkAttempt.Classes
                     {
                         AddGameWindow.link.GenreBox.ItemsSource = GetGenres();
                     }
-                    Games.link.GenreBox.ItemsSource = GetGenresWithAll();
+                    Games.GetPage().GenreBox.ItemsSource = GetGenresWithAll();
                 }
                 catch (Exception ex)
                 {
@@ -318,8 +318,8 @@ namespace CourseWorkAttempt.Classes
                     var state = command.ExecuteNonQuery();
                     MessageBox.Show("Игра добавлена!", "Новая игра", MessageBoxButton.OK, MessageBoxImage.Information);
                     isSuccessful = true;
-                    Games.link.GameList.ItemsSource = null;
-                    Games.link.GameList.ItemsSource = GetList();
+                    Games.GetPage().GameList.ItemsSource = null;
+                    Games.GetPage().GameList.ItemsSource = GetList();
                 }
                 catch (Exception ex)
                 {
@@ -351,8 +351,8 @@ namespace CourseWorkAttempt.Classes
                     var state = command.ExecuteNonQuery();
                     MessageBox.Show("Игра удалена!", "Удаление", MessageBoxButton.OK, MessageBoxImage.Information);
                     isSuccessful = true;
-                    Games.link.GameList.ItemsSource = null;
-                    Games.link.GameList.ItemsSource = GetList();
+                    Games.GetPage().GameList.ItemsSource = null;
+                    Games.GetPage().GameList.ItemsSource = GetList();
                 }
                 catch (Exception ex)
                 {

@@ -135,12 +135,12 @@ namespace CourseWorkAttempt.Windows
                 }
                 if (Authorization.RegisterAccount(newUser))
                 {
-                    if (Users.link != null)
+                    if (Users.GetPage() != null)
                     {
-                        Users.link.UsersList.ItemsSource = null;
-                        Users.link.UsersList.ItemsSource = User.GetList();
+                        Users.GetPage().UsersList.ItemsSource = null;
+                        Users.GetPage().UsersList.ItemsSource = User.GetList();
                     }
-                    MainPage.link.UsernameBox.Text = newUser.Nickname;
+                    MainPage.GetPage().UsernameBox.Text = newUser.Nickname;
                     Close();
                 }
             }

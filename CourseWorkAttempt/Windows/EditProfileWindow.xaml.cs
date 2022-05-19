@@ -151,7 +151,7 @@ namespace CourseWorkAttempt.Windows
                     Authorization.CurrentUser.ImageURL = @"https://tattoo-stickers.ru/42743-large_default/pokemon-charmander.jpg"; //default
                 }
 
-                MainPage.link.UsernameBox.Text = Authorization.CurrentUser.Nickname;
+                MainPage.GetPage().UsernameBox.Text = Authorization.CurrentUser.Nickname;
                 if(User.UpdateUser())
                 {
                     MessageBox.Show("Редактирование выполнено.", "Изменение профиля", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -163,10 +163,10 @@ namespace CourseWorkAttempt.Windows
                     var uriSource = new Uri(Authorization.CurrentUser.ImageURL, UriKind.Absolute);
                     MainWindow.link.ProfilePage.ImageObject.Source = new BitmapImage(uriSource);
 
-                    if (Users.link != null)
+                    if (Users.GetPage() != null)
                     {
-                        Users.link.UsersList.ItemsSource = null;
-                        Users.link.UsersList.ItemsSource = User.GetList();
+                        Users.GetPage().UsersList.ItemsSource = null;
+                        Users.GetPage().UsersList.ItemsSource = User.GetList();
                     }
                     Close();
                 }

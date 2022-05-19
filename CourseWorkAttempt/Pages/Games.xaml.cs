@@ -23,8 +23,15 @@ namespace CourseWorkAttempt.Pages
     /// </summary>
     public partial class Games : Page
     {
-        public static Games link;
-        public Games()
+        private static Games gamesPage;
+
+        public static Games GetPage()
+        {
+            if (gamesPage == null)
+                gamesPage = new Games();
+            return gamesPage;
+        }
+        private Games()
         {
             InitializeComponent();
             GenreBox.ItemsSource = Game.GetGenresWithAll();
@@ -32,7 +39,6 @@ namespace CourseWorkAttempt.Pages
             GameList.ItemsSource = Game.GetList();
             AddGameButton.IsEnabled = false;
             AddGameButton.Visibility = Visibility.Hidden;
-            link = this;
         }
 
         private void GameList_SelectionChanged(object sender, SelectionChangedEventArgs e)

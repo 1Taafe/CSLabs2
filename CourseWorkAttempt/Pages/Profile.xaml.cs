@@ -23,10 +23,17 @@ namespace CourseWorkAttempt.Pages
     /// </summary>
     public partial class Profile : Page
     {
-        public Profile()
+        private static Profile profilePage;
+
+        public static Profile GetPage()
+        {
+            if (profilePage == null)
+                profilePage = new Profile();
+            return profilePage;
+        }
+        private Profile()
         {
             InitializeComponent();
-            
         }
 
         private void EditWindowButton_Click(object sender, RoutedEventArgs e)
@@ -45,11 +52,11 @@ namespace CourseWorkAttempt.Pages
             {
                 MainWindow.link.navigationService.Navigate(MainWindow.link.MainPage);
                 Authorization.DeleteAccount();
-                MainPage.link.DisconnectButton_Click(sender, e);
-                if(Users.link != null)
+                MainPage.GetPage().DisconnectButton_Click(sender, e);
+                if(Users.GetPage() != null)
                 {
-                    Users.link.UsersList.ItemsSource = null;
-                    Users.link.UsersList.ItemsSource = User.GetList();
+                    Users.GetPage().UsersList.ItemsSource = null;
+                    Users.GetPage().UsersList.ItemsSource = User.GetList();
                 }
                 
             }
