@@ -124,7 +124,17 @@ namespace CourseWorkAttempt.Windows
 
                 if (EmailBox.Text.Count() > 0)
                 {
-                    Authorization.CurrentUser.Email = EmailBox.Text;
+                    Regex regex = new Regex(@"^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$");
+                    MatchCollection mc = regex.Matches(EmailBox.Text);
+                    if (mc.Count > 0)
+                    {
+                        Authorization.CurrentUser.Email = EmailBox.Text;
+                    }
+                    else
+                    {
+                        throw new Exception("Введите корректный адрес электронной почты и повторите попытку.");
+                    }
+                    
                 }
                 else
                 {
