@@ -39,7 +39,7 @@ namespace CourseWorkAttempt
         {
             timer = new DispatcherTimer();
             timer.Tick += new EventHandler(Auth.Authorization.CheckConnection);
-            timer.Interval = new TimeSpan(0, 0, 0, 0, 7000);
+            timer.Interval = new TimeSpan(0, 0, 0, 0, 5000);
             timer.Start();
         }
         public MainWindow()

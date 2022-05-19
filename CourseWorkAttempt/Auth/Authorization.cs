@@ -25,7 +25,7 @@ namespace CourseWorkAttempt.Auth
                 var result = await client.GetAsync("http://google.com");
                 if (result.StatusCode.ToString() != "OK")
                 {
-                    MainWindow.link.StatusBlock.Text = "Оффлайн режим";
+                    MainWindow.link.StatusBlock.Text = "Оффлайн режим \n Изображения недоступны";
                 }
                 else
                 {
@@ -34,7 +34,7 @@ namespace CourseWorkAttempt.Auth
             }
             catch
             {
-                MainWindow.link.StatusBlock.Text = "Оффлайн режим";
+                MainWindow.link.StatusBlock.Text = "Оффлайн режим \n Изображения недоступны";
             }
             
         }

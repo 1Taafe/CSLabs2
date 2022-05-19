@@ -13,7 +13,7 @@
         </Grid.ColumnDefinitions>
         <ScrollViewer>
             <StackPanel Orientation="Horizontal" Width="920" Height="620" Grid.Column="0" ScrollViewer.CanContentScroll="True" HorizontalAlignment="Center" VerticalAlignment="Top">
-                <StackPanel Orientation="Vertical">
+                <StackPanel HorizontalAlignment="Center" Orientation="Vertical">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock VerticalAlignment="Center" Margin="36,16,24,32" Text="Добавление игры" TextWrapping="Wrap" FontSize="36" FontWeight="Bold" Width="347" HorizontalAlignment="Left"/>
                         <Image x:Name="ImageObject" Margin="360,16,16,24" HorizontalAlignment="Right" 
@@ -83,7 +83,7 @@
 
                         </StackPanel>
                     </StackPanel>
-                    <TextBlock TextWrapping="Wrap" x:Name="ErrorMessageBlock" Margin="48,8,24,0" Padding="4" Text="" Foreground="Red" Height="78"></TextBlock>
+                    <TextBlock TextWrapping="Wrap" x:Name="ErrorMessageBlock" Width="860" Padding="4" Text="" Foreground="Red" Height="78"></TextBlock>
                 </StackPanel>
                
             </StackPanel>
