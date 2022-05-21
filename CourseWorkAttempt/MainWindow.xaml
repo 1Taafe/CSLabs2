@@ -62,8 +62,17 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="60px" MaxHeight="60px"></RowDefinition>
-            <RowDefinition></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
+        <Rectangle HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="2000" Height="100" Grid.Row="0">
+            <Rectangle.Stroke>
+                <LinearGradientBrush EndPoint="1,0" StartPoint="0,0">
+                    <GradientStop Color="#FFFC00FF" Offset="0.7"/>
+                    <GradientStop Color="#FF1467FF" Offset="0.5"/>
+                    <GradientStop Color="#FFFC00FF" Offset="0.3"/>
+                </LinearGradientBrush>
+            </Rectangle.Stroke>
+        </Rectangle>
         <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="5*"></ColumnDefinition>

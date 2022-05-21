@@ -8,23 +8,30 @@
       d:DesignHeight="540" d:DesignWidth="1024"
       Title="Games">
 
-    <Grid Background="White">
+    <Grid Margin="0,12,0,0" Background="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <StackPanel Margin="32,4,32,0" Grid.Row="0" Orientation="Horizontal">
 
-            <ComboBox x:Name="GenreBox" SelectionChanged="GenreBox_SelectionChanged" Height="30" Background="#FF1467FF" Foreground="White" Width="170" Padding="8,5,8,5" VerticalAlignment="Top" Style="{StaticResource {x:Static ToolBar.ComboBoxStyleKey}}">
+            <ComboBox Template="{DynamicResource ComboBoxGames}" x:Name="GenreBox" SelectionChanged="GenreBox_SelectionChanged" Height="30" Foreground="White" Width="170" Padding="8" VerticalAlignment="Top">
                 <ComboBox.ItemContainerStyle>
                     <Style TargetType="ComboBoxItem">
-                        <Setter Property="Background" Value="#FF1467FF"/>
-                        <Setter Property="BorderBrush" Value="#FF1467FF"/>
-                        <Setter Property="Padding" Value="8,6,8,6"></Setter>
+                        <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+                        <Setter Property="Padding" Value="9"></Setter>
+                        <Setter Property="Background">
+                            <Setter.Value>
+                                <LinearGradientBrush EndPoint="1,0" StartPoint="0,0">
+                                    <GradientStop Color="#FF1467FF" Offset="1"/>
+                                    
+                                </LinearGradientBrush>
+                            </Setter.Value>
+                        </Setter>
                     </Style>
                 </ComboBox.ItemContainerStyle>
             </ComboBox>
-            <TextBox TextChanged="SearchBox_TextChanged" x:Name="SearchBox" BorderThickness="0.8" Padding="8,0,8,0" VerticalContentAlignment="Center" BorderBrush="#FF1467FF" Height="30" Width="280" Margin="16,0,0,0" VerticalAlignment="Top"/>
+            <TextBox Style="{DynamicResource RegisterBox}" TextChanged="SearchBox_TextChanged" x:Name="SearchBox" BorderThickness="0.8" Padding="8,0,8,0" VerticalContentAlignment="Center" BorderBrush="#FF1467FF" Height="30" Width="280" Margin="16,0,0,0" VerticalAlignment="Top"/>
             <Label Foreground="White" Padding="8,7,8,8" Background="#FF1467FF" Height="30" Content="Поиск" VerticalAlignment="top" ></Label>
 
             <Button x:Name="AddGameButton" Click="AddGameButton_Click" Content="Добавить игру" Height="30" VerticalAlignment="Top" Visibility="Visible" Margin="24,0,0,0" Padding="24,0,24,0" Background="#FF1467FF" BorderThickness="0" Foreground="white"></Button>
