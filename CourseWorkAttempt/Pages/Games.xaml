@@ -8,33 +8,40 @@
       d:DesignHeight="540" d:DesignWidth="1024"
       Title="Games">
 
-    <Grid Margin="0,12,0,0" Background="White">
+    <Grid Margin="0,14,0,0" Background="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <StackPanel Margin="32,4,32,0" Grid.Row="0" Orientation="Horizontal">
 
-            <ComboBox Template="{DynamicResource ComboBoxGames}" x:Name="GenreBox" SelectionChanged="GenreBox_SelectionChanged" Height="30" Foreground="White" Width="170" Padding="8" VerticalAlignment="Top">
-                <ComboBox.ItemContainerStyle>
-                    <Style TargetType="ComboBoxItem">
-                        <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
-                        <Setter Property="Padding" Value="9"></Setter>
-                        <Setter Property="Background">
-                            <Setter.Value>
-                                <LinearGradientBrush EndPoint="1,0" StartPoint="0,0">
-                                    <GradientStop Color="#FF1467FF" Offset="1"/>
-                                    
-                                </LinearGradientBrush>
-                            </Setter.Value>
-                        </Setter>
-                    </Style>
-                </ComboBox.ItemContainerStyle>
+            <TextBlock Margin="8,-20,36,0" Text="Игры" FontSize="40" FontWeight="Bold" VerticalAlignment="Center" Height="50">
+                <TextBlock.Foreground>
+                    <LinearGradientBrush EndPoint="0,0" StartPoint="1,0">
+                        <GradientStop Color="#FF1467FF" Offset="1"/>
+                        <GradientStop Color="#FFFC00FF" Offset="0.208"/>
+                    </LinearGradientBrush>
+                </TextBlock.Foreground>
+            </TextBlock>
+            <ComboBox ItemContainerStyle="{DynamicResource ComboBoxItemContainerStyle1}" Template="{DynamicResource ComboBoxGames}" x:Name="GenreBox" SelectionChanged="GenreBox_SelectionChanged" Height="30" Foreground="White" Width="170" Padding="8" VerticalAlignment="Top">
             </ComboBox>
-            <TextBox Style="{DynamicResource RegisterBox}" TextChanged="SearchBox_TextChanged" x:Name="SearchBox" BorderThickness="0.8" Padding="8,0,8,0" VerticalContentAlignment="Center" BorderBrush="#FF1467FF" Height="30" Width="280" Margin="16,0,0,0" VerticalAlignment="Top"/>
-            <Label Foreground="White" Padding="8,7,8,8" Background="#FF1467FF" Height="30" Content="Поиск" VerticalAlignment="top" ></Label>
+            <TextBox Style="{DynamicResource SearchStyle}" TextChanged="SearchBox_TextChanged" x:Name="SearchBox" BorderThickness="0.8" Padding="8,0,8,0" VerticalContentAlignment="Center" BorderBrush="#FF1467FF" Height="30" Width="280" Margin="16,0,0,0" VerticalAlignment="Top"/>
+            <Label VerticalContentAlignment="Center" Style="{DynamicResource SearchLabelStyle}" Margin="-14,0,0,0" Foreground="White" Padding="8,7,8,8" Background="#FF1467FF" Height="30" Content="Поиск" VerticalAlignment="top" ></Label>
 
-            <Button x:Name="AddGameButton" Click="AddGameButton_Click" Content="Добавить игру" Height="30" VerticalAlignment="Top" Visibility="Visible" Margin="24,0,0,0" Padding="24,0,24,0" Background="#FF1467FF" BorderThickness="0" Foreground="white"></Button>
+            <Button Style="{DynamicResource MainRegister}" x:Name="AddGameButton" Click="AddGameButton_Click" Content="Добавить игру" Height="30" VerticalAlignment="Top" Visibility="Visible" Margin="16,0,0,0" Padding="24,0,24,0" Foreground="white">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0,0" StartPoint="1,0">
+                        <GradientStop Color="#FF1467FF" Offset="1"/>
+                        <GradientStop Color="#FFFC00FF" Offset="0.208"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0,0" StartPoint="1,0">
+                        <GradientStop Color="#FF1467FF" Offset="1"/>
+                        <GradientStop Color="#FFFC00FF" Offset="0.208"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
 
         </StackPanel>
         <ListBox SelectionChanged="GameList_SelectionChanged" BorderBrush="White" x:Name="GameList" RenderTransformOrigin="0.499,0.496" Margin="0,0,-0.4,0.4" Grid.Row="1"

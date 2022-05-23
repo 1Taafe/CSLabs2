@@ -55,9 +55,21 @@
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <StackPanel Width="700" VerticalAlignment="Center" Margin="0,0,0,0">
+                                <Image Margin="16,8,8,8" Source="{Binding Path=User.ImageURL}" x:Name="UserImage" HorizontalAlignment="Left" Height="80" Width="80">
+                                    <Image.Clip>
+                                        <EllipseGeometry Center="40,40" RadiusX="40" RadiusY="40" />
+                                    </Image.Clip>
+                                </Image>
+                                <StackPanel Width="600" VerticalAlignment="Center" Margin="0,0,0,0">
                                     <TextBlock x:Name="RateBlock" Margin="0,0,20,0" HorizontalAlignment="Right" TextWrapping="Wrap" 
-                                   Text="{Binding Path=Rate}" FontStyle="Italic" FontSize="48" Foreground="DeepSkyBlue" FontWeight="SemiBold" VerticalAlignment="Top"/>
+                                   Text="{Binding Path=Rate}" FontStyle="Italic" FontSize="48" FontWeight="SemiBold" VerticalAlignment="Top">
+                                        <TextBlock.Foreground>
+                                            <LinearGradientBrush>
+                                                <GradientStop Color="#FF1467FF" Offset="1"/>
+                                                <GradientStop Color="#FFFC00FF" Offset="0.208"/>
+                                            </LinearGradientBrush>
+                                        </TextBlock.Foreground>
+                                    </TextBlock>
                                     <TextBlock x:Name="UserBlock" Margin="16,-44,16,0" HorizontalAlignment="Left" TextWrapping="Wrap" 
                                    Text="{Binding Path=User.Nickname}" FontSize="26" VerticalAlignment="Top"/>
                                     <TextBlock x:Name="DateBlock" Margin="16,-12,16,16" HorizontalAlignment="left" TextWrapping="Wrap" 

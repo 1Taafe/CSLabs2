@@ -8,7 +8,7 @@
       d:DesignHeight="540" d:DesignWidth="1024"
       Title="Profile">
 
-    <Grid Margin="10" Background="White">
+    <Grid  VerticalAlignment="Center" Margin="10,-28,10,10" Background="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="9"></RowDefinition>
             <RowDefinition></RowDefinition>
@@ -78,7 +78,13 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button Click="DeleteProfileButton_Click" Style="{DynamicResource MainRegister}" Foreground="White" Padding="16,8,16,8" x:Name="DeleteProfileButton" Content="Удалить аккаунт" HorizontalAlignment="Center" Margin="0,325,0,0" Grid.Row="1" VerticalAlignment="Top" Background="#FFFF0505" BorderBrush="#00707070">
+        <Button Click="DeleteProfileButton_Click" Style="{DynamicResource MainRegister}" Foreground="White" Padding="16,8,16,8" x:Name="DeleteProfileButton" Content="Удалить аккаунт" HorizontalAlignment="Center" Margin="0,325,0,0" Grid.Row="1" VerticalAlignment="Top" BorderBrush="#00707070">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="1,0" StartPoint="0,0">
+                    <GradientStop Color="#FFE58545" Offset="1"/>
+                    <GradientStop Color="Red" Offset="0"/>
+                </LinearGradientBrush>
+            </Button.Background>
         </Button>
     </Grid>
 </Page>

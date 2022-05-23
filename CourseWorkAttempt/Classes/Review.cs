@@ -75,7 +75,7 @@ order by Rating desc";
             using (SqlConnection connection = new SqlConnection(Authorization.connectionString))
             {
                 connection.Open();
-                string sqlExpression = $"select Reviews.GameID, Users.Nickname, Reviews.UploadDate, Reviews.Rating, Reviews.Text from users inner join reviews on Users.UserID = Reviews.UserID where Reviews.GameID = {gameID} order by Reviews.UploadDate desc";
+                string sqlExpression = $"select Users.UserImage, Reviews.GameID, Users.Nickname, Reviews.UploadDate, Reviews.Rating, Reviews.Text from users inner join reviews on Users.UserID = Reviews.UserID where Reviews.GameID = {gameID} order by Reviews.UploadDate desc";
                 SqlCommand command = new SqlCommand(sqlExpression, connection);
                 List<Review> ReviewsCollection = new();
                 using (SqlDataReader reader = command.ExecuteReader())
@@ -88,6 +88,7 @@ order by Rating desc";
                             var review = new Review();
                             var user = new User();
                             user.Nickname = reader["Nickname"] as string;
+                            user.ImageURL = reader["UserImage"] as string;
                             review.User = user;
                             review.Rate = Convert.ToInt32(reader["Rating"]);
                             review.Text = reader["Text"] as string;
