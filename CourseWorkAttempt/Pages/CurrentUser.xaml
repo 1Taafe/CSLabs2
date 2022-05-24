@@ -72,41 +72,32 @@
             </Grid>
             <Grid Grid.Row="1">
                 <StackPanel Orientation="Vertical" Margin="64,0,64,0">
-                    <TextBlock TextAlignment="Center" FontWeight="SemiBold" Margin="-256,0,64,24" FontSize="48" Text="Топ 5 игр"></TextBlock>
+                    <TextBlock x:Name="topGamesLabel" TextAlignment="Left" Width="800" Margin="100,0,64,12" FontSize="48" Text="Топ 5 игр"></TextBlock>
                     <ListBox SelectionChanged="UserGamesList_SelectionChanged" BorderBrush="White" x:Name="UserGamesList" RenderTransformOrigin="0.499,0.496" Margin="0,0,-0.4,0.4" Grid.Row="1"
                  ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" HorizontalAlignment="Center"
                  ItemContainerStyle="{DynamicResource ItemStyle}">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Width="700" Orientation="Horizontal" VerticalAlignment="Center" Margin="0,0,0,0">
-                                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                                            <Image x:Name="ImageObject"
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="0,0,0,0">
+                                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                        <Image x:Name="ImageObject"
                            Height="80" Width="80" Margin="16" HorizontalAlignment="Left" VerticalAlignment="Center" Source="{Binding Path=Game.ImageURL}">
-                                                <Image.Clip>
-                                                    <EllipseGeometry Center="40,40" RadiusX="40" RadiusY="40" />
-                                                </Image.Clip>
-                                            </Image>
-                                            <StackPanel Orientation="Vertical" Width="530" Margin="0,16,0,0">
-                                                <TextBlock x:Name="UserBlock" Margin="16,0,16,0" HorizontalAlignment="Left" TextWrapping="Wrap" 
+                                            <Image.Clip>
+                                                <EllipseGeometry Center="40,40" RadiusX="40" RadiusY="40" />
+                                            </Image.Clip>
+                                        </Image>
+                                        <StackPanel Orientation="Vertical" Width="530" Margin="0,16,0,0">
+                                            <TextBlock x:Name="UserBlock" Margin="16,0,16,0" HorizontalAlignment="Left" TextWrapping="Wrap" 
                                    Text="{Binding Path=Game.Name}" FontSize="26" VerticalAlignment="Top"/>
-                                                <TextBlock x:Name="DateBlock" Margin="16,0,16,16" HorizontalAlignment="left" TextWrapping="Wrap" 
+                                            <TextBlock x:Name="DateBlock" Margin="16,0,16,16" HorizontalAlignment="left" TextWrapping="Wrap" 
                                    Text="{Binding Path=ShortUploadDate}" FontStyle="Italic" FontSize="14" VerticalAlignment="Top"/>
-                                                <TextBlock x:Name="TextBlock" Margin="16,0,16,16" HorizontalAlignment="left" TextWrapping="Wrap" 
+                                            <TextBlock x:Name="TextBlock" Margin="16,0,16,16" HorizontalAlignment="left" TextWrapping="Wrap" 
                                    Text="{Binding Path=Text}" FontStyle="Italic" FontSize="14" VerticalAlignment="Top"/>
-                                            </StackPanel>
                                         </StackPanel>
-                                    <StackPanel HorizontalAlignment="Right">
-                                        <TextBlock x:Name="RateBlock" Margin="0,0,20,0" HorizontalAlignment="Right"
-                                   Text="{Binding Path=Rate}" FontStyle="Italic" FontSize="48" FontWeight="SemiBold" VerticalAlignment="Top">
-                                            <TextBlock.Foreground>
-                                                <LinearGradientBrush>
-                                                    <GradientStop Color="#FF1467FF" Offset="1"/>
-                                                    <GradientStop Color="#FFFC00FF" Offset="0.208"/>
-                                                </LinearGradientBrush>
-                                            </TextBlock.Foreground>
-                                        </TextBlock>
                                     </StackPanel>
-                                    
+                                    <TextBlock Style="{DynamicResource RateTrigger}" x:Name="RateBlock" Margin="0,0,20,0" HorizontalAlignment="Right" TextAlignment="Right" Width="100" TextWrapping="Wrap" 
+                                   Text="{Binding Path=Rate}" FontStyle="Italic" FontSize="48" FontWeight="SemiBold" VerticalAlignment="Top">
+                                    </TextBlock>
                                 </StackPanel>
                             </DataTemplate>
                         </ListBox.ItemTemplate>

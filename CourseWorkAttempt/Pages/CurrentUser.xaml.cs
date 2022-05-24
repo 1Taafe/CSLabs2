@@ -42,7 +42,12 @@ namespace CourseWorkAttempt.Pages
                 var uriSource = new Uri(openedUser.ImageURL, UriKind.Absolute);
                 ImageObject.Source = new BitmapImage(uriSource);
             }
-            UserGamesList.ItemsSource = Review.GetTopGames(openedUser.ID);
+            var topGamesList = Review.GetTopGames(openedUser.ID);
+            UserGamesList.ItemsSource = topGamesList;
+            if(topGamesList.Count < 1)
+            {
+                topGamesLabel.Text = "Отзывы отсутствуют";
+            }
         }
 
         private void UserGamesList_SelectionChanged(object sender, SelectionChangedEventArgs e)

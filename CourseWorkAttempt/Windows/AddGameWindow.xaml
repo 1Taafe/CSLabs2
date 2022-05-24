@@ -30,7 +30,7 @@
                             <TextBox Style="{DynamicResource RegisterBox}" Padding="4" x:Name="NameBox" Margin="24, 0 , 24, 4" />
                             <Label Margin="24, 0 , 24, 0" Content="Платформа" />
                             <StackPanel Margin="24,0,24,8" Orientation="Horizontal">
-                                <ComboBox Width="240" x:Name="PlatformBox" Padding="8,5,8,5" VerticalAlignment="Top">
+                                <ComboBox Style="{DynamicResource WindowComboStyle}" Width="240" x:Name="PlatformBox" Padding="8,5,8,5" VerticalAlignment="Top">
                                     <ComboBox.ItemContainerStyle>
                                         <Style TargetType="ComboBoxItem">
                                             <Setter Property="Padding" Value="8,5,8,5"></Setter>
@@ -46,7 +46,7 @@
                             </StackPanel>
                             <Label Margin="24, 0 , 24, 0" Content="Жанр" />
                             <StackPanel Margin="24,0,24,8" Orientation="Horizontal">
-                                <ComboBox Width="240" x:Name="GenreBox" Padding="8,5,8,5" VerticalAlignment="Top" Margin="0">
+                                <ComboBox Style="{DynamicResource WindowComboStyle}" Width="240" x:Name="GenreBox" Padding="8,5,8,5" VerticalAlignment="Top" Margin="0">
                                     <ComboBox.ItemContainerStyle>
                                         <Style TargetType="ComboBoxItem">
                                             <Setter Property="Padding" Value="8,5,8,5"></Setter>

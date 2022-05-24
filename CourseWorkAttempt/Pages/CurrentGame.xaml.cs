@@ -96,5 +96,25 @@ namespace CourseWorkAttempt.Pages
 
             }
         }
+
+        private void ReviewList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (ReviewList.SelectedIndex != -1)
+            {
+                string userNickname = (ReviewList.SelectedItem as Review).User.Nickname;
+                User user = new User();
+                foreach(var u in User.GetList())
+                {
+                    if(u.Nickname == userNickname)
+                    {
+                        user = u;
+                        break;
+                    }
+                }
+                CurrentUser currentUserPage = new(user);
+                MainWindow.link.navigationService.Navigate(currentUserPage);
+                ReviewList.SelectedIndex = -1;
+            }
+        }
     }
 }

@@ -19,7 +19,12 @@
                 <Label Margin="24, 0 , 24, 0" Content="Название игры" />
                 <TextBox IsEnabled="false" Style="{DynamicResource RegisterBox}" Padding="4" x:Name="GameBox" Margin="24, 0 , 24, 4" />
                 <Label Margin="24, 0 , 24, 0" Content="Оценка" />
-                <ComboBox SelectedIndex="0" Padding="5" x:Name="RateBox" Margin="24, 0 , 24, 4">
+                <ComboBox Style="{DynamicResource WindowComboStyle}" SelectedIndex="0" Padding="5" x:Name="RateBox" Margin="24, 0 , 24, 4">
+                    <ComboBoxItem Padding="5" Content="10"></ComboBoxItem>
+                    <ComboBoxItem Padding="5" Content="9"></ComboBoxItem>
+                    <ComboBoxItem Padding="5" Content="8"></ComboBoxItem>
+                    <ComboBoxItem Padding="5" Content="7"></ComboBoxItem>
+                    <ComboBoxItem Padding="5" Content="6"></ComboBoxItem>
                     <ComboBoxItem Padding="5" Content="5"></ComboBoxItem>
                     <ComboBoxItem Padding="5" Content="4"></ComboBoxItem>
                     <ComboBoxItem Padding="5" Content="3"></ComboBoxItem>
