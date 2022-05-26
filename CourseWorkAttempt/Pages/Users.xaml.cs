@@ -38,18 +38,23 @@ namespace CourseWorkAttempt.Pages
 
         private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            Regex regex = new Regex(SearchBox.Text, RegexOptions.IgnoreCase);
-            List<User> tempList = new();
-            foreach (var u in User.GetList())
+            try
             {
-                MatchCollection matches = regex.Matches(u.ToString());
-                if (matches.Count > 0)
+                Regex regex = new Regex(SearchBox.Text, RegexOptions.IgnoreCase);
+                List<User> tempList = new();
+                foreach (var u in User.GetList())
                 {
-                    tempList.Add(u);
+                    MatchCollection matches = regex.Matches(u.ToString());
+                    if (matches.Count > 0)
+                    {
+                        tempList.Add(u);
+                    }
                 }
+                UsersList.ItemsSource = null;
+                UsersList.ItemsSource = tempList;
             }
-            UsersList.ItemsSource = null;
-            UsersList.ItemsSource = tempList;
+            catch { }
+            
         }
 
         private void UsersList_SelectionChanged(object sender, SelectionChangedEventArgs e)

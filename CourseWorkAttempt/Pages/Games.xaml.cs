@@ -64,49 +64,54 @@ namespace CourseWorkAttempt.Pages
 
         void SearchFunc(object selectedItem)
         {
-            if (GenreBox.SelectedIndex != 0)
+            try
             {
-                string genre = "void";
-                Regex regex = new Regex(SearchBox.Text, RegexOptions.IgnoreCase);
-                List<Game> tempList = new();
-                foreach (var g in Game.GetList())
+                if (GenreBox.SelectedIndex != 0)
                 {
-                    MatchCollection matches = regex.Matches(g.ToString());
-                    if (matches.Count > 0)
+                    string genre = "void";
+                    Regex regex = new Regex(SearchBox.Text, RegexOptions.IgnoreCase);
+                    List<Game> tempList = new();
+                    foreach (var g in Game.GetList())
                     {
-                        tempList.Add(g);
+                        MatchCollection matches = regex.Matches(g.ToString());
+                        if (matches.Count > 0)
+                        {
+                            tempList.Add(g);
+                        }
                     }
-                }
-                if(selectedItem != null)
-                {
-                    genre = (selectedItem as ComboBoxItem).Content.ToString();
-                }          
-                List<Game> tempList2 = new();
-                foreach(var g in tempList)
-                {
-                    if(g.Genre == genre)
+                    if (selectedItem != null)
                     {
-                        tempList2.Add(g);
+                        genre = (selectedItem as ComboBoxItem).Content.ToString();
                     }
+                    List<Game> tempList2 = new();
+                    foreach (var g in tempList)
+                    {
+                        if (g.Genre == genre)
+                        {
+                            tempList2.Add(g);
+                        }
+                    }
+                    GameList.ItemsSource = null;
+                    GameList.ItemsSource = tempList2;
                 }
-                GameList.ItemsSource = null;
-                GameList.ItemsSource = tempList2;
+                else
+                {
+                    Regex regex = new Regex(SearchBox.Text, RegexOptions.IgnoreCase);
+                    List<Game> tempList = new();
+                    foreach (var g in Game.GetList())
+                    {
+                        MatchCollection matches = regex.Matches(g.ToString());
+                        if (matches.Count > 0)
+                        {
+                            tempList.Add(g);
+                        }
+                    }
+                    GameList.ItemsSource = null;
+                    GameList.ItemsSource = tempList;
+                }
             }
-            else
-            {
-                Regex regex = new Regex(SearchBox.Text, RegexOptions.IgnoreCase);
-                List<Game> tempList = new();
-                foreach (var g in Game.GetList())
-                {
-                    MatchCollection matches = regex.Matches(g.ToString());
-                    if (matches.Count > 0)
-                    {
-                        tempList.Add(g);
-                    }
-                }
-                GameList.ItemsSource = null;
-                GameList.ItemsSource = tempList;
-            }
+            catch { }
+            
         }
 
         private void AddGameButton_Click(object sender, RoutedEventArgs e)
