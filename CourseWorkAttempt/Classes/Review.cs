@@ -36,9 +36,10 @@ namespace CourseWorkAttempt.Classes
 Games.GameName, Games.GameImage, Games.GameID
 from reviews inner join Games on Reviews.GameID = Games.GameID inner join
 users on Users.UserID = Reviews.UserID
-where Users.UserID = {userID}
+where Users.UserID = @userID
 order by Rating desc";
                 SqlCommand command = new SqlCommand(sqlExpression, connection);
+                command.Parameters.Add(new SqlParameter("@userID", userID));
                 List<Review> ReviewsCollection = new();
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
@@ -75,8 +76,9 @@ order by Rating desc";
             using (SqlConnection connection = new SqlConnection(Authorization.connectionString))
             {
                 connection.Open();
-                string sqlExpression = $"select Users.UserImage, Reviews.GameID, Users.Nickname, Reviews.UploadDate, Reviews.Rating, Reviews.Text from users inner join reviews on Users.UserID = Reviews.UserID where Reviews.GameID = {gameID} order by Reviews.UploadDate desc";
+                string sqlExpression = $"select Users.UserImage, Reviews.GameID, Users.Nickname, Reviews.UploadDate, Reviews.Rating, Reviews.Text from users inner join reviews on Users.UserID = Reviews.UserID where Reviews.GameID = @gameID order by Reviews.UploadDate desc";
                 SqlCommand command = new SqlCommand(sqlExpression, connection);
+                command.Parameters.Add(new SqlParameter("@gameID", gameID));
                 List<Review> ReviewsCollection = new();
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
@@ -111,8 +113,13 @@ order by Rating desc";
                 bool isSuccessful = false;
                 connection.Open();
                 //MessageBox.Show(DateTime.Now.ToShortDateString());
-                string sqlExpression = $"insert into Reviews values({Authorization.CurrentUser.ID}, {gameID}, '{reviewText}', '{DateTime.Now.ToShortDateString()}', {rate})";
+                string sqlExpression = $"insert into Reviews values(@userID, @gameID, @text, @dateNow, @rate)";
                 SqlCommand command = new SqlCommand(sqlExpression, connection);
+                command.Parameters.Add(new SqlParameter("@userID", Authorization.CurrentUser.ID));
+                command.Parameters.Add(new SqlParameter("@gameID", gameID));
+                command.Parameters.Add(new SqlParameter("@text", reviewText));
+                command.Parameters.Add(new SqlParameter("@dateNow", DateTime.Now.ToShortDateString()));
+                command.Parameters.Add(new SqlParameter("@rate", rate));
                 try
                 {
                     var state = command.ExecuteNonQuery();
@@ -135,11 +142,16 @@ order by Rating desc";
                 User updatedUser = Authorization.CurrentUser;
                 bool isSuccessful = false;
                 connection.Open();
-                string sqlExpression = @$"update Reviews set UploadDate = '{DateTime.Now.ToShortDateString()}',
-Text = '{text}',
-Rating = {rating}
-where GameID = {gameID} and UserID = {updatedUser.ID}";
+                string sqlExpression = @$"update Reviews set UploadDate = @dateNow,
+Text = @text,
+Rating = @rating
+where GameID = @gameID and UserID = @userID";
                 SqlCommand command = new SqlCommand(sqlExpression, connection);
+                command.Parameters.Add(new SqlParameter("@dateNow", DateTime.Now.ToShortDateString()));
+                command.Parameters.Add(new SqlParameter("@text", text));
+                command.Parameters.Add(new SqlParameter("@rating", rating));
+                command.Parameters.Add(new SqlParameter("@gameID", gameID));
+                command.Parameters.Add(new SqlParameter("@userID", updatedUser.ID));
                 try
                 {
                     var state = command.ExecuteNonQuery();
@@ -162,8 +174,10 @@ where GameID = {gameID} and UserID = {updatedUser.ID}";
                 bool isSuccessful = false;
                 connection.Open();
                 //MessageBox.Show(DateTime.Now.ToShortDateString());
-                string sqlExpression = $"select COUNT(ReviewID) from reviews where UserID = {Authorization.CurrentUser.ID} and GameID = {gameID}";
+                string sqlExpression = $"select COUNT(ReviewID) from reviews where UserID = @userID and GameID = @gameID";
                 SqlCommand command = new SqlCommand(sqlExpression, connection);
+                command.Parameters.Add(new SqlParameter("@userID", Authorization.CurrentUser.ID));
+                command.Parameters.Add(new SqlParameter("@gameID", gameID));
                 try
                 {
                     var state = Convert.ToInt32(command.ExecuteScalar());
@@ -191,8 +205,9 @@ where GameID = {gameID} and UserID = {updatedUser.ID}";
             {
                 double rate = 0;
                 connection.Open();
-                string sqlExpression = $"select AVG(Cast(rating as Float)) as rating from Reviews where GameID = {gameid}";
+                string sqlExpression = $"select AVG(Cast(rating as Float)) as rating from Reviews where GameID = @gameID";
                 SqlCommand command = new SqlCommand(sqlExpression, connection);
+                command.Parameters.Add(new SqlParameter("@gameID", gameid));
                 try
                 {
                     if(command.ExecuteScalar() is DBNull)

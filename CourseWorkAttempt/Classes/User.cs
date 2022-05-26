@@ -42,15 +42,23 @@ namespace CourseWorkAttempt.Classes
                 bool isSuccessful = false;
                 connection.Open();
                 string sqlExpression = @$"update Users set 
-Nickname = '{updatedUser.Nickname}',
-Password = '{updatedUser.Password}',
-Surname = '{updatedUser.Surname}',
-Name = '{updatedUser.Name}',
-Email = '{updatedUser.Email}',
-PhoneNumber = '{updatedUser.PhoneNumber}',
-UserImage = '{updatedUser.ImageURL}'
-where UserID = {updatedUser.ID}";
+Nickname = @nickname,
+Password = @password,
+Surname = @surname,
+Name = @name,
+Email = @email,
+PhoneNumber = @phone,
+UserImage = @image
+where UserID = @userID";
                 SqlCommand command = new SqlCommand(sqlExpression, connection);
+                command.Parameters.Add(new SqlParameter("@nickname", updatedUser.Nickname));
+                command.Parameters.Add(new SqlParameter("@password", updatedUser.Password));
+                command.Parameters.Add(new SqlParameter("@surname", updatedUser.Surname));
+                command.Parameters.Add(new SqlParameter("@name", updatedUser.Name));
+                command.Parameters.Add(new SqlParameter("@email", updatedUser.Email));
+                command.Parameters.Add(new SqlParameter("@phone", updatedUser.PhoneNumber));
+                command.Parameters.Add(new SqlParameter("@image", updatedUser.ImageURL));
+                command.Parameters.Add(new SqlParameter("@userID", updatedUser.ID));
                 try
                 {
                     var state = command.ExecuteNonQuery();

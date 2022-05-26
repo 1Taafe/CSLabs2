@@ -93,8 +93,9 @@ namespace CourseWorkAttempt.Classes
             {
                 bool isSuccessful = false;
                 connection.Open();
-                string sqlExpression = @$"insert into Genres values('{genre}')";
+                string sqlExpression = @$"insert into Genres values(@genre)";
                 SqlCommand command = new SqlCommand(sqlExpression, connection);
+                command.Parameters.Add(new SqlParameter("@genre", genre));
                 try
                 {
                     var state = command.ExecuteNonQuery();
@@ -129,8 +130,9 @@ namespace CourseWorkAttempt.Classes
             {
                 bool isSuccessful = false;
                 connection.Open();
-                string sqlExpression = @$"delete from Genres where GenreName = '{genre}'";
+                string sqlExpression = @$"delete from Genres where GenreName = @genre";
                 SqlCommand command = new SqlCommand(sqlExpression, connection);
+                command.Parameters.Add(new SqlParameter("@genre", genre));
                 try
                 {
                     var state = command.ExecuteNonQuery();
@@ -167,8 +169,9 @@ namespace CourseWorkAttempt.Classes
             {
                 bool isSuccessful = false;
                 connection.Open();
-                string sqlExpression = @$"insert into Platforms values('{platform}')";
+                string sqlExpression = @$"insert into Platforms values(@platform)";
                 SqlCommand command = new SqlCommand(sqlExpression, connection);
+                command.Parameters.Add(new SqlParameter("@platform", platform));
                 try
                 {
                     var state = command.ExecuteNonQuery();
@@ -202,8 +205,9 @@ namespace CourseWorkAttempt.Classes
             {
                 bool isSuccessful = false;
                 connection.Open();
-                string sqlExpression = @$"delete from Platforms where PlatformName = '{platform}'";
+                string sqlExpression = @$"delete from Platforms where PlatformName = @platfrom";
                 SqlCommand command = new SqlCommand(sqlExpression, connection);
+                command.Parameters.Add(new SqlParameter("@platform", platform));
                 try
                 {
                     var state = command.ExecuteNonQuery();
@@ -310,9 +314,18 @@ namespace CourseWorkAttempt.Classes
             {
                 bool isSuccessful = false;
                 connection.Open();
-                string sqlExpression = @$"insert into Games values('{game.Name}', '{game.ReleaseDate}', 
-'{game.Description}', '{game.BuyURL}', {game.Publisher.ID}, {game.Developer.ID}, '{game.Platform}', '{game.Genre}', '{game.ImageURL}')";
+                string sqlExpression = @$"insert into Games values(@name, @releaseDate, 
+@description, @buyURL, @publisherID, @developerID, @platform, @genre, @image)";
                 SqlCommand command = new SqlCommand(sqlExpression, connection);
+                command.Parameters.Add(new SqlParameter("@name", game.Name));
+                command.Parameters.Add(new SqlParameter("@releaseDate", game.ReleaseDate));
+                command.Parameters.Add(new SqlParameter("@description", game.Description));
+                command.Parameters.Add(new SqlParameter("@buyURL", game.BuyURL));
+                command.Parameters.Add(new SqlParameter("@publisherID", game.Publisher.ID));
+                command.Parameters.Add(new SqlParameter("@developerID", game.Developer.ID));
+                command.Parameters.Add(new SqlParameter("@platform", game.Platform));
+                command.Parameters.Add(new SqlParameter("@genre", game.Genre));
+                command.Parameters.Add(new SqlParameter("@image", game.ImageURL));
                 try
                 {
                     var state = command.ExecuteNonQuery();
@@ -344,8 +357,9 @@ namespace CourseWorkAttempt.Classes
             {
                 bool isSuccessful = false;
                 connection.Open();
-                string sqlExpression = $"delete Games where GameID = {id}";
+                string sqlExpression = $"delete Games where GameID = @id";
                 SqlCommand command = new SqlCommand(sqlExpression, connection);
+                command.Parameters.Add(new SqlParameter("@id", id));
                 try
                 {
                     var state = command.ExecuteNonQuery();

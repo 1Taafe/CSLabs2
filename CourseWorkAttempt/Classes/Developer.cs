@@ -26,8 +26,9 @@ namespace CourseWorkAttempt.Classes
             {
                 bool isSuccessful = false;
                 connection.Open();
-                string sqlExpression = $"select count(DeveloperName) from Developers where DeveloperName = '{devName}'";
+                string sqlExpression = $"select count(DeveloperName) from Developers where DeveloperName = @devName";
                 SqlCommand command = new SqlCommand(sqlExpression, connection);
+                command.Parameters.Add(new SqlParameter("@devName", devName));
                 try
                 {
                     var state = Convert.ToInt32(command.ExecuteScalar());
@@ -52,8 +53,10 @@ namespace CourseWorkAttempt.Classes
                 bool isSuccessful = false;
                 connection.Open();
                 //MessageBox.Show(DateTime.Now.ToShortDateString());
-                string sqlExpression = $"insert into Developers values('{name}', '{country}')";
+                string sqlExpression = $"insert into Developers values(@name, @country)";
                 SqlCommand command = new SqlCommand(sqlExpression, connection);
+                command.Parameters.Add(new SqlParameter("@name", name));
+                command.Parameters.Add(new SqlParameter("@country", country));
                 try
                 {
                     var state = command.ExecuteNonQuery();
@@ -75,8 +78,9 @@ namespace CourseWorkAttempt.Classes
             {
                 int id = 0;
                 connection.Open();
-                string sqlExpression = $"select DeveloperID from Developers where DeveloperName = '{devName}'";
+                string sqlExpression = $"select DeveloperID from Developers where DeveloperName = @devName";
                 SqlCommand command = new SqlCommand(sqlExpression, connection);
+                command.Parameters.Add(new SqlParameter("@devName", devName));
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
 

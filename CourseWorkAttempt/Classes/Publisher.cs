@@ -26,8 +26,9 @@ namespace CourseWorkAttempt.Classes
             {
                 bool isSuccessful = false;
                 connection.Open();
-                string sqlExpression = $"select count(PublisherName) from Publishers where PublisherName = '{pubName}'";
+                string sqlExpression = $"select count(PublisherName) from Publishers where PublisherName = @pubName";
                 SqlCommand command = new SqlCommand(sqlExpression, connection);
+                command.Parameters.Add(new SqlParameter("@pubName", pubName));
                 try
                 {
                     var state = Convert.ToInt32(command.ExecuteScalar());
@@ -52,8 +53,10 @@ namespace CourseWorkAttempt.Classes
                 bool isSuccessful = false;
                 connection.Open();
                 //MessageBox.Show(DateTime.Now.ToShortDateString());
-                string sqlExpression = $"insert into Publishers values('{name}', '{country}')";
+                string sqlExpression = $"insert into Publishers values(@name, @country)";
                 SqlCommand command = new SqlCommand(sqlExpression, connection);
+                command.Parameters.Add(new SqlParameter("@name", name));
+                command.Parameters.Add(new SqlParameter("@country", country));
                 try
                 {
                     var state = command.ExecuteNonQuery();
@@ -75,8 +78,9 @@ namespace CourseWorkAttempt.Classes
             {
                 int id = 0;
                 connection.Open();
-                string sqlExpression = $"select PublisherID from Publishers where PublisherName = '{pubName}'";
+                string sqlExpression = $"select PublisherID from Publishers where PublisherName = @pubName";
                 SqlCommand command = new SqlCommand(sqlExpression, connection);
+                command.Parameters.Add(new SqlParameter("@pubName", pubName));
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
 

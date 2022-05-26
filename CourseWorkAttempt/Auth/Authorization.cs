@@ -44,8 +44,10 @@ namespace CourseWorkAttempt.Auth
             {
                 string passwordHash = Crypto.GetHash(password);
                 connection.Open();
-                string sqlExpression = $"SELECT * FROM Users WHERE Password = '{passwordHash}' and Nickname = '{nickname}'";
+                string sqlExpression = $"SELECT * FROM Users WHERE Password = @passwordHash and Nickname = @nickname";
                 SqlCommand command = new SqlCommand(sqlExpression, connection);
+                command.Parameters.Add(new SqlParameter("@passwordHash", passwordHash));
+                command.Parameters.Add(new SqlParameter("@nickname", nickname));
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
                     if (reader.HasRows) // если есть данные
@@ -95,10 +97,15 @@ namespace CourseWorkAttempt.Auth
             {
                 bool isSuccessful = false;
                 connection.Open();
-                string sqlExpression = $"Insert into Users values ('{newUser.Nickname}', " +
-                    $"'{newUser.Password}', '{newUser.Surname}', '{newUser.Name}', " +
-                    $"'{newUser.Email}', '{newUser.PhoneNumber}', 0, '{newUser.ImageURL}')";
+                string sqlExpression = "Insert into Users values (@nickname, @password, @surname, @name, @email, @phone, 0, @image)";
                 SqlCommand command = new SqlCommand(sqlExpression, connection);
+                command.Parameters.Add(new SqlParameter("@nickname", newUser.Nickname));
+                command.Parameters.Add(new SqlParameter("@password", newUser.Password));
+                command.Parameters.Add(new SqlParameter("@surname", newUser.Surname));
+                command.Parameters.Add(new SqlParameter("@name", newUser.Name));
+                command.Parameters.Add(new SqlParameter("@email", newUser.Email));
+                command.Parameters.Add(new SqlParameter("@phone", newUser.PhoneNumber));
+                command.Parameters.Add(new SqlParameter("@image", newUser.ImageURL));
                 try
                 {
                     var state = command.ExecuteNonQuery();
@@ -127,8 +134,9 @@ namespace CourseWorkAttempt.Auth
             {
                 bool isSuccessful = false;
                 connection.Open();
-                string sqlExpression = $"delete from users where Nickname = '{CurrentUser.Nickname}'";
+                string sqlExpression = $"delete from users where Nickname = @nickname";
                 SqlCommand command = new SqlCommand(sqlExpression, connection);
+                command.Parameters.Add(new SqlParameter("@nickname", CurrentUser.Nickname));
                 try
                 {
                     var state = command.ExecuteNonQuery();
