@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CourseWorkAttempt.Auth.Authorization">
+    <Position X="12.5" Y="1.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAIAAAAgAAAAAAAAAgAAAAAAAQAAAAQAAAIA=</HashCode>
+      <FileName>Auth\Authorization.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CourseWorkAttempt.Auth.Crypto">
+    <Position X="12.5" Y="4.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Auth\Crypto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CourseWorkAttempt.Classes.Developer">
+    <Position X="9" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAgAAEAAAAgAQAAAIAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\Developer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CourseWorkAttempt.Classes.Game">
+    <Position X="10.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAEQAogCAEDAIAAAQAAIUAAAAACIQAEAAAAAI=</HashCode>
+      <FileName>Classes\Game.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CourseWorkAttempt.Classes.Publisher">
+    <Position X="7.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAgAAEAAAAgAQAAAIAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\Publisher.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CourseWorkAttempt.Classes.Review">
+    <Position X="5" Y="1.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>QAQBEAEACAAAgIAEAAAAAAAAAAiAAAAQAAAACAAAAAA=</HashCode>
+      <FileName>Classes\Review.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CourseWorkAttempt.Classes.User">
+    <Position X="3.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAACAAgAAEBAAAQAQADQAAAAACIAAAAAAAAAI=</HashCode>
+      <FileName>Classes\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CourseWorkAttempt.Pages.CurrentGame" BaseTypeListCollapsed="true">
+    <Position X="7.25" Y="5.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAgAAAAAAAAABAAAgAAAAAAAAAAAAAACAQAAEA=</HashCode>
+      <FileName>Pages\CurrentGame.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CourseWorkAttempt.Pages.CurrentUser" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="6.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Pages\CurrentUser.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CourseWorkAttempt.Pages.Games" BaseTypeListCollapsed="true">
+    <Position X="1.5" Y="9.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AABAABAAAAAAAEAAAAAAAAAAAQAwgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Pages\Games.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CourseWorkAttempt.Pages.MainPage" BaseTypeListCollapsed="true">
+    <Position X="6.5" Y="9.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAAAAAAAAAAAgAAAQAAAACACAAAAAAAA=</HashCode>
+      <FileName>Pages\MainPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CourseWorkAttempt.Pages.Profile" BaseTypeListCollapsed="true">
+    <Position X="8.75" Y="9.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAAAEAAAAAAAAQAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Pages\Profile.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CourseWorkAttempt.Pages.Users" BaseTypeListCollapsed="true">
+    <Position X="4" Y="9.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AABAAEAAAAAAAAAAAAAAAAAAAAAQIAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Pages\Users.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="System.Object" Collapsed="true">
+    <Position X="7.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="System.Windows.Controls.Page" Collapsed="true">
+    <Position X="5.25" Y="7" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CourseWorkAttempt.Windows.AddGameWindow" BaseTypeListCollapsed="true">
+    <Position X="15.25" Y="1.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>ABAgAAAAAAAAAgAAABABAAgQAAAgAAAAAAAAAAAEAEA=</HashCode>
+      <FileName>Windows\AddGameWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CourseWorkAttempt.Windows.AddReviewWindow" BaseTypeListCollapsed="true">
+    <Position X="19.75" Y="1.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAAAAABAAAgAQAAAAAAAAAAAABAAAAEA=</HashCode>
+      <FileName>Windows\AddReviewWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CourseWorkAttempt.Windows.EditProfileWindow" BaseTypeListCollapsed="true">
+    <Position X="17.5" Y="5.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAAAAABAAAAgQAAAAAAAAAEAAAAAAAEA=</HashCode>
+      <FileName>Windows\EditProfileWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CourseWorkAttempt.Windows.RegisterWindow" BaseTypeListCollapsed="true">
+    <Position X="15.25" Y="5.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAAAAABAAAAgwAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Windows\RegisterWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="System.Windows.Window" Collapsed="true">
+    <Position X="17.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="CourseWorkAttempt.MainWindow">
+    <Position X="19.75" Y="5.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAwAAgAQAAIAFAAAAAAEAAAAACACAAACAAAEA=</HashCode>
+      <FileName>MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -71,12 +71,10 @@ namespace CourseWorkAttempt.Auth
                             CurrentUser.Email = Email as string;
                             CurrentUser.IsAdmin = (bool)isAdmin;
                             CurrentUser.ImageURL = ImageURL as string;
-                            //MessageBox.Show(CurrentUser.ToString());
                         }
                     }
                     else
                     {
-                        //MessageBox.Show("Ты хто такой?");
                         MainPage.GetPage().ErrorBlock.Text = "* Неверный логин или пароль";
                     }
                 }
@@ -109,7 +107,6 @@ namespace CourseWorkAttempt.Auth
                 }
                 catch(Exception ex)
                 {
-                    //MessageBox.Show(ex.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                     if (ex.Message.Contains("\"UQ_Nickname\""))
                     {
                         RegisterWindow.link.ErrorMessageBlock.Text = "* " + "Данное имя пользователя уже используется и не доступно. Введите другое имя (Nickname) и повторите попытку";
@@ -141,7 +138,6 @@ namespace CourseWorkAttempt.Auth
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                    //RegisterWindow.link.ErrorMessageBlock.Text = "* " + ex.Message;
                 }
                 return isSuccessful;
             }

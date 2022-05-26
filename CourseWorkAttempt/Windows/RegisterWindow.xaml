@@ -23,18 +23,18 @@
                     </Image>
                 </StackPanel>
                 <Label Margin="24, 0 , 24, 0" Content="Имя пользователя (Nickname)" />
-                <TextBox Style="{DynamicResource RegisterBox}" Padding="4" x:Name="NicknameBox" Margin="24, 0 , 24, 4" />
+                <TextBox MaxLength="15" Style="{DynamicResource RegisterBox}" Padding="4" x:Name="NicknameBox" Margin="24, 0 , 24, 4" />
                 <Label Margin="24, 0 , 24, 0" Content="Пароль" />
-                <PasswordBox Style="{DynamicResource RegisterPasswordBox}" Padding="4" x:Name="PasswordBox" Margin="24, 0 , 24, 4" />
+                <PasswordBox MaxLength="32" Style="{DynamicResource RegisterPasswordBox}" Padding="4" x:Name="PasswordBox" Margin="24, 0 , 24, 4" />
                 <Label Margin="24, 0 , 24, 0" Content="Фамилия" />
-                <TextBox Style="{DynamicResource RegisterBox}" Padding="4" x:Name="SurnameBox" Margin="24, 0 , 24, 4" />
+                <TextBox MaxLength="50" Style="{DynamicResource RegisterBox}" Padding="4" x:Name="SurnameBox" Margin="24, 0 , 24, 4" />
                 <Label Margin="24, 0 , 24, 0" Content="Имя" />
-                <TextBox Style="{DynamicResource RegisterBox}" Padding="4" x:Name="NameBox" Margin="24, 0 , 24, 4" />
+                <TextBox MaxLength="50" Style="{DynamicResource RegisterBox}" Padding="4" x:Name="NameBox" Margin="24, 0 , 24, 4" />
                 <Label x:Name="PhoneLabel" Margin="24, 0 , 24, 0" Content="Номер телефона" />
-                <TextBox Style="{DynamicResource RegisterBox}" Padding="4" x:Name="PhoneBox" Margin="24, 0 , 24, 4" />
+                <TextBox MaxLength="16" Style="{DynamicResource RegisterBox}" Padding="4" x:Name="PhoneBox" Margin="24, 0 , 24, 4" />
                 <TextBlock FontSize="11" Foreground="Gray" Margin="32, 0, 32, 4" TextWrapping="Wrap" Text="Формат: +375ХХХХХХХХХ" />
                 <Label Margin="24, 0 , 24, 0" Content="E-mail" />
-                <TextBox Style="{DynamicResource RegisterBox}" Padding="4" x:Name="EmailBox" Margin="24, 0 , 24, 4" />
+                <TextBox MaxLength="96" Style="{DynamicResource RegisterBox}" Padding="4" x:Name="EmailBox" Margin="24, 0 , 24, 4" />
                 <Label Margin="24, 0 , 24, 0" Content="Ссылка на иконку профиля" />
                 <TextBox TextChanged="ImageBox_TextChanged" Style="{DynamicResource RegisterBox}" Padding="4" x:Name="ImageBox" Margin="24, 0 , 24, 4" />
                 <TextBlock FontSize="11" Foreground="Gray" Margin="32, 0, 32, 0" TextWrapping="Wrap" Text="Если поле не заполнено, будет использована иконка по умолчанию. Рекомендуются изображения 1:1. Предпросмотр доступен после вставки ссылки" />
