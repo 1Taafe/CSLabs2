@@ -193,7 +193,7 @@ namespace CourseWorkAttempt.Classes
                     //MessageBox.Show(ex.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                     if (ex.Message.Contains("UNIQUE"))
                     {
-                        AddGameWindow.link.ErrorMessageBlock.Text = "* Жанр уже находится в базе данных";
+                        AddGameWindow.link.ErrorMessageBlock.Text = "* Платформа уже находится в базе данных";
                     }
                     else
                     {
@@ -231,7 +231,7 @@ namespace CourseWorkAttempt.Classes
                     //MessageBox.Show(ex.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                     if (ex.Message.Contains("UNIQUE"))
                     {
-                        AddGameWindow.link.ErrorMessageBlock.Text = "* Жанр уже находится в базе данных";
+                        AddGameWindow.link.ErrorMessageBlock.Text = "* Платформа уже находится в базе данных";
                     }
                     else
                     {
