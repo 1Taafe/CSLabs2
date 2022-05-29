@@ -105,7 +105,10 @@ namespace CourseWorkAttempt.Classes
                     {
                         AddGameWindow.link.GenreBox.ItemsSource = GetGenres();
                     }
+                    Games.GetPage().GameList.ItemsSource = null;
+                    Games.GetPage().GameList.ItemsSource = GetList();
                     Games.GetPage().GenreBox.ItemsSource = GetGenresWithAll();
+                    Games.GetPage().GenreBox.SelectedIndex = 0;
                 }
                 catch (Exception ex)
                 {
@@ -142,7 +145,10 @@ namespace CourseWorkAttempt.Classes
                     {
                         AddGameWindow.link.GenreBox.ItemsSource = GetGenres();
                     }
+                    Games.GetPage().GameList.ItemsSource = null;
+                    Games.GetPage().GameList.ItemsSource = GetList();
                     Games.GetPage().GenreBox.ItemsSource = GetGenresWithAll();
+                    Games.GetPage().GenreBox.SelectedIndex = 0;
                 }
                 catch (Exception ex)
                 {
@@ -205,7 +211,7 @@ namespace CourseWorkAttempt.Classes
             {
                 bool isSuccessful = false;
                 connection.Open();
-                string sqlExpression = @$"delete from Platforms where PlatformName = @platfrom";
+                string sqlExpression = @$"delete from Platforms where PlatformName = @platform";
                 SqlCommand command = new SqlCommand(sqlExpression, connection);
                 command.Parameters.Add(new SqlParameter("@platform", platform));
                 try
@@ -217,6 +223,8 @@ namespace CourseWorkAttempt.Classes
                     {
                         AddGameWindow.link.PlatformBox.ItemsSource = GetPlatforms();
                     }
+                    Games.GetPage().GameList.ItemsSource = null;
+                    Games.GetPage().GameList.ItemsSource = GetList();
                 }
                 catch (Exception ex)
                 {
@@ -343,7 +351,6 @@ inner join Platforms on Platforms.PlatformID = Games.PlatformID";
                         {
                             platformID = (int)reader["PlatformID"];
                             genreID = (int)reader["GenreID"];
-                            MessageBox.Show($"Платформа {platformID} Жанр {genreID}");
                         }
                     }
                 }
@@ -357,6 +364,8 @@ inner join Platforms on Platforms.PlatformID = Games.PlatformID";
                     isSuccessful = true;
                     Games.GetPage().GameList.ItemsSource = null;
                     Games.GetPage().GameList.ItemsSource = GetList();
+                    Games.GetPage().GenreBox.ItemsSource = GetGenresWithAll();
+                    Games.GetPage().GenreBox.SelectedIndex = 0;
                 }
                 catch (Exception ex)
                 {
