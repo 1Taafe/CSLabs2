@@ -267,7 +267,11 @@ namespace CourseWorkAttempt.Classes
             using (SqlConnection connection = new SqlConnection(Authorization.connectionString))
             {
                 connection.Open();
-                string sqlExpression = $"select * from Games inner join Developers on Games.DeveloperID = Developers.DeveloperID inner join Publishers on Publishers.PublisherID = Games.PublisherID";
+                string sqlExpression = @$"select * from Games 
+inner join Developers on Games.DeveloperID = Developers.DeveloperID
+inner join Publishers on Publishers.PublisherID = Games.PublisherID
+inner join Genres on Genres.GenreID = Games.GenreID
+inner join Platforms on Platforms.PlatformID = Games.PlatformID";
                 SqlCommand command = new SqlCommand(sqlExpression, connection);
                 List<Game> GamesCollection = new();
                 using (SqlDataReader reader = command.ExecuteReader())
@@ -293,9 +297,9 @@ namespace CourseWorkAttempt.Classes
                             game.Publisher = publisher;
                             game.Name = reader["GameName"] as string;
                             game.Description = reader["Description"] as string;
-                            game.Genre = reader["Genre"] as string;
+                            game.Genre = reader["GenreName"] as string;
                             game.ImageURL = reader["GameImage"] as string;
-                            game.Platform = reader["Platform"] as string;
+                            game.Platform = reader["PlatformName"] as string;
                             game.BuyURL = reader["BuyURL"] as string;
 
                             DateTime releaseDate = Convert.ToDateTime(reader["ReleaseDate"].ToString());
@@ -315,7 +319,7 @@ namespace CourseWorkAttempt.Classes
                 bool isSuccessful = false;
                 connection.Open();
                 string sqlExpression = @$"insert into Games values(@name, @releaseDate, 
-@description, @buyURL, @publisherID, @developerID, @platform, @genre, @image)";
+@description, @buyURL, @publisherID, @developerID, @image, @genreID, @platformID)";
                 SqlCommand command = new SqlCommand(sqlExpression, connection);
                 command.Parameters.Add(new SqlParameter("@name", game.Name));
                 command.Parameters.Add(new SqlParameter("@releaseDate", game.ReleaseDate));
@@ -323,9 +327,29 @@ namespace CourseWorkAttempt.Classes
                 command.Parameters.Add(new SqlParameter("@buyURL", game.BuyURL));
                 command.Parameters.Add(new SqlParameter("@publisherID", game.Publisher.ID));
                 command.Parameters.Add(new SqlParameter("@developerID", game.Developer.ID));
-                command.Parameters.Add(new SqlParameter("@platform", game.Platform));
-                command.Parameters.Add(new SqlParameter("@genre", game.Genre));
                 command.Parameters.Add(new SqlParameter("@image", game.ImageURL));
+
+                int platformID = -1, genreID = -1;
+                string platformSql = "select PlatformID, GenreID from Platforms, Genres where PlatformName = @platform and GenreName = @genre";
+                var platformCommand = new SqlCommand(platformSql, connection);
+                platformCommand.Parameters.Add(new SqlParameter("@platform", game.Platform));
+                platformCommand.Parameters.Add(new SqlParameter("@genre", game.Genre));
+                using (SqlDataReader reader = platformCommand.ExecuteReader())
+                {
+
+                    if (reader.HasRows) // если есть данные
+                    {
+                        while (reader.Read()) // построчно считываем данные
+                        {
+                            platformID = (int)reader["PlatformID"];
+                            genreID = (int)reader["GenreID"];
+                            MessageBox.Show($"Платформа {platformID} Жанр {genreID}");
+                        }
+                    }
+                }
+
+                command.Parameters.Add(new SqlParameter("@platformID", platformID));
+                command.Parameters.Add(new SqlParameter("@genreID", genreID));
                 try
                 {
                     var state = command.ExecuteNonQuery();

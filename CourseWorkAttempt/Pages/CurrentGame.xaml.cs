@@ -61,7 +61,12 @@ namespace CourseWorkAttempt.Pages
                         RemoveButton.Visibility = Visibility.Visible;
                     }
                 }
-                GameImage.Source = BitmapFrame.Create(new Uri(currentGame.ImageURL));
+                try
+                {
+                    GameImage.Source = BitmapFrame.Create(new Uri(currentGame.ImageURL));
+                }
+                catch { }
+                
                 NameBlock.Text = currentGame.Name;
                 GenreBlock.Text = currentGame.Genre;
                 PlatformBlock.Text = currentGame.Platform;
