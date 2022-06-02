@@ -37,7 +37,7 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        
+
         <ContentControl Grid.Column="1" Content="{Binding StudentsList}">
             <ContentControl.ContentTemplate>
                 <DataTemplate>
@@ -107,4 +107,5 @@
             </ContentControl.ContentTemplate>
         </ContentControl>
     </Grid>
+    
 </Window>
