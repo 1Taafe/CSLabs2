@@ -106,30 +106,6 @@ where UserID = @userID";
                             user.IsAdmin = (bool)reader["IsAdmin"];
                             user.ImageURL = reader["UserImage"] as string;
                             usersCollection.Add(user);
-                            //var game = new Game();
-                            //var publisher = new Publisher();
-                            //var developer = new Developer();
-                            //publisher.ID = (int)reader["PublisherID"];
-                            //publisher.Name = reader["PublisherName"] as string;
-                            //publisher.Country = reader["PublisherCountry"] as string;
-
-                            //developer.ID = (int)reader["DeveloperID"];
-                            //developer.Name = reader["DeveloperName"] as string;
-                            //developer.Country = reader["DeveloperCountry"] as string;
-
-                            //game.ID = (int)reader["GameID"];
-                            //game.Developer = developer;
-                            //game.Publisher = publisher;
-                            //game.Name = reader["GameName"] as string;
-                            //game.Description = reader["Description"] as string;
-                            //game.Genre = reader["Genre"] as string;
-                            //game.ImageURL = reader["GameImage"] as string;
-                            //game.Platform = reader["Platform"] as string;
-                            //game.BuyURL = reader["BuyURL"] as string;
-
-                            //DateTime releaseDate = Convert.ToDateTime(reader["ReleaseDate"].ToString());
-                            //game.ReleaseDate = releaseDate;
-                            //GamesCollection.Add(game);
                         }
                     }
                 }
