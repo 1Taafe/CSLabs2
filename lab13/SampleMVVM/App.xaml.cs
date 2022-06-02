@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Windows;
+using System.Xml.Serialization;
 using SampleMVVM.Models;
 using SampleMVVM.ViewModels;
 using SampleMVVM.Views;
@@ -15,20 +17,28 @@ namespace SampleMVVM
     /// </summary>
     public partial class App : Application
     {
+        List<Student> students;
         private void OnStartup(object sender, StartupEventArgs e)
         {
-
-            List<Student> students = new List<Student>()
+            XmlSerializer formatter = new XmlSerializer(typeof(List<Student>));
+            using (FileStream fs = new FileStream(@"C:\Users\dima7\Desktop\students.xml", FileMode.OpenOrCreate))
             {
-                new Student("Заянковский Дмитрий", 2,7,1, "POIBMC", 0, 4,0,0,0,0),
-                new Student("Адамович Антон", 2,7,1, "POIBMC", 0, 4,0,0,0,0),
-                new Student("Котович Роман", 2,7,2, "POIBMC", 0, 4,0,0,0,0)
-            };
+                students = formatter.Deserialize(fs) as List<Student>;
+            }    
 
             MainView view = new MainView(); // создали View
             MainViewModel viewModel = new ViewModels.MainViewModel(students); // Создали ViewModel
             view.DataContext = viewModel; // положили ViewModel во View в качестве DataContext
             view.Show();
+        }
+
+        private void Application_Exit(object sender, ExitEventArgs e)
+        {
+            XmlSerializer formatter = new XmlSerializer(typeof(List<Student>));
+            using (FileStream fs = new FileStream(@"C:\Users\dima7\Desktop\students.xml", FileMode.OpenOrCreate))
+            {
+                formatter.Serialize(fs, students);
+            }
         }
     }
 }

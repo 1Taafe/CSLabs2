@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SampleMVVM.Models
 {
-    class Student
+    public class Student
     {
         public string Name { get; set; }
         public int Course { get; set; }
@@ -19,6 +19,11 @@ namespace SampleMVVM.Models
         public int Marks3 { get; set; }
         public int Marks2 { get; set; }
         public int Marks1 { get; set; }
+
+        public Student()
+        {
+
+        }
 
         public Student(string name, int course, int group, int subgroup, string spec, int skips, int marks5, int marks4, int marks3, int marks2, int marks1)
         {
